@@ -1,0 +1,530 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  
+    <meta name="description" content="">
+  
+  <meta name="author" content="Uoruichi">
+  <meta name="keywords" content="">
+  
+  <title>TCP/IP-简介 - 漫 漫 长 路 ～</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>From Zero To Hero</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/ironman.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="TCP/IP-简介">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-01 08:44" pubdate>
+        2021年3月1日 早上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      25
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">TCP/IP-简介</h1>
+            
+            <div class="markdown-body">
+              <h3 id="一、TCP-IP-简介"><a href="#一、TCP-IP-简介" class="headerlink" title="一、TCP IP 简介"></a>一、TCP IP 简介</h3><p><code>实验环境：Linux-Ubuntu20.04｜Mac</code></p>
+<h4 id="1｜应用模型"><a href="#1｜应用模型" class="headerlink" title="1｜应用模型"></a>1｜应用模型</h4><h4 id="2｜知识点"><a href="#2｜知识点" class="headerlink" title="2｜知识点"></a>2｜知识点</h4><h5 id="1｜IP地址"><a href="#1｜IP地址" class="headerlink" title="1｜IP地址"></a>1｜IP地址</h5><h5 id="2｜域名"><a href="#2｜域名" class="headerlink" title="2｜域名"></a>2｜域名</h5><h5 id="3｜MAC地址"><a href="#3｜MAC地址" class="headerlink" title="3｜MAC地址"></a>3｜MAC地址</h5><h5 id="4｜端口号"><a href="#4｜端口号" class="headerlink" title="4｜端口号"></a>4｜端口号</h5><blockquote>
+<p>端口号作用：</p>
+</blockquote>
+<blockquote>
+<p>常用端口号：</p>
+</blockquote>
+<blockquote>
+<p>端口号实际应用：</p>
+</blockquote>
+<h5 id="5｜封装与分用"><a href="#5｜封装与分用" class="headerlink" title="5｜封装与分用"></a>5｜封装与分用</h5><h5 id="6｜Linux网络相关常用命令"><a href="#6｜Linux网络相关常用命令" class="headerlink" title="6｜Linux网络相关常用命令"></a>6｜Linux网络相关常用命令</h5><p><code>借助netstat命令行工具</code></p>
+<h3 id="二、链路层"><a href="#二、链路层" class="headerlink" title="二、链路层"></a>二、链路层</h3><h4 id="1｜链路层简介"><a href="#1｜链路层简介" class="headerlink" title="1｜链路层简介"></a>1｜链路层简介</h4><p><code>知识点：控制帧的传输、以太网、PPP、SLIP与PPP、MTU</code></p>
+<blockquote>
+<p>以太网<code>CSMA/CD</code></p>
+</blockquote>
+<blockquote>
+<p>MTU</p>
+</blockquote>
+<blockquote>
+<p>PPP</p>
+</blockquote>
+<blockquote>
+<p>SLIP</p>
+</blockquote>
+<h4 id="2｜链路层实现功能以及链路层协议"><a href="#2｜链路层实现功能以及链路层协议" class="headerlink" title="2｜链路层实现功能以及链路层协议"></a>2｜链路层实现功能以及链路层协议</h4><h5 id="1｜差错控制"><a href="#1｜差错控制" class="headerlink" title="1｜差错控制"></a>1｜差错控制</h5><h5 id="2｜反馈重发"><a href="#2｜反馈重发" class="headerlink" title="2｜反馈重发"></a>2｜反馈重发</h5><h5 id="3｜计时器"><a href="#3｜计时器" class="headerlink" title="3｜计时器"></a>3｜计时器</h5><h5 id="4｜序号"><a href="#4｜序号" class="headerlink" title="4｜序号"></a>4｜序号</h5><h5 id="5｜流量控制"><a href="#5｜流量控制" class="headerlink" title="5｜流量控制"></a>5｜流量控制</h5><h3 id="三、网络层"><a href="#三、网络层" class="headerlink" title="三、网络层"></a>三、网络层</h3><h4 id="1｜IP数据报"><a href="#1｜IP数据报" class="headerlink" title="1｜IP数据报"></a>1｜IP数据报</h4><h4 id="2｜地址划分"><a href="#2｜地址划分" class="headerlink" title="2｜地址划分"></a>2｜地址划分</h4><h4 id="3｜子网划分"><a href="#3｜子网划分" class="headerlink" title="3｜子网划分"></a>3｜子网划分</h4><h5 id="1｜子网掩码：netmask："><a href="#1｜子网掩码：netmask：" class="headerlink" title="1｜子网掩码：netmask："></a>1｜子网掩码：netmask：</h5><h4 id="4｜IP路由选择"><a href="#4｜IP路由选择" class="headerlink" title="4｜IP路由选择"></a>4｜IP路由选择</h4><h4 id="5｜NAT技术"><a href="#5｜NAT技术" class="headerlink" title="5｜NAT技术"></a>5｜NAT技术</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ifconfig eth0<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>内网IP(192.168.X.X和172.16.X.X)          <code>私网地址</code></p>
+</blockquote>
+<h4 id="6｜IP的发展及未来"><a href="#6｜IP的发展及未来" class="headerlink" title="6｜IP的发展及未来"></a>6｜IP的发展及未来</h4><blockquote>
+<p>IPV6</p>
+</blockquote>
+<h4 id="7｜实践"><a href="#7｜实践" class="headerlink" title="7｜实践"></a>7｜实践</h4><h5 id="1｜ifconfig命令详解"><a href="#1｜ifconfig命令详解" class="headerlink" title="1｜ifconfig命令详解"></a>1｜ifconfig命令详解</h5><ul>
+<li><input disabled="" type="checkbox"> 搞清楚每一个的含义是什么，分别在网络层有什么用</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><code class="hljs bash">lo0: flags=8049&lt;UP,LOOPBACK,RUNNING,MULTICAST&gt; mtu 16384<br>	options=1203&lt;RXCSUM,TXCSUM,TXSTATUS,SW_TIMESTAMP&gt;<br>	inet 127.0.0.1 netmask 0xff000000<br>	inet6 ::1 prefixlen 128<br>	inet6 fe80::1%lo0 prefixlen 64 scopeid 0x1<br>	nd6 options=201&lt;PERFORMNUD,DAD&gt;<br>gif0: flags=8010&lt;POINTOPOINT,MULTICAST&gt; mtu 1280<br>stf0: flags=0&lt;&gt; mtu 1280<br>en6: flags=8863&lt;UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST&gt; mtu 1500<br>	ether ac:de:48:00:11:22<br>	inet6 fe80::aede:48ff:fe00:1122%en6 prefixlen 64 scopeid 0x4<br>	nd6 options=201&lt;PERFORMNUD,DAD&gt;<br>	media: autoselect (100baseTX &lt;full-duplex&gt;)<br>	status: active<br>ap1: flags=8802&lt;BROADCAST,SIMPLEX,MULTICAST&gt; mtu 1500<br>	options=400&lt;CHANNEL_IO&gt;<br>	ether 3a:f9:d3:93:33:9f<br>	media: autoselect<br>	status: inactive<br>en0: flags=8863&lt;UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST&gt; mtu 1500<br>	options=400&lt;CHANNEL_IO&gt;<br>	ether 38:f9:d3:93:33:9f<br>	inet 192.168.3.12 netmask 0xffffff00 broadcast 192.168.3.255<br>	media: autoselect<br>	status: active<br>awdl0: flags=8943&lt;UP,BROADCAST,RUNNING,PROMISC,SIMPLEX,MULTICAST&gt; mtu 1500<br>	options=400&lt;CHANNEL_IO&gt;<br>	ether 3e:73:6e:0b:bb:ac<br>	inet6 fe80::3c73:6eff:fe0b:bbac%awdl0 prefixlen 64 scopeid 0x7<br>	nd6 options=201&lt;PERFORMNUD,DAD&gt;<br>	media: autoselect<br>	status: active<br>llw0: flags=8863&lt;UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST&gt; mtu 1500<br>	options=400&lt;CHANNEL_IO&gt;<br>	ether 3e:73:6e:0b:bb:ac<br>	inet6 fe80::3c73:6eff:fe0b:bbac%llw0 prefixlen 64 scopeid 0x8<br>	nd6 options=201&lt;PERFORMNUD,DAD&gt;<br>	media: autoselect<br>	status: active<br>en3: flags=8963&lt;UP,BROADCAST,SMART,RUNNING,PROMISC,SIMPLEX,MULTICAST&gt; mtu 1500<br>	options=460&lt;TSO4,TSO6,CHANNEL_IO&gt;<br>	ether 82:23:4a:a0:88:05<br>	media: autoselect &lt;full-duplex&gt;<br>	status: inactive<br>en4: flags=8963&lt;UP,BROADCAST,SMART,RUNNING,PROMISC,SIMPLEX,MULTICAST&gt; mtu 1500<br>	options=460&lt;TSO4,TSO6,CHANNEL_IO&gt;<br>	ether 82:23:4a:a0:88:04<br>	media: autoselect &lt;full-duplex&gt;<br>	status: inactive<br>en2: flags=8963&lt;UP,BROADCAST,SMART,RUNNING,PROMISC,SIMPLEX,MULTICAST&gt; mtu 1500<br>	options=460&lt;TSO4,TSO6,CHANNEL_IO&gt;<br>	ether 82:23:4a:a0:88:00<br>	media: autoselect &lt;full-duplex&gt;<br>	status: inactive<br>en1: flags=8963&lt;UP,BROADCAST,SMART,RUNNING,PROMISC,SIMPLEX,MULTICAST&gt; mtu 1500<br>	options=460&lt;TSO4,TSO6,CHANNEL_IO&gt;<br>	ether 82:23:4a:a0:88:01<br>	media: autoselect &lt;full-duplex&gt;<br>	status: inactive<br>en5: flags=8863&lt;UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST&gt; mtu 1500<br>	options=6467&lt;RXCSUM,TXCSUM,VLAN_MTU,TSO4,TSO6,CHANNEL_IO,PARTIAL_CSUM,ZEROINVERT_CSUM&gt;<br>	ether 00:e0:4c:68:01:5a<br>	nd6 options=201&lt;PERFORMNUD,DAD&gt;<br>	media: autoselect (none)<br>	status: inactive<br>bridge0: flags=8863&lt;UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST&gt; mtu 1500<br>	options=63&lt;RXCSUM,TXCSUM,TSO4,TSO6&gt;<br>	ether 82:23:4a:a0:88:01<br>	Configuration:<br>		id 0:0:0:0:0:0 priority 0 hellotime 0 fwddelay 0<br>		maxage 0 holdcnt 0 proto stp maxaddr 100 timeout 1200<br>		root id 0:0:0:0:0:0 priority 0 ifcost 0 port 0<br>		ipfilter disabled flags 0x0<br>	member: en1 flags=3&lt;LEARNING,DISCOVER&gt;<br>	        ifmaxaddr 0 port 12 priority 0 path cost 0<br>	member: en2 flags=3&lt;LEARNING,DISCOVER&gt;<br>	        ifmaxaddr 0 port 11 priority 0 path cost 0<br>	member: en3 flags=3&lt;LEARNING,DISCOVER&gt;<br>	        ifmaxaddr 0 port 9 priority 0 path cost 0<br>	member: en4 flags=3&lt;LEARNING,DISCOVER&gt;<br>	        ifmaxaddr 0 port 10 priority 0 path cost 0<br>	nd6 options=201&lt;PERFORMNUD,DAD&gt;<br>	media: &lt;unknown <span class="hljs-built_in">type</span>&gt;<br>	status: inactive<br>utun0: flags=8051&lt;UP,POINTOPOINT,RUNNING,MULTICAST&gt; mtu 1380<br>	inet6 fe80::cdc3:569c:b8e5:27cd%utun0 prefixlen 64 scopeid 0xf<br>	nd6 options=201&lt;PERFORMNUD,DAD&gt;<br>utun1: flags=8051&lt;UP,POINTOPOINT,RUNNING,MULTICAST&gt; mtu 2000<br>	inet6 fe80::b3d5:d5dc:d9d:f593%utun1 prefixlen 64 scopeid 0x10<br>	nd6 options=201&lt;PERFORMNUD,DAD&gt;<br></code></pre></td></tr></table></figure>
+
+<h5 id="2｜tcpdump抓包"><a href="#2｜tcpdump抓包" class="headerlink" title="2｜tcpdump抓包"></a>2｜tcpdump抓包</h5><blockquote>
+<p>IP数据报(20B)</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo tcpdump -nx -c 2<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">tcpdump: verbose output suppressed, use -v[v]... <span class="hljs-keyword">for</span> full protocol decode<br>listening on en0, link-type EN10MB (Ethernet), snapshot length 262144 bytes<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">10:25:09.140340 <br>IP 120.232.214.205.22004 &gt; 192.168.3.12.53969: Flags [.], <br>ack 885193681, win 21, length 0<br>	0x0000:  4504 0028 5eb6 4000 3606 d2ab 78e8 d6cd<br>	0x0010:  c0a8 030c 55f4 d2d1 b856 3706 34c2 fbd1<br>	0x0020:  5010 0015 539e 0000 0000 0000 0000<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>首部分析：</p>
+<p>版本协议：0x4</p>
+<p>首部长度：0x5</p>
+<p>服务类型：04</p>
+<p>总长度：0028</p>
+<p>标识：5eb6</p>
+<p>标志与片偏移：4000</p>
+<p>生存时间：36</p>
+<p>协议：06</p>
+<p>首部校验和：d2ab</p>
+<p><code> 源地址</code>78e8 d6cd</p>
+<p>转化为二进制：01111000｜11101000｜11010110｜11001101</p>
+<p>转化为点分十进制：</p>
+<p><code>目的地址</code>c0a8 030c </p>
+<p>转换为二进制：11000000｜10101000｜00000011｜00001100</p>
+<p>转化为点分十进制：192.168.3.12<code>与192.168.3.12.53969可以对应</code></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">10:25:09.140420 <br>IP 192.168.3.12.53969 &gt; 120.232.214.205.22004: Flags [.], <br>ack 1, win 4096, length 0<br>	0x0000:  4500 0028 0000 4000 4006 2766 c0a8 030c<br>	0x0010:  78e8 d6cd d2d1 55f4 34c2 fbd1 b856 3707<br>	0x0020:  5010 1000 43b2 0000<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><input disabled="" type="checkbox"> 怎么样了解这些输出是什么</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">traceroute www.baidu.com<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs bash"> 1  192.168.3.1 (192.168.3.1)  3.086 ms  2.898 ms  1.976 ms<br> 2  192.168.1.1 (192.168.1.1)  2.303 ms  2.396 ms  3.538 ms<br> 3  10.139.0.1 (10.139.0.1)  9.640 ms  8.780 ms  7.852 ms<br> 4  111.56.2.185 (111.56.2.185)  10.049 ms  10.867 ms  9.565 ms<br> 5  221.183.58.205 (221.183.58.205)  12.810 ms<br>    221.183.75.49 (221.183.75.49)  13.646 ms<br>    221.183.58.205 (221.183.58.205)  15.570 ms<br> 6  221.183.37.193 (221.183.37.193)  25.510 ms<br>    221.183.40.21 (221.183.40.21)  29.624 ms<br>    221.183.37.193 (221.183.37.193)  24.770 ms<br> 7  * * 221.183.49.130 (221.183.49.130)  33.833 ms<br> 8  39.156.27.5 (39.156.27.5)  23.339 ms * *<br> 9  39.156.67.73 (39.156.67.73)  35.292 ms<br>    39.156.27.1 (39.156.27.1)  33.018 ms<br>    39.156.67.53 (39.156.67.53)  28.759 ms<br>10  * * 39.156.67.81 (39.156.67.81)  38.491 ms<br>11  * * *<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>解析：</p>
+<p>每一个序号代表的是一跳，每跳表示一个网关</p>
+<ul>
+<li><input disabled="" type="checkbox"> 网关没有理解是什么东西？就代表的是路由器？</li>
+</ul>
+<p>每一跳后面的三个时间：代表的是探测数据包向每个网关发送三个数据包后，网关响应后的返回时间</p>
+<p>使用的是华为的路由器，所以192.168.3.1表示的是华为路由器的地址，</p>
+<p>192.168.1.1</p>
+<p><code>192.168.1.1 IP地址是大多数无线路由器或ADSL调制解调器的默认网关。路由器可以使用多个IP主地址</code></p>
+</blockquote>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Base/">Base</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Base/Experiment/">Experiment</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Base/Network/">Network</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/408%E5%AE%9E%E9%AA%8C/">408实验</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/28/C++_CodeWars/">
+                        <span class="hidden-mobile">C++[基础阶段刷题练习]</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
