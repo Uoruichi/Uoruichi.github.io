@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      402 字
+      537 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      7
        分钟
     </span>
   
@@ -222,30 +222,41 @@
             <h1 style="display: none">C++[基础阶段刷题练习]</h1>
             
             <div class="markdown-body">
-              <h3 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h3><h4 id="1｜数值计算"><a href="#1｜数值计算" class="headerlink" title="1｜数值计算"></a>1｜数值计算</h4><blockquote>
+              <h2 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h2><h4 id="1｜数值计算"><a href="#1｜数值计算" class="headerlink" title="1｜数值计算"></a>1｜数值计算</h4><blockquote>
 <p>1、浮点数与整数的计算</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> a=<span class="hljs-number">8</span>,b=<span class="hljs-number">10</span>;<br><span class="hljs-keyword">float</span> result;<br>result = a/b;<span class="hljs-comment">//输出还是int类型，输出结果为0</span><br>result = (<span class="hljs-keyword">float</span>) a / (<span class="hljs-keyword">float</span>) b;<br></code></pre></td></tr></table></figure>
-
-
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> a=<span class="hljs-number">8</span>,b=<span class="hljs-number">10</span>;<br><span class="hljs-keyword">float</span> result;<br>result = a/b;<span class="hljs-comment">//输出还是int类型，输出结果为0</span><br>result = (<span class="hljs-keyword">float</span>) a / (<span class="hljs-keyword">float</span>) b;<span class="hljs-comment">//这个为想要的结果</span><br></code></pre></td></tr></table></figure>
 </blockquote>
-<h4 id="1｜字符串操作"><a href="#1｜字符串操作" class="headerlink" title="1｜字符串操作"></a>1｜字符串操作</h4><blockquote>
+<h4 id="2｜字符串操作"><a href="#2｜字符串操作" class="headerlink" title="2｜字符串操作"></a>2｜字符串操作</h4><blockquote>
 <p>字符串操作题目类型:</p>
 <p>1、统计字符串中的数字个数、特殊字符个数以及字母个数</p>
 </blockquote>
 <blockquote>
-<p>cin 和 fgets的区别</p>
+<p>2、cin 和 fgets的区别</p>
 <ul>
 <li>声明为string使用cin输入</li>
 <li>声明为char str[n]，使用fgets输入；如果声明为string使用fgets输入的话，会报错<code>不存在从 &quot;std::__1::string&quot; 到 &quot;char *&quot; 的适当转换函数C/C++(413)</code></li>
 </ul>
 </blockquote>
-<h4 id="2｜数组操作"><a href="#2｜数组操作" class="headerlink" title="2｜数组操作"></a>2｜数组操作</h4><blockquote>
+<blockquote>
+<p>3、使用cin、getline等输入方法</p>
+</blockquote>
+<blockquote>
+<p>4、字符串添加操作</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-built_in">string</span> str1,str2;<br><span class="hljs-keyword">int</span> len = str.size();<br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;len;i++)<br>  str2 += str1[i]+str1[(i+<span class="hljs-number">1</span>) % len]; <span class="hljs-comment">//字符串可以直接的添加操作，但是数组不可以</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="3｜数组操作"><a href="#3｜数组操作" class="headerlink" title="3｜数组操作"></a>3｜数组操作</h4><blockquote>
 <p>1、下标的转换与数组的首地址和地址操作，下标转换需要一定的积累，多刷题，掌握下标转换的一些技巧。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//遍历仅含a-z的字符串，统计每个字符的数目</span><br><span class="hljs-comment">//通过数量关系转换为数组下标</span><br><span class="hljs-keyword">int</span> count[<span class="hljs-number">26</span>];<br><span class="hljs-built_in">string</span> str;<br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;str[i] == <span class="hljs-string">&#x27;\0&#x27;</span>;i++)<br>	count[str[i] - <span class="hljs-string">&#x27;a&#x27;</span>]++;<br><span class="hljs-comment">//此时，count的下标为str[i] - &#x27;a&#x27;即a的数目存储在count[0]中，以此类推</span><br></code></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
 <p>2、如果要进行两个字符串数组操作，如将其中一个字符串数组的元素进行拷贝，增加空格等操作；那么需要设置两个参数<code>int i  |  int j</code>分别对两个数组进行操作；因为可能存在不同步的情况。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//对应的字符串增加空格</span><br><span class="hljs-comment">//增加相应的参数，理解为双指针</span><br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>,j=<span class="hljs-number">0</span>;str1[i] &amp;&amp; str1[i] != <span class="hljs-string">&#x27;\n&#x27;</span>;i++,j+=<span class="hljs-number">2</span>)<br>&#123;<br>  str2[j] = str1[i];<br>  str2[j+<span class="hljs-number">1</span>] = <span class="hljs-string">&#x27; &#x27;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="4｜基本算法思路"><a href="#4｜基本算法思路" class="headerlink" title="4｜基本算法思路"></a>4｜基本算法思路</h4><blockquote>
+<p>1、字符加密，字符轮回偏移</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//	首先要得出偏移量+偏移基础</span><br><span class="hljs-comment">//	轮回使用取模运算</span><br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> &amp;c:s)<br>  <span class="hljs-keyword">if</span>(c &gt;= <span class="hljs-string">&#x27;a&#x27;</span> &amp;&amp; c &lt;= <span class="hljs-string">&#x27;z&#x27;</span>)		c = (c-<span class="hljs-string">&#x27;a&#x27;</span>+<span class="hljs-number">1</span>) % <span class="hljs-number">26</span> + <span class="hljs-string">&#x27;a&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+
 </blockquote>
 
             </div>
@@ -271,10 +282,6 @@
                     <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/C/">C++</a>
-                    
-                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
-                    
-                      <a class="hover-with-bg" href="/tags/Rust/">Rust</a>
                     
                   </div>
                 
