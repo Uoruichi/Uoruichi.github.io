@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      15 字
+      114 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      2
        分钟
     </span>
   
@@ -222,7 +222,9 @@
             <h1 style="display: none">查找与排序</h1>
             
             <div class="markdown-body">
-              <h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="1｜快速排序"><a href="#1｜快速排序" class="headerlink" title="1｜快速排序"></a>1｜快速排序</h3><h4 id="1｜快速排序模版"><a href="#1｜快速排序模版" class="headerlink" title="1｜快速排序模版"></a>1｜快速排序模版</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><br><br><br><br></code></pre></td></tr></table></figure>
+              <h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><h4 id="1｜快速排序"><a href="#1｜快速排序" class="headerlink" title="1｜快速排序"></a>1｜快速排序</h4><h5 id="1｜快速排序模版"><a href="#1｜快速排序模版" class="headerlink" title="1｜快速排序模版"></a>1｜快速排序模版</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Partition</span> <span class="hljs-params">(<span class="hljs-keyword">int</span> A[],<span class="hljs-keyword">int</span> left,<span class="hljs-keyword">int</span> right)</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-keyword">int</span> temp = A[left];<br>  <span class="hljs-keyword">while</span>(left &lt; right)<br>  &#123;	<br>    <span class="hljs-keyword">while</span>(left &lt; right &amp;&amp; A[right]&gt;temp)	right--;<br>    A[left] = A[right];<br>    <span class="hljs-keyword">while</span>(left &lt; right &amp;&amp; A[left] &lt;= temp)	left++;<br>    A[right] = A[left];<br>  &#125;<br>  A[left] = temp;<br>  <span class="hljs-keyword">return</span> left;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">quickSort</span><span class="hljs-params">(<span class="hljs-keyword">int</span> A[],<span class="hljs-keyword">int</span> left,<span class="hljs-keyword">int</span> right)</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-keyword">if</span>(left &lt; right)<br>  &#123;<br>    <span class="hljs-keyword">int</span> pos = Partition(A,left,right);<br>    quickSort(A,left,pos<span class="hljs-number">-1</span>);<br>    quickSort(A,pos+<span class="hljs-number">1</span>,right);<br>  &#125;<br>&#125;<br><br><br></code></pre></td></tr></table></figure>
+
+<h4 id="2｜选择排序"><a href="#2｜选择排序" class="headerlink" title="2｜选择排序"></a>2｜选择排序</h4><h5 id="1｜选择排序模版"><a href="#1｜选择排序模版" class="headerlink" title="1｜选择排序模版"></a>1｜选择排序模版</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><br></code></pre></td></tr></table></figure>
 
 
             </div>
