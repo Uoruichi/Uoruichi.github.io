@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      1.5k 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      14
+      21
        分钟
     </span>
   
@@ -250,6 +250,29 @@
 
 <h5 id="2｜非递归实现归并排序"><a href="#2｜非递归实现归并排序" class="headerlink" title="2｜非递归实现归并排序"></a>2｜非递归实现归并排序</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><br></code></pre></td></tr></table></figure>
 
+<h3 id="二、查找"><a href="#二、查找" class="headerlink" title="二、查找"></a>二、查找</h3><h4 id="1｜二分基于数组的下标进行操作"><a href="#1｜二分基于数组的下标进行操作" class="headerlink" title="1｜二分基于数组的下标进行操作"></a>1｜二分<code>基于数组的下标进行操作</code></h4><blockquote>
+<p>严格单调的话：不存在边界问题</p>
+<p>有重复元素存在大量边界问题会造成死循环和查找不完全</p>
+</blockquote>
+<h5 id="1｜基于严格单调的有序数列"><a href="#1｜基于严格单调的有序数列" class="headerlink" title="1｜基于严格单调的有序数列"></a>1｜基于严格单调的有序数列</h5><h5 id="2｜基于不严格单调的有序序列（仍为有序序列）"><a href="#2｜基于不严格单调的有序序列（仍为有序序列）" class="headerlink" title="2｜基于不严格单调的有序序列（仍为有序序列）"></a>2｜基于不严格单调的有序序列（仍为有序序列）</h5><blockquote>
+<p>思想：</p>
+<p>1、找到序列中第一个大于等于x的元素的位置L，以及找到第一个大于x元素位置的R，找这两个位置都要基于二分进行查找，查找出来的区间就是[L,R），返回值为lower_bound和upper_bound</p>
+<p>2、这样的边界主要是在代码中的判断条件进行控制。</p>
+<p>3、基于序列<code>1 2 2 3 3 3 4 5 6</code></p>
+<ul>
+<li>left = 0 | right = 8 | mid = 4.    ====&gt; mid的左右两侧都有3</li>
+<li>对left和right重新赋值if(a[mid] &lt; x)   left = mid+1;else right = mid;</li>
+<li>left = 0｜right =4 ｜mid = 2     ====&gt;mid只有右侧有3</li>
+<li>此时a[mid] &lt; x left = mid+1=3;</li>
+<li>left = 3 ｜right =4｜mid = 3</li>
+<li>此时a[mid] ==x ，则right = mid = 3,不满足循环条件while（left&lt;right)</li>
+<li>此时如果循环条件为while（left &lt;= right)，则 mid = 3｜right = 3｜left = 3那么会发生死循环，为了</li>
+</ul>
+<p><code>例题：</code><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-08-144339.png" srcset="/img/loading.gif" alt="image-20210308224339528"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">1e6</span>+<span class="hljs-number">10</span>;<br><span class="hljs-keyword">int</span> q[N];<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">lower_bound</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a[],<span class="hljs-keyword">int</span> left,<span class="hljs-keyword">int</span> right,<span class="hljs-keyword">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> mid;<br>    <span class="hljs-keyword">while</span>(left &lt; right)<br>    &#123;<br>        mid = left+right &gt;&gt; <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span>(a[mid] &gt;= x) right = mid;<br>        <span class="hljs-keyword">else</span> left = mid+<span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> left;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">upper_bound</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a[],<span class="hljs-keyword">int</span> left,<span class="hljs-keyword">int</span> right,<span class="hljs-keyword">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> mid;<br>    <span class="hljs-keyword">while</span>(left &lt; right)<br>    &#123;<br>        mid = left + right &gt;&gt; <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span>(a[mid] &gt; x)  right = mid;<br>        <span class="hljs-keyword">else</span> left = mid + <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> left<span class="hljs-number">-1</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> n,x,que,LB,RB;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>,&amp;n,&amp;x);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;q[i]);<br><br>    <span class="hljs-keyword">while</span>(x--)<br>    &#123;   <br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;que);<br>        LB = lower_bound(q,<span class="hljs-number">0</span>,n,que);<br>        RB = upper_bound(q,<span class="hljs-number">0</span>,n,que);<br>        <span class="hljs-keyword">if</span>(q[LB] != que)  LB = <span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">if</span>(q[RB] != que )  RB = <span class="hljs-number">-1</span>;<br>        <span class="hljs-built_in">cout</span> &lt;&lt; LB &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span>&lt;&lt; RB &lt;&lt; <span class="hljs-built_in">endl</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+</blockquote>
 
             </div>
             <hr>
