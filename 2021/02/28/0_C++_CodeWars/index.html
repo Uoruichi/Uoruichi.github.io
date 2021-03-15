@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      748 字
+      1.3k 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      18
        分钟
     </span>
   
@@ -226,6 +226,17 @@
 <p>1、浮点数与整数的计算</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> a=<span class="hljs-number">8</span>,b=<span class="hljs-number">10</span>;<br><span class="hljs-keyword">float</span> result;<br>result = a/b;<span class="hljs-comment">//输出还是int类型，输出结果为0</span><br>result = (<span class="hljs-keyword">float</span>) a / (<span class="hljs-keyword">float</span>) b;<span class="hljs-comment">//这个为想要的结果</span><br></code></pre></td></tr></table></figure>
 </blockquote>
+<blockquote>
+<p>2、数字字符串转换为数组</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-built_in">string</span> str;<br><span class="hljs-built_in">vector</span> &lt;<span class="hljs-keyword">int</span>&gt; a;<br>getline(<span class="hljs-built_in">cin</span>,str);<br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;str.size();i++)		a.push_back(str[i] - <span class="hljs-string">&#x27;0&#x27;</span>);	<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>3、判断是不是完全平方数</p>
+<blockquote>
+<p>sqrt(sq) 如果是完全</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cmath&gt;    </span></span><br><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> <span class="hljs-title">findNextSquare</span><span class="hljs-params">(<span class="hljs-keyword">long</span> <span class="hljs-keyword">int</span> sq)</span> </span>&#123;<br>  <span class="hljs-keyword">if</span>(<span class="hljs-built_in">sqrt</span>(sq) != (<span class="hljs-keyword">int</span>)<span class="hljs-built_in">sqrt</span>(sq))&#123;<span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;&#125;<br>  <span class="hljs-keyword">return</span>  <span class="hljs-built_in">pow</span>(<span class="hljs-built_in">sqrt</span>(sq) + <span class="hljs-number">1</span>,<span class="hljs-number">2</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
 <h4 id="2｜字符串操作"><a href="#2｜字符串操作" class="headerlink" title="2｜字符串操作"></a>2｜字符串操作</h4><blockquote>
 <p>字符串操作题目类型:</p>
 <p>1、统计字符串中的数字个数、特殊字符个数以及字母个数</p>
@@ -255,13 +266,59 @@
 <p>正则表达式中主要在于是把握子串的形式</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">regex <span class="hljs-title">rx</span> <span class="hljs-params">(<span class="hljs-string">&quot;\\b&quot;</span> + sub + <span class="hljs-string">&quot;\\b&quot;</span>)</span></span>;    <span class="hljs-comment">//需要进行替换的子串</span><br><span class="hljs-built_in">string</span> ans = regex_replace(str,rx,rep);    <span class="hljs-comment">//将str中符合rx要求的子串替换为rep，保存到ans中</span><br><span class="hljs-built_in">cout</span> &lt;&lt; ans &lt;&lt;<span class="hljs-built_in">endl</span>;<br></code></pre></td></tr></table></figure>
 </blockquote>
+<h4 id="3｜条件判断"><a href="#3｜条件判断" class="headerlink" title="3｜条件判断"></a>3｜条件判断</h4><blockquote>
+<p>1、类型为bool类型的返回值</p>
+<blockquote>
+<p>// return xcount == oCount；直接返回判断值</p>
+<p>// algorithm头文件中的count函数用于计数</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">XO</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>&amp; str)</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-keyword">int</span> xCount = <span class="hljs-built_in">std</span>::count(str.begin(), str.end(), <span class="hljs-string">&#x27;x&#x27;</span>) + <span class="hljs-built_in">std</span>::count(str.begin(), str.end(), <span class="hljs-string">&#x27;X&#x27;</span>);<br>  <span class="hljs-keyword">int</span> oCount = <span class="hljs-built_in">std</span>::count(str.begin(), str.end(), <span class="hljs-string">&#x27;o&#x27;</span>) + <span class="hljs-built_in">std</span>::count(str.begin(), str.end(), <span class="hljs-string">&#x27;O&#x27;</span>);<br>  <span class="hljs-keyword">return</span> xCount ==  oCount;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>2、条件判断中？ ： 的使用，主要用于简化代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">return</span> (num%<span class="hljs-number">2</span>==<span class="hljs-number">0</span>)?<span class="hljs-string">&quot;Even&quot;</span>:<span class="hljs-string">&quot;Odd&quot;</span>;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>3、</p>
+</blockquote>
+<h4 id="4｜头文件中的函数"><a href="#4｜头文件中的函数" class="headerlink" title="4｜头文件中的函数"></a>4｜头文件中的函数</h4><blockquote>
+<p>1、判断最小值</p>
+<blockquote>
+<p>//algorithm头文件中有直接取出最小值的函数min_element</p>
+<ul>
+<li><input disabled="" type="checkbox"> cbegin和begin的区别是什么？</li>
+</ul>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">findSmallest</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; xs)</span> </span>&#123;<br>  <span class="hljs-keyword">return</span> *<span class="hljs-built_in">std</span>::min_element(xs.cbegin(), xs.cend());<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="5｜宏定义"><a href="#5｜宏定义" class="headerlink" title="5｜宏定义"></a>5｜宏定义</h4><blockquote>
+<p>1、宏定义的使用</p>
+<blockquote>
+<p>题目：一个greet函数输出hello world!</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> roses std</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> are </span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> red ::</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> violets string</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> are </span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> blue greet</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> this ()</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> poem &#123;</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> makes return</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> no <span class="hljs-meta-string">&quot;hello world!&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> sense ;</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> microwave &#125;</span><br><br><span class="hljs-comment">// Write a function &quot;greet&quot; that returns &quot;hello world!&quot; of type std::string</span><br>roses are red<br>violets are blue<br><span class="hljs-keyword">this</span> poem makes no sense<br>microwave<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="6｜容器使用"><a href="#6｜容器使用" class="headerlink" title="6｜容器使用"></a>6｜容器使用</h4><h5 id="1｜vector"><a href="#1｜vector" class="headerlink" title="1｜vector"></a>1｜vector</h5><blockquote>
+<p>1、vector排序:使用al头文件中的sort函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-title">sumTwoSmallestNumbers</span><span class="hljs-params">(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; numbers)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">std</span>::sort(numbers.begin(), numbers.end());<br>    <br>    <span class="hljs-keyword">return</span> (<span class="hljs-keyword">long</span>)numbers[<span class="hljs-number">0</span>] + (<span class="hljs-keyword">long</span>)numbers[<span class="hljs-number">1</span>];<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>2、定义一个vector的pair，并对pair内元素进行计算</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;vector&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;utility&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> <span class="hljs-title">number</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">std</span>::<span class="hljs-built_in">pair</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt;&amp; busStops)</span></span>&#123;<br>  <span class="hljs-keyword">int</span> passengers = <span class="hljs-number">0</span>;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> i: busStops)  passengers += i.first - i.second;<br>  <span class="hljs-keyword">return</span> passengers;<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="2｜string"><a href="#2｜string" class="headerlink" title="2｜string"></a>2｜string</h5><blockquote>
+<p>string中大小写转换以及find函数</p>
+<p>toupper()函数只能对字符进行转换，而不能对全部字符串进行转换</p>
+<p><code>toupper(char t)</code>//toupper()函数的参数为字符，而不能是字符串</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> <span class="hljs-title">abbrevName</span><span class="hljs-params">(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> name)</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> s = <span class="hljs-string">&quot;&quot;</span>;<br>  s += <span class="hljs-built_in">toupper</span>(name[<span class="hljs-number">0</span>]);<br>  s += <span class="hljs-string">&#x27;.&#x27;</span>;<br>  s += <span class="hljs-built_in">toupper</span>(name[name.<span class="hljs-built_in">find</span>(<span class="hljs-string">&#x27; &#x27;</span>)+<span class="hljs-number">1</span>]);<br>  <span class="hljs-keyword">return</span> s;<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
 <h4 id="3｜数组操作"><a href="#3｜数组操作" class="headerlink" title="3｜数组操作"></a>3｜数组操作</h4><blockquote>
 <p>1、下标的转换与数组的首地址和地址操作，下标转换需要一定的积累，多刷题，掌握下标转换的一些技巧。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//遍历仅含a-z的字符串，统计每个字符的数目</span><br><span class="hljs-comment">//通过数量关系转换为数组下标</span><br><span class="hljs-keyword">int</span> count[<span class="hljs-number">26</span>];<br><span class="hljs-built_in">string</span> str;<br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;str[i] == <span class="hljs-string">&#x27;\0&#x27;</span>;i++)<br>	count[str[i] - <span class="hljs-string">&#x27;a&#x27;</span>]++;<br><span class="hljs-comment">//此时，count的下标为str[i] - &#x27;a&#x27;即a的数目存储在count[0]中，以此类推</span><br></code></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
 <p>2、如果要进行两个字符串数组操作，如将其中一个字符串数组的元素进行拷贝，增加空格等操作；那么需要设置两个参数<code>int i  |  int j</code>分别对两个数组进行操作；因为可能存在不同步的情况。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//对应的字符串增加空格</span><br><span class="hljs-comment">//增加相应的参数，理解为双指针</span><br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>,j=<span class="hljs-number">0</span>;str1[i] &amp;&amp; str1[i] != <span class="hljs-string">&#x27;\n&#x27;</span>;i++,j+=<span class="hljs-number">2</span>)<br>&#123;<br>  str2[j] = str1[i];<br>  str2[j+<span class="hljs-number">1</span>] = <span class="hljs-string">&#x27; &#x27;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//对应的字符串增加空格</span><br><span class="hljs-comment">//增加相应的参数，理解为双指针</span><br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>,j=<span class="hljs-number">0</span>;str1[i] &amp;&amp; str1[i] != <span class="hljs-string">&#x27;\n&#x27;</span>;i++,j+=<span class="hljs-number">2</span>)<br>&#123;<br>  	str2[j] = str1[i];<br>  	str2[j+<span class="hljs-number">1</span>] = <span class="hljs-string">&#x27; &#x27;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 </blockquote>
 <h4 id="4｜基本算法思路"><a href="#4｜基本算法思路" class="headerlink" title="4｜基本算法思路"></a>4｜基本算法思路</h4><blockquote>
 <p>1、字符加密，字符轮回偏移</p>
@@ -314,7 +371,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/01/TCP-IP/">
+                      <a href="/2021/03/01/9_TCP-IP/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">TCP/IP-简介</span>
                         <span class="visible-mobile">上一篇</span>

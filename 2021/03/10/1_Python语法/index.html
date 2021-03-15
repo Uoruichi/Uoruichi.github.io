@@ -20,7 +20,7 @@
   <meta name="author" content="Uoruichi">
   <meta name="keywords" content="">
   
-  <title>0_C++_小型项目 - 漫 漫 长 路 ～</title>
+  <title>Python语法 - 漫 漫 长 路 ～</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -153,7 +153,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="0_C++_小型项目">
+            <span class="h2" id="subtitle" title="Python语法">
               
             </span>
 
@@ -163,8 +163,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-10 12:22" pubdate>
-        2021年3月10日 中午
+      <time datetime="2021-03-10 15:50" pubdate>
+        2021年3月10日 下午
       </time>
     </span>
   
@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      94 字
+      438 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      5
        分钟
     </span>
   
@@ -219,23 +219,27 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">0_C++_小型项目</h1>
+            <h1 style="display: none">Python语法</h1>
             
             <div class="markdown-body">
-              <h3 id="C-实现监控和运动检测"><a href="#C-实现监控和运动检测" class="headerlink" title="C++ 实现监控和运动检测"></a>C++ 实现监控和运动检测</h3><p><code>Makefile|OOP|OpenGL GLUT</code></p>
-<h4 id="1｜环境配置"><a href="#1｜环境配置" class="headerlink" title="1｜环境配置"></a>1｜环境配置</h4><h5 id="1｜安装opencv"><a href="#1｜安装opencv" class="headerlink" title="1｜安装opencv"></a>1｜安装opencv</h5><blockquote>
-<p>1、使用brew 安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">brew install opencv<br></code></pre></td></tr></table></figure>
+              <h4 id="0｜目标"><a href="#0｜目标" class="headerlink" title="0｜目标"></a>0｜目标</h4><ul>
+<li><input disabled="" type="checkbox"> 实验楼中的python百题冲关学习完成</li>
+<li><input disabled="" type="checkbox"> 实验楼中的pandas百题冲关学习完成</li>
+<li><input disabled="" type="checkbox"> 实验楼中的NumPy百题冲关学习完成</li>
+</ul>
+<h4 id="1｜字符串string"><a href="#1｜字符串string" class="headerlink" title="1｜字符串string"></a>1｜字符串string</h4><h5 id="1｜基本操作"><a href="#1｜基本操作" class="headerlink" title="1｜基本操作"></a>1｜基本操作</h5><blockquote>
+<p>1、<code>split()|join()</code></p>
+<p><code>str.split(&#39;char&#39;)</code> : 其中str为待操作的字符串，参数char为以什么字符分割</p>
+<p><code>str.join(iterable)</code> : str为在迭代对象<code>iterable</code>的各个成员之间添加的字符。</p>
+<p>2、生成器：在Python中，这种一边循环一边计算的机制，称为<strong>生成器</strong>：generator。</p>
+<p>3、迭代器：</p>
+<p>我们已经知道，可以直接作用于<code>for</code>循环的数据类型有以下几种：一类是集合数据类型，如<code>list</code>、<code>tuple</code>、<code>dict</code>、<code>set</code>、<code>str</code>等；一类是<code>generator</code>，包括生成器和带<code>yield</code>的generator function。这些可以直接作用于<code>for</code>循环的对象统称为可迭代对象：<code>Iterable</code>。可以使用<code>isinstance()</code>判断一个对象是否是<code>Iterable</code>对象：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#	return 返回时一个string类型变量</span><br><span class="hljs-comment"># 字符串切片</span><br><span class="hljs-comment"># 字符串逆序输出</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">reverse_words</span>(<span class="hljs-params"><span class="hljs-built_in">str</span></span>):</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27; &#x27;</span>.join(s[::-<span class="hljs-number">1</span>] <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> <span class="hljs-built_in">str</span>.split(<span class="hljs-string">&#x27; &#x27;</span>))<br>  <br>  <br>s = <span class="hljs-string">&quot;This is an example!&quot;</span><br><span class="hljs-comment"># 实现字符串的分割</span><br>s1 = s.split(<span class="hljs-string">&#x27; &#x27;</span>)<br>print(<span class="hljs-built_in">type</span>(s1))<br><span class="hljs-comment"># &lt;class &#x27;list&#x27;&gt;</span><br><br><span class="hljs-comment"># 生成器</span><br><span class="hljs-comment"># 生成器中的item是str类型的，并且实现将item逆序</span><br>s2 = (item[::-<span class="hljs-number">1</span>] <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> s1)<br>print(<span class="hljs-built_in">type</span>(s2))<br><span class="hljs-comment"># &lt;class &#x27;generator&#x27;&gt;</span><br>print(<span class="hljs-built_in">type</span>(item))<br><span class="hljs-comment"># &lt;class &#x27;str&#x27;&gt;</span><br><br><br><span class="hljs-comment"># string的join方法</span><br><span class="hljs-comment"># str.join()函数操作的成员要求是可迭代对象，生成器也是可迭代对象。</span><br>s3 = <span class="hljs-string">&#x27; &#x27;</span>.join(item[::-<span class="hljs-number">1</span>] <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> s.split(<span class="hljs-string">&#x27; &#x27;</span>))<br>print(s3)<br><span class="hljs-comment"># sihT si na !elpmaxe</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="2｜list操作"><a href="#2｜list操作" class="headerlink" title="2｜list操作"></a>2｜list操作</h4><h5 id="1｜count-操作"><a href="#1｜count-操作" class="headerlink" title="1｜count 操作"></a>1｜count 操作</h5><blockquote>
+<p>1、筛选list中满足条件的值，并返回值的数量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">count_sheeps</span>(<span class="hljs-params">arrayOfSheeps</span>):</span><br>  <span class="hljs-keyword">return</span> arrayOfSheeps.count(<span class="hljs-literal">True</span>)<br><span class="hljs-comment"># 返回 list中值为True的数量</span><br></code></pre></td></tr></table></figure>
 
-<p>2、安装完成后需要添加部分内容到<code>.zshrc</code>中，按照要求进行添加</p>
-<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-10-073515.png" srcset="/img/loading.gif" alt="image-20210310153515559"></p>
-<p>3、测试安装是否成功</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install opencv-python<br></code></pre></td></tr></table></figure>
-
-<p>4、安装完成后，使用python测试，测试显示安装成功。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">python3 <br>import cv2<br><span class="hljs-built_in">print</span>(cv2.__version__)<br></code></pre></td></tr></table></figure>
-
-<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-10-073748.png" srcset="/img/loading.gif" alt="image-20210310153748185"></p>
 </blockquote>
 
             </div>
@@ -246,9 +250,9 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/C/">C++</a>
+                      <a class="hover-with-bg" href="/categories/python/">python</a>
                     
-                      <a class="hover-with-bg" href="/categories/C/%E5%B0%8F%E5%9E%8B%E9%A1%B9%E7%9B%AE/">小型项目</a>
+                      <a class="hover-with-bg" href="/categories/python/Base/">Base</a>
                     
                   </div>
                 
@@ -256,9 +260,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                      <a class="hover-with-bg" href="/tags/python/">python</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%B0%8F%E5%9E%8B%E9%A1%B9%E7%9B%AE/">小型项目</a>
+                      <a class="hover-with-bg" href="/tags/grammar/">grammar</a>
                     
                   </div>
                 
@@ -275,9 +279,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/10/1-Python%E8%AF%AD%E6%B3%95/">
+                      <a href="/2021/03/12/2_%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Python语法</span>
+                        <span class="hidden-mobile">环境搭建常见问题</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -285,8 +289,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/09/1_Python%E7%88%AC%E8%99%AB/">
-                        <span class="hidden-mobile">Python爬虫</span>
+                      <a href="/2021/03/10/0_C++%E5%B0%8F%E5%9E%8B%E9%A1%B9%E7%9B%AE/">
+                        <span class="hidden-mobile">0_C++_小型项目</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

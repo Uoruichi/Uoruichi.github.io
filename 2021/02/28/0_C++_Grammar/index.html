@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.3k 字
+      4k 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      42
+      53
        分钟
     </span>
   
@@ -441,7 +441,61 @@
 <blockquote>
 <p>空间适配器就是STL自己的内存池</p>
 </blockquote>
-<h4 id="1｜容器"><a href="#1｜容器" class="headerlink" title="1｜容器"></a>1｜容器</h4><h5 id="1｜vector（向量）"><a href="#1｜vector（向量）" class="headerlink" title="1｜vector（向量）"></a>1｜vector（向量）</h5><h5 id="2｜list（列表）"><a href="#2｜list（列表）" class="headerlink" title="2｜list（列表）"></a>2｜list（列表）</h5><h5 id="3｜queue（队列）"><a href="#3｜queue（队列）" class="headerlink" title="3｜queue（队列）"></a>3｜queue（队列）</h5><h5 id="4｜deque（双端队列）"><a href="#4｜deque（双端队列）" class="headerlink" title="4｜deque（双端队列）"></a>4｜deque（双端队列）</h5><h5 id="5｜set（集合）"><a href="#5｜set（集合）" class="headerlink" title="5｜set（集合）"></a>5｜set（集合）</h5><h5 id="6｜multiset（多种集合）"><a href="#6｜multiset（多种集合）" class="headerlink" title="6｜multiset（多种集合）"></a>6｜multiset（多种集合）</h5><h5 id="7｜map（映射）"><a href="#7｜map（映射）" class="headerlink" title="7｜map（映射）"></a>7｜map（映射）</h5><h5 id="8｜multimap（多重映射）"><a href="#8｜multimap（多重映射）" class="headerlink" title="8｜multimap（多重映射）"></a>8｜multimap（多重映射）</h5><h4 id="2｜模版编程"><a href="#2｜模版编程" class="headerlink" title="2｜模版编程"></a>2｜模版编程</h4><p><code>基本语法｜模版函数｜类模版｜成员模版｜模版中的静态成员｜typename与class｜迭代器</code></p>
+<h4 id="1｜容器"><a href="#1｜容器" class="headerlink" title="1｜容器"></a>1｜容器</h4><h5 id="1｜vector（向量—-变长数组）"><a href="#1｜vector（向量—-变长数组）" class="headerlink" title="1｜vector（向量—-变长数组）"></a>1｜vector（向量—-变长数组）</h5><p><code>邻接表的方式存储图｜解决普通数组超内存|用于处理输入数据数量不确定的情况</code></p>
+<blockquote>
+<p>定义vector</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">typename</span>&gt; name;<span class="hljs-comment">//定义一个typename类型的vector变量,变量名字为name</span><br><span class="hljs-built_in">vector</span> &lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-built_in">array</span>;<span class="hljs-comment">//相当于定义一个int类型的array[SIZE]数组</span><br></code></pre></td></tr></table></figure>
+
+<p>进阶定义</p>
+<ul>
+<li>定义一个vector的结构体</li>
+<li>定义一个二维数组</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>vector内元素循环访问</p>
+<ul>
+<li>通过下标访问</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs dc++">vector &lt;int&gt; vi;<br>printf(&quot;%&quot;,vi[index]);&#x2F;&#x2F;通过index进行访问，index的范围为[0,vi.size()]，可以直接调用vi.size()输出vi数组的长度<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>通过迭代器访问，迭代器可以理解为指针，迭代器也是需要定义的，可以理解为一个变量。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-built_in">vector</span> &lt;<span class="hljs-keyword">int</span>&gt; ::iterator it;<span class="hljs-comment">//得到迭代器it，it是迭代器的名字，所以可以定义为别的名字</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">vector</span> &lt;<span class="hljs-keyword">int</span>&gt; vi;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">5</span>;i++)  vi.push_back(i);<br>    <span class="hljs-built_in">vector</span> &lt;<span class="hljs-keyword">int</span>&gt; ::iterator it = vi.begin();<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">5</span>;i++)	<span class="hljs-comment">//迭代器使用的第一种用法</span><br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>,*(it+i));<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>    <span class="hljs-keyword">for</span>(it=vi.begin();it != vi.end();it++)	<span class="hljs-comment">//迭代器循环的第二种用法</span><br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>,*it);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>push_back函数与pop_back函数的使用</p>
+<p>push_back()是在vector的末尾添加x</p>
+<p>pop_back()是删除vector的末尾元素但是不会输出删除了哪些。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">vector</span> &lt;<span class="hljs-keyword">int</span>&gt; vi;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;=<span class="hljs-number">6</span>;i++)   vi.push_back(i);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\t%d\n&quot;</span>,vi[<span class="hljs-number">0</span>],vi[<span class="hljs-number">6</span>]);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">3</span>;i++)    vi.pop_back();<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;vi.size();i++)    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>,vi[i]);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>size函数，返回值为int类型，返回vector的大小</p>
+</blockquote>
+<blockquote>
+<p>clear()函数，晴空vector容器</p>
+</blockquote>
+<blockquote>
+<p>insert()，基于迭代器进行操作，需要添加两个参数，<code>vi.insert(it+2,-1)</code>，将-1添加到<code>vi[2]</code>的位置</p>
+</blockquote>
+<blockquote>
+<p>erase()，删除区间内的元素，<code>vi.erase(it.begin(),it.end())</code>，删除元素的范围左开右闭<code>[it.begin(),it.end())</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">vector</span> &lt;<span class="hljs-keyword">int</span>&gt; vi;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">5</span>;i++)  vi.push_back(i);<br>    <span class="hljs-built_in">vector</span> &lt;<span class="hljs-keyword">int</span>&gt; ::iterator it = vi.begin();<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">5</span>;i++)<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>,*(it+i));<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br><span class="hljs-comment">//  for(vector &lt;int&gt; ::iterator it = vi.begin();it != vi.end();it++)</span><br><span class="hljs-comment">//      printf(&quot;%d &quot;,*it);</span><br>    vi.erase(vi.begin(),vi.begin()+<span class="hljs-number">2</span>);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;vi.size();i++)    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>,vi[i]);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>    vi.erase(vi.begin(),vi.end());<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;vi.size();i++)    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>,vi[i]);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;\n&quot;</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><span class="hljs-comment">// output</span><br><span class="hljs-comment">// 0 1 2 3 4 </span><br><span class="hljs-comment">// 2 3 4  //经过第一次erase()，begin(),begin+2,删除的区间是[begin()+0,begin()+2)的区间</span><br><span class="hljs-comment">// 				//经过第二次erase(),可以看出来begin(),end()的范围的话，是全部删除</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> 使用vector定义邻接表</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> 使用完vector后，是不是不用释放空间？</li>
+</ul>
+</blockquote>
+<h5 id="2｜list（列表）"><a href="#2｜list（列表）" class="headerlink" title="2｜list（列表）"></a>2｜list（列表）</h5><h5 id="3｜queue（队列）"><a href="#3｜queue（队列）" class="headerlink" title="3｜queue（队列）"></a>3｜queue（队列）</h5><h5 id="4｜deque（双端队列）"><a href="#4｜deque（双端队列）" class="headerlink" title="4｜deque（双端队列）"></a>4｜deque（双端队列）</h5><h5 id="5｜set（集合）"><a href="#5｜set（集合）" class="headerlink" title="5｜set（集合）"></a>5｜set（集合）</h5><h5 id="6｜multiset（多种集合）"><a href="#6｜multiset（多种集合）" class="headerlink" title="6｜multiset（多种集合）"></a>6｜multiset（多种集合）</h5><h5 id="7｜map（映射）"><a href="#7｜map（映射）" class="headerlink" title="7｜map（映射）"></a>7｜map（映射）</h5><h5 id="8｜multimap（多重映射）"><a href="#8｜multimap（多重映射）" class="headerlink" title="8｜multimap（多重映射）"></a>8｜multimap（多重映射）</h5><h4 id="2｜模版编程"><a href="#2｜模版编程" class="headerlink" title="2｜模版编程"></a>2｜模版编程</h4><p><code>基本语法｜模版函数｜类模版｜成员模版｜模版中的静态成员｜typename与class｜迭代器</code></p>
 <h5 id="1｜函数模版化"><a href="#1｜函数模版化" class="headerlink" title="1｜函数模版化"></a>1｜函数模版化</h5><blockquote>
 <p>为什么要使用模版编程的思想？</p>
 <p>因为C++中对于数据类型区分比较明确，所以使用模版编程的话会简化工作，也就是使用模版来定义数据类型。</p>
