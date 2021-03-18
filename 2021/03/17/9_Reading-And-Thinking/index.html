@@ -20,7 +20,7 @@
   <meta name="author" content="Uoruichi">
   <meta name="keywords" content="">
   
-  <title>环境搭建常见问题 - 漫 漫 长 路 ～</title>
+  <title>Reading And Thinking - 漫 漫 长 路 ～</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -153,7 +153,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="环境搭建常见问题">
+            <span class="h2" id="subtitle" title="Reading And Thinking">
               
             </span>
 
@@ -163,8 +163,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-12 08:28" pubdate>
-        2021年3月12日 早上
+      <time datetime="2021-03-17 08:54" pubdate>
+        2021年3月17日 早上
       </time>
     </span>
   
@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      576 字
+      886 字
     </span>
   
 
@@ -219,25 +219,79 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">环境搭建常见问题</h1>
+            <h1 style="display: none">Reading And Thinking</h1>
             
             <div class="markdown-body">
-              <h3 id="环境搭建常见问题及处理"><a href="#环境搭建常见问题及处理" class="headerlink" title="环境搭建常见问题及处理"></a>环境搭建常见问题及处理</h3><h4 id="1｜VS-Code配置C-的debug"><a href="#1｜VS-Code配置C-的debug" class="headerlink" title="1｜VS Code配置C++的debug"></a>1｜VS Code配置C++的debug</h4><p><code>mac OS</code></p>
-<h5 id="问题1-无法在vs-code的内置终端中进行输入，也就是会出现终端将被任务重用，按任意键关闭，而且不启动外部终端，即使启动外部终端也无法读入输入。"><a href="#问题1-无法在vs-code的内置终端中进行输入，也就是会出现终端将被任务重用，按任意键关闭，而且不启动外部终端，即使启动外部终端也无法读入输入。" class="headerlink" title="问题1:无法在vs code的内置终端中进行输入，也就是会出现终端将被任务重用，按任意键关闭，而且不启动外部终端，即使启动外部终端也无法读入输入。"></a>问题1:无法在vs code的内置终端中进行输入，也就是会出现终端将被任务重用，按任意键关闭，而且不启动外部终端，即使启动外部终端也无法读入输入。</h5><blockquote>
-<p>问题原因：The issue is when VSCode launches the debug adapter, then the debug adapter launches <code>lldb-mi</code>, then <code>lldb-mi</code> launches <code>Terminal</code>. There is a prompt that should appear, but somehow the DebugAdapter is not forwarding this permissions request.</p>
-<p>解决方法：因为vscode的macos版本目前还不支持C++的debug的内置终端输入，所以要启动自带的终端进行调试的输入。按照官方文档配置launch.json和tasks.json文件，然后在tasks.json文件中加入启动外部终端的代码块。</p>
-<p><code>launch.json配置</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&#123;<br>    <span class="hljs-comment">// 使用 IntelliSense 了解相关属性。 </span><br>    <span class="hljs-comment">// 悬停以查看现有属性的描述。</span><br>    <span class="hljs-comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br>    <span class="hljs-string">&quot;version&quot;</span>: <span class="hljs-string">&quot;0.2.0&quot;</span>,<br>    <span class="hljs-string">&quot;configurations&quot;</span>: [<br>        &#123;<br>            <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;g++-10 - 生成和调试活动文件&quot;</span>,<br>            <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;cppdbg&quot;</span>,<br>            <span class="hljs-string">&quot;request&quot;</span>: <span class="hljs-string">&quot;launch&quot;</span>,<br>            <span class="hljs-string">&quot;program&quot;</span>: <span class="hljs-string">&quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;&quot;</span>,<br>            <span class="hljs-string">&quot;args&quot;</span>: [],<br>            <span class="hljs-string">&quot;stopAtEntry&quot;</span>: <span class="hljs-literal">false</span>,<br>            <span class="hljs-string">&quot;cwd&quot;</span>: <span class="hljs-string">&quot;$&#123;workspaceFolder&#125;&quot;</span>,<br>            <span class="hljs-string">&quot;environment&quot;</span>: [],<br>            <span class="hljs-string">&quot;externalConsole&quot;</span>: <span class="hljs-literal">true</span>,<br>            <span class="hljs-string">&quot;MIMode&quot;</span>: <span class="hljs-string">&quot;lldb&quot;</span>,<br>            <span class="hljs-string">&quot;preLaunchTask&quot;</span>: <span class="hljs-string">&quot;C/C++: g++-10 生成活动文件&quot;</span><br>        &#125;<br>    ]<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><code>tasks.json配置</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&#123;<br>    <span class="hljs-string">&quot;tasks&quot;</span>: [<br>        &#123;<br>            <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;cppbuild&quot;</span>,<br>            <span class="hljs-string">&quot;label&quot;</span>: <span class="hljs-string">&quot;C/C++: g++-10 生成活动文件&quot;</span>,<br>            <span class="hljs-string">&quot;command&quot;</span>: <span class="hljs-string">&quot;/usr/local/bin/g++-10&quot;</span>,<br>            <span class="hljs-string">&quot;args&quot;</span>: [<br>                <span class="hljs-string">&quot;-g&quot;</span>,<br>                <span class="hljs-string">&quot;$&#123;file&#125;&quot;</span>,<br>                <span class="hljs-string">&quot;-o&quot;</span>,<br>                <span class="hljs-string">&quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;&quot;</span><br>            ],<br>            <span class="hljs-string">&quot;options&quot;</span>: &#123;<br>                <span class="hljs-string">&quot;cwd&quot;</span>: <span class="hljs-string">&quot;$&#123;workspaceFolder&#125;&quot;</span><br>            &#125;,<br>            <span class="hljs-string">&quot;problemMatcher&quot;</span>: [<br>                <span class="hljs-string">&quot;$gcc&quot;</span><br>            ],<br>            <span class="hljs-string">&quot;group&quot;</span>: &#123;<br>                <span class="hljs-string">&quot;kind&quot;</span>: <span class="hljs-string">&quot;build&quot;</span>,<br>                <span class="hljs-string">&quot;isDefault&quot;</span>: <span class="hljs-literal">true</span><br>            &#125;,<br>            <span class="hljs-string">&quot;detail&quot;</span>: <span class="hljs-string">&quot;调试器生成的任务。&quot;</span><br>        &#125;,<br><span class="hljs-comment">//需要在tasks的内容中增加以下的代码块以启动终端</span><br>        &#123;<br>            <span class="hljs-string">&quot;label&quot;</span>: <span class="hljs-string">&quot;Open Terminal&quot;</span>,<br>            <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;shell&quot;</span>,<br>            <span class="hljs-string">&quot;command&quot;</span>: <span class="hljs-string">&quot;osascript -e &#x27;tell application \&quot;Terminal\&quot;\ndo script \&quot;echo hello\&quot;\nend tell&#x27;&quot;</span>,<br>            <span class="hljs-string">&quot;problemMatcher&quot;</span>: []<br>          &#125;<br>    ],<br>    <span class="hljs-string">&quot;version&quot;</span>: <span class="hljs-string">&quot;2.0.0&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>配置完tasks.json文件后</p>
-<p>1、You can run this specific task using <code>Command + Shift + p</code>. </p>
-<p>2、Type <code>Tasks</code> and look for <code>Tasks: Run Tasks</code> then select <code>Open Terminal</code>.</p>
-<p>Once you allow this permission, then the external console should appear when you debug.</p>
-<p>成功配置后进行debug显示：</p>
-<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-12-003807.png" srcset="/img/loading.gif" alt="image-20210312083804302"></p>
+              <h3 id="0｜计算机网络-自顶向下方法"><a href="#0｜计算机网络-自顶向下方法" class="headerlink" title="0｜计算机网络-自顶向下方法"></a>0｜计算机网络-自顶向下方法</h3><h4 id="2021-3-17"><a href="#2021-3-17" class="headerlink" title="2021-3-17"></a>2021-3-17</h4><h5 id="计算机网络概论-P54"><a href="#计算机网络概论-P54" class="headerlink" title="计算机网络概论 P54"></a>计算机网络概论 <code>P54</code></h5><blockquote>
+<p>未来网络的发展方向：</p>
+<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-17-005635.png" srcset="/img/loading.gif" alt="image-20210317085634458"></p>
+<p>未来的网络部署的智能软件代理功能就是数据挖掘，所以数据挖掘的范围并不是局限于互联网的内容产生的数据，更广阔的应用在于对于端（主机）产生的数据挖掘。</p>
+<p>对于主机，我们一定要使用一种安全的语言，所以这可能是Rust具有未来的原因吧。</p>
+<ul>
+<li>未来网络发展要解决的问题</li>
+<li>未来网络发展的方向</li>
+<li>Rust应用在嵌入式中有哪些弊端？相比其他的语言有什么优势？</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>计算机网络存在的理由：</p>
+<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-17-010231.png" srcset="/img/loading.gif" alt="image-20210317090231061"></p>
+<p>未来的技术发展是要开拓更加实用的网络应用，而不是局限于现在的网络应用。<code>本书的读者能够创建下一代招人喜爱的因特网应用。</code>这才是学习计算机网络的目的。</p>
+<p>创建下一代因特网应用的前提是要明白计算机网络的原理。</p>
+<p>未来的网络应用：</p>
+<ul>
+<li>全息投影的游戏</li>
+<li>全息投影的导航系统</li>
+<li>根据数据挖掘出来的生活习惯—嵌入式助手（规划个人的生活）</li>
+<li>5G的发展对于人们生活的影响<ul>
+<li><input disabled="" type="checkbox"> 下一代5G的因特网应用</li>
+<li><input disabled="" type="checkbox"> 了解5G的优点和缺点</li>
+<li><input disabled="" type="checkbox"> 5G开发已经在路上</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="1｜数据结构-邓俊辉"><a href="#1｜数据结构-邓俊辉" class="headerlink" title="1｜数据结构                                    邓俊辉"></a>1｜数据结构                                    <code>邓俊辉</code></h3><h4 id="2021-3-17-1"><a href="#2021-3-17-1" class="headerlink" title="2021-3-17"></a>2021-3-17</h4><h5 id="1｜算法的基本要求：P5-P16"><a href="#1｜算法的基本要求：P5-P16" class="headerlink" title="1｜算法的基本要求：P5-P16"></a>1｜算法的基本要求：<code>P5-P16</code></h5><blockquote>
+<p>1、输入与输出</p>
+</blockquote>
+<blockquote>
+<p>2、基本操作、确定性、可行性</p>
+</blockquote>
+<blockquote>
+<p>3、正确定、有穷性</p>
+<p>如何保证算法的正确性与有穷性？</p>
+<p>通过不变性与单调性进行保证（此处的单调性与数学中的单调性有略微差别）</p>
+<p>单调性是指问题的有效规模会随着算法的推进不断递减</p>
+<p>不变形是指程序的每一轮循环或者是迭代都满足题目的要求，所以掌握迭代和循环很重要。</p>
+</blockquote>
+<blockquote>
+<p>4、退化与鲁棒性</p>
+<p>退化就是要考虑输入的各种极端的实例，也就是边界条件的考虑</p>
+<p>鲁棒性：将可能的将边界条件考虑全面</p>
+</blockquote>
+<blockquote>
+<p>5、重用性</p>
+<p>算法模式推广：比如说用于不同的数据类型</p>
+</blockquote>
+<h5 id="2｜算法效率"><a href="#2｜算法效率" class="headerlink" title="2｜算法效率"></a>2｜算法效率</h5><blockquote>
+<p>1、计算效率</p>
+</blockquote>
+<blockquote>
+<p>2、数据结构</p>
+<p>不论输入、输出、中间结果都是在计算机中以数据的形式表示的，对数据的存储、组织、转移以及变换等操作，对不同的计算模型和平台环境所支持的具体形式不尽相同，执行效率直接影响整体的效率。</p>
+<p>数据结构就是以数据作为研究对象，建立支持高效算法的数据处理策略、技巧以及方法。也就是研究数据如何进行增、删、改、查更加高效而且满足实际的要求。</p>
+<p>要做到根据实际应用需求自如的设计、实现和选用适当的数据结构，必须要首先对算法设计的技巧以及相应的数据结构的特征了然于心。</p>
+<p>归根结底在于：算法设计的技巧、数据结构的特征。</p>
+<p>所以学习这本书的关键在于掌握书中算法设计的技巧，以及掌握数据结构的特征。</p>
+</blockquote>
+<h5 id="3｜复杂度分析"><a href="#3｜复杂度分析" class="headerlink" title="3｜复杂度分析"></a>3｜复杂度分析</h5><blockquote>
+<p>时间复杂度</p>
+</blockquote>
+<blockquote>
+<p>空间复杂度</p>
+</blockquote>
+<blockquote>
+<p>渐进复杂度</p>
 </blockquote>
 
             </div>
@@ -248,9 +302,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/C/">C++</a>
-                    
-                      <a class="hover-with-bg" href="/categories/C/VSCode/">VSCode</a>
+                      <a class="hover-with-bg" href="/categories/Reading/">Reading</a>
                     
                   </div>
                 
@@ -258,7 +310,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">环境搭建</a>
+                      <a class="hover-with-bg" href="/tags/Reading/">Reading</a>
                     
                   </div>
                 
@@ -275,18 +327,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/16/0_C++_Acwing/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">C++_Acwing</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/10/1_Python%E8%AF%AD%E6%B3%95/">
-                        <span class="hidden-mobile">Python语法</span>
+                      <a href="/2021/03/16/0_C++_Acwing/">
+                        <span class="hidden-mobile">C++_Acwing</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

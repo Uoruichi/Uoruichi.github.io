@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.5k 字
+      1.8k 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      25
+      29
        分钟
     </span>
   
@@ -248,19 +248,51 @@
 </blockquote>
 <h4 id="2｜链路层实现功能以及链路层协议"><a href="#2｜链路层实现功能以及链路层协议" class="headerlink" title="2｜链路层实现功能以及链路层协议"></a>2｜链路层实现功能以及链路层协议</h4><h5 id="1｜差错控制"><a href="#1｜差错控制" class="headerlink" title="1｜差错控制"></a>1｜差错控制</h5><h5 id="2｜反馈重发"><a href="#2｜反馈重发" class="headerlink" title="2｜反馈重发"></a>2｜反馈重发</h5><h5 id="3｜计时器"><a href="#3｜计时器" class="headerlink" title="3｜计时器"></a>3｜计时器</h5><h5 id="4｜序号"><a href="#4｜序号" class="headerlink" title="4｜序号"></a>4｜序号</h5><h5 id="5｜流量控制"><a href="#5｜流量控制" class="headerlink" title="5｜流量控制"></a>5｜流量控制</h5><h3 id="三、网络层"><a href="#三、网络层" class="headerlink" title="三、网络层"></a>三、网络层</h3><h4 id="1｜IP数据报"><a href="#1｜IP数据报" class="headerlink" title="1｜IP数据报"></a>1｜IP数据报</h4><h4 id="2｜地址划分"><a href="#2｜地址划分" class="headerlink" title="2｜地址划分"></a>2｜地址划分</h4><h4 id="3｜子网划分"><a href="#3｜子网划分" class="headerlink" title="3｜子网划分"></a>3｜子网划分</h4><h5 id="1｜子网掩码：netmask："><a href="#1｜子网掩码：netmask：" class="headerlink" title="1｜子网掩码：netmask："></a>1｜子网掩码：netmask：</h5><h4 id="4｜IP路由选择"><a href="#4｜IP路由选择" class="headerlink" title="4｜IP路由选择"></a>4｜IP路由选择</h4><h4 id="5｜NAT技术"><a href="#5｜NAT技术" class="headerlink" title="5｜NAT技术"></a>5｜NAT技术</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ifconfig eth0<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">en0: flags=8863&lt;UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST&gt; mtu 1500<br>	options=400&lt;CHANNEL_IO&gt;<br>	ether 38:f9:d3:93:33:9f<br>	inet 192.168.3.12 netmask 0xffffff00 broadcast 192.168.3.255<br>	media: autoselect<br>	status: active<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>内网IP(192.168.X.X和172.16.X.X)          <code>私网地址</code></p>
+<p>内网与外网的区别？</p>
+<p>广播地址怎么用？</p>
 </blockquote>
 <h4 id="6｜IP的发展及未来"><a href="#6｜IP的发展及未来" class="headerlink" title="6｜IP的发展及未来"></a>6｜IP的发展及未来</h4><blockquote>
 <p>IPV6</p>
+</blockquote>
+<h4 id="7｜网络层协议"><a href="#7｜网络层协议" class="headerlink" title="7｜网络层协议"></a>7｜网络层协议</h4><p><code>ARP|RARP|ICMP|ping|traceroute|IGMP</code></p>
+<h5 id="1｜ARP协议"><a href="#1｜ARP协议" class="headerlink" title="1｜ARP协议"></a>1｜ARP协议</h5><blockquote>
+<p>协议工作原理：</p>
+</blockquote>
+<blockquote>
+<p>ARP代理</p>
+</blockquote>
+<blockquote>
+<p>ARP欺骗</p>
+</blockquote>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">arp<br><br></code></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="2｜icmp协议"><a href="#2｜icmp协议" class="headerlink" title="2｜icmp协议"></a>2｜icmp协议</h5><blockquote>
+<p>协议的工作原理：</p>
+</blockquote>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ping<br></code></pre></td></tr></table></figure>
+
+<img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-17-002443.png" srcset="/img/loading.gif" alt="image-20210317082443464" style="zoom:50%;" />
+
+<p>ping是什么原理？</p>
 </blockquote>
 <h4 id="7｜实践"><a href="#7｜实践" class="headerlink" title="7｜实践"></a>7｜实践</h4><h5 id="1｜ifconfig命令详解"><a href="#1｜ifconfig命令详解" class="headerlink" title="1｜ifconfig命令详解"></a>1｜ifconfig命令详解</h5><ul>
 <li><input disabled="" type="checkbox"> 搞清楚每一个的含义是什么，分别在网络层有什么用</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><code class="hljs bash">lo0: flags=8049&lt;UP,LOOPBACK,RUNNING,MULTICAST&gt; mtu 16384<br>	options=1203&lt;RXCSUM,TXCSUM,TXSTATUS,SW_TIMESTAMP&gt;<br>	inet 127.0.0.1 netmask 0xff000000<br>	inet6 ::1 prefixlen 128<br>	inet6 fe80::1%lo0 prefixlen 64 scopeid 0x1<br>	nd6 options=201&lt;PERFORMNUD,DAD&gt;<br>gif0: flags=8010&lt;POINTOPOINT,MULTICAST&gt; mtu 1280<br>stf0: flags=0&lt;&gt; mtu 1280<br>en6: flags=8863&lt;UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST&gt; mtu 1500<br>	ether ac:de:48:00:11:22<br>	inet6 fe80::aede:48ff:fe00:1122%en6 prefixlen 64 scopeid 0x4<br>	nd6 options=201&lt;PERFORMNUD,DAD&gt;<br>	media: autoselect (100baseTX &lt;full-duplex&gt;)<br>	status: active<br>ap1: flags=8802&lt;BROADCAST,SIMPLEX,MULTICAST&gt; mtu 1500<br>	options=400&lt;CHANNEL_IO&gt;<br>	ether 3a:f9:d3:93:33:9f<br>	media: autoselect<br>	status: inactive<br>en0: flags=8863&lt;UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST&gt; mtu 1500<br>	options=400&lt;CHANNEL_IO&gt;<br>	ether 38:f9:d3:93:33:9f<br>	inet 192.168.3.12 netmask 0xffffff00 broadcast 192.168.3.255<br>	media: autoselect<br>	status: active<br>awdl0: flags=8943&lt;UP,BROADCAST,RUNNING,PROMISC,SIMPLEX,MULTICAST&gt; mtu 1500<br>	options=400&lt;CHANNEL_IO&gt;<br>	ether 3e:73:6e:0b:bb:ac<br>	inet6 fe80::3c73:6eff:fe0b:bbac%awdl0 prefixlen 64 scopeid 0x7<br>	nd6 options=201&lt;PERFORMNUD,DAD&gt;<br>	media: autoselect<br>	status: active<br>llw0: flags=8863&lt;UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST&gt; mtu 1500<br>	options=400&lt;CHANNEL_IO&gt;<br>	ether 3e:73:6e:0b:bb:ac<br>	inet6 fe80::3c73:6eff:fe0b:bbac%llw0 prefixlen 64 scopeid 0x8<br>	nd6 options=201&lt;PERFORMNUD,DAD&gt;<br>	media: autoselect<br>	status: active<br>en3: flags=8963&lt;UP,BROADCAST,SMART,RUNNING,PROMISC,SIMPLEX,MULTICAST&gt; mtu 1500<br>	options=460&lt;TSO4,TSO6,CHANNEL_IO&gt;<br>	ether 82:23:4a:a0:88:05<br>	media: autoselect &lt;full-duplex&gt;<br>	status: inactive<br>en4: flags=8963&lt;UP,BROADCAST,SMART,RUNNING,PROMISC,SIMPLEX,MULTICAST&gt; mtu 1500<br>	options=460&lt;TSO4,TSO6,CHANNEL_IO&gt;<br>	ether 82:23:4a:a0:88:04<br>	media: autoselect &lt;full-duplex&gt;<br>	status: inactive<br>en2: flags=8963&lt;UP,BROADCAST,SMART,RUNNING,PROMISC,SIMPLEX,MULTICAST&gt; mtu 1500<br>	options=460&lt;TSO4,TSO6,CHANNEL_IO&gt;<br>	ether 82:23:4a:a0:88:00<br>	media: autoselect &lt;full-duplex&gt;<br>	status: inactive<br>en1: flags=8963&lt;UP,BROADCAST,SMART,RUNNING,PROMISC,SIMPLEX,MULTICAST&gt; mtu 1500<br>	options=460&lt;TSO4,TSO6,CHANNEL_IO&gt;<br>	ether 82:23:4a:a0:88:01<br>	media: autoselect &lt;full-duplex&gt;<br>	status: inactive<br>en5: flags=8863&lt;UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST&gt; mtu 1500<br>	options=6467&lt;RXCSUM,TXCSUM,VLAN_MTU,TSO4,TSO6,CHANNEL_IO,PARTIAL_CSUM,ZEROINVERT_CSUM&gt;<br>	ether 00:e0:4c:68:01:5a<br>	nd6 options=201&lt;PERFORMNUD,DAD&gt;<br>	media: autoselect (none)<br>	status: inactive<br>bridge0: flags=8863&lt;UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST&gt; mtu 1500<br>	options=63&lt;RXCSUM,TXCSUM,TSO4,TSO6&gt;<br>	ether 82:23:4a:a0:88:01<br>	Configuration:<br>		id 0:0:0:0:0:0 priority 0 hellotime 0 fwddelay 0<br>		maxage 0 holdcnt 0 proto stp maxaddr 100 timeout 1200<br>		root id 0:0:0:0:0:0 priority 0 ifcost 0 port 0<br>		ipfilter disabled flags 0x0<br>	member: en1 flags=3&lt;LEARNING,DISCOVER&gt;<br>	        ifmaxaddr 0 port 12 priority 0 path cost 0<br>	member: en2 flags=3&lt;LEARNING,DISCOVER&gt;<br>	        ifmaxaddr 0 port 11 priority 0 path cost 0<br>	member: en3 flags=3&lt;LEARNING,DISCOVER&gt;<br>	        ifmaxaddr 0 port 9 priority 0 path cost 0<br>	member: en4 flags=3&lt;LEARNING,DISCOVER&gt;<br>	        ifmaxaddr 0 port 10 priority 0 path cost 0<br>	nd6 options=201&lt;PERFORMNUD,DAD&gt;<br>	media: &lt;unknown <span class="hljs-built_in">type</span>&gt;<br>	status: inactive<br>utun0: flags=8051&lt;UP,POINTOPOINT,RUNNING,MULTICAST&gt; mtu 1380<br>	inet6 fe80::cdc3:569c:b8e5:27cd%utun0 prefixlen 64 scopeid 0xf<br>	nd6 options=201&lt;PERFORMNUD,DAD&gt;<br>utun1: flags=8051&lt;UP,POINTOPOINT,RUNNING,MULTICAST&gt; mtu 2000<br>	inet6 fe80::b3d5:d5dc:d9d:f593%utun1 prefixlen 64 scopeid 0x10<br>	nd6 options=201&lt;PERFORMNUD,DAD&gt;<br></code></pre></td></tr></table></figure>
 
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><br></code></pre></td></tr></table></figure>
+
+
+
+
+</blockquote>
 <h5 id="2｜tcpdump抓包"><a href="#2｜tcpdump抓包" class="headerlink" title="2｜tcpdump抓包"></a>2｜tcpdump抓包</h5><blockquote>
 <p>IP数据报(20B)</p>
 </blockquote>
@@ -307,6 +339,38 @@
 <p>使用的是华为的路由器，所以192.168.3.1表示的是华为路由器的地址，</p>
 <p>192.168.1.1</p>
 <p><code>192.168.1.1 IP地址是大多数无线路由器或ADSL调制解调器的默认网关。路由器可以使用多个IP主地址</code></p>
+</blockquote>
+<h5 id="3｜netstat-使用"><a href="#3｜netstat-使用" class="headerlink" title="3｜netstat 使用"></a>3｜netstat 使用</h5><blockquote>
+<p>1、使用netstat查询路由信息</p>
+<p>Destination:</p>
+<p>Gateway:</p>
+<p>Flags:</p>
+<p>Netif:</p>
+<p>Expire:</p>
+</blockquote>
+<h5 id="4｜traceroute命令"><a href="#4｜traceroute命令" class="headerlink" title="4｜traceroute命令"></a>4｜traceroute命令</h5><h4 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h4><p><code>DNS|FTP|Telnet|SMTP|HTTP|RIP|NFS</code></p>
+<h4 id="1｜DNS"><a href="#1｜DNS" class="headerlink" title="1｜DNS"></a>1｜DNS</h4><blockquote>
+<p>DNS协议的作用：域名与ip地址之间通过DNS服务器实现相互转化。</p>
+</blockquote>
+<blockquote>
+<p>DNS服务器：</p>
+<p>根DNS服务器</p>
+<p>顶级DNS服务器</p>
+<p>权威DNS服务器</p>
+<p>本地DNS服务器</p>
+<ul>
+<li><input disabled="" type="checkbox"> 为什么不能讲DNS服务器的内容存储在主机中，然后从主机调用，因为个人访问的网站比较少，并不是所有的网站都访问到。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>域名解析过程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">host + 域名<br></code></pre></td></tr></table></figure>
+
+<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-17-003825.png" srcset="/img/loading.gif" alt="image-20210317083820648"></p>
+<p>返回的值就是域名对应的ip地址</p>
+</blockquote>
+<blockquote>
+<p>DNS报文</p>
 </blockquote>
 
             </div>
