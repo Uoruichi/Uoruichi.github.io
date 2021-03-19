@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      886 字
+      1.6k 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      16
        分钟
     </span>
   
@@ -250,6 +250,48 @@
 </ul>
 </li>
 </ul>
+</blockquote>
+<h4 id="2021-3-18"><a href="#2021-3-18" class="headerlink" title="2021-3-18"></a>2021-3-18</h4><blockquote>
+<p>1、如何将想法转化为真实世界的网络应用：</p>
+<p>研发网络应用程序的核心是写出能够运行在<code>不同的端系统</code>和<code>通过网络彼此通信的程序</code>。</p>
+<p>应用程序体系结构：</p>
+<p>规定如何在各种端系统上组织该应用程序，在现在网络应用程序中使用的两种主流体系结构：客户-服务器体系结构或对等（P2P）体系结构。</p>
+<p>客户服务器体系：比如Web应用程序，当Web服务器收到来自某用户的请求时，它向客户发送<code>所请求的对象(request)</code>作为<code>响应(response)</code>。</p>
+<p>P2P体系结构：</p>
+<p>应用程序在<code>间接连接</code>的主机对之间使用<code>直接通信</code>。</p>
+<ul>
+<li><input disabled="" type="checkbox"> 加密的百度云盘（企业级应用，安全、高效）</li>
+<li><input disabled="" type="checkbox"> 如何对等（上传和下载一样多）</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>2、进程通信</p>
+<p>运行在多个端系统上的程序是如何相互通信的情况有一个基本的了解，在操作系统的层次上，相互通信的实际是进程而不是程序。进程间通信的规则由端系统上的操作系统确定。</p>
+<p>在不同端系统上的进程，通过跨国计算机网络交换报文的相互通信。发送进程生成并向网络中发送报文，接收进程接收这些报文，并通过报文发送回去进行响应。</p>
+<ul>
+<li><input disabled="" type="checkbox"> 可能不好理解的就是为什么是进程到进程之间的通信？</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>3、进程与计算机网络之间的接口：</p>
+<p>进程通过一个称为套接字<code>socket</code>的软件结构向网络发送报文和从网络接收报文。进程好比是房子，套接字好比是他的门。</p>
+<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-18-003403.png" srcset="/img/loading.gif" alt="image-20210318083357996"></p>
+</blockquote>
+<blockquote>
+<p>4、进程寻址</p>
+<p>为了保证进程通信之间的准确性（比如QQ发送的消息微信并不能收到，你发送的消息别人并不能收到），发送目的地必须要一个地址，所以这就涉及到网络协议中各层的地址标识。</p>
+<ul>
+<li><input disabled="" type="checkbox"> 在网络应用编程中这些参数应该如何使用？</li>
+</ul>
+<p>应用层：端口号</p>
+<p>网络层：ip地址</p>
+<p>链路层：MAC地址</p>
+</blockquote>
+<blockquote>
+<p>5、可供应用程序使用的运输服务</p>
+<p><code>套接字是应用程序进程和运输层协议之间的接口</code></p>
+<p>很多网络提供了不知一种运输层协议，在开发一个应用时，必须根据实际情况选用一种运输层协议，为你的应用需求提供恰当服务的协议。比如银行的数据传输必须是安全的不能丢失的，微信视频的时候允许有卡顿、丢失（你刚说了啥我没听见）</p>
+<p>在运输层既可以提供可靠的数据传输、也可以提供不可靠的数据传输</p>
 </blockquote>
 <h3 id="1｜数据结构-邓俊辉"><a href="#1｜数据结构-邓俊辉" class="headerlink" title="1｜数据结构                                    邓俊辉"></a>1｜数据结构                                    <code>邓俊辉</code></h3><h4 id="2021-3-17-1"><a href="#2021-3-17-1" class="headerlink" title="2021-3-17"></a>2021-3-17</h4><h5 id="1｜算法的基本要求：P5-P16"><a href="#1｜算法的基本要求：P5-P16" class="headerlink" title="1｜算法的基本要求：P5-P16"></a>1｜算法的基本要求：<code>P5-P16</code></h5><blockquote>
 <p>1、输入与输出</p>

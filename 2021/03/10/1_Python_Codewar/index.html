@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      438 字
+      1k 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      15
        分钟
     </span>
   
@@ -239,8 +239,72 @@
 <h4 id="2｜list操作"><a href="#2｜list操作" class="headerlink" title="2｜list操作"></a>2｜list操作</h4><h5 id="1｜count-操作"><a href="#1｜count-操作" class="headerlink" title="1｜count 操作"></a>1｜count 操作</h5><blockquote>
 <p>1、筛选list中满足条件的值，并返回值的数量</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">count_sheeps</span>(<span class="hljs-params">arrayOfSheeps</span>):</span><br>  <span class="hljs-keyword">return</span> arrayOfSheeps.count(<span class="hljs-literal">True</span>)<br><span class="hljs-comment"># 返回 list中值为True的数量</span><br></code></pre></td></tr></table></figure>
-
 </blockquote>
+<h4 id="2021-3-18"><a href="#2021-3-18" class="headerlink" title="2021-3-18"></a>2021-3-18</h4><h5 id="1｜Given-two-arrays-a-and-b-write-a-function-comp-a-b-orcompSame-a-b-that-checks-whether-the-two-arrays-have-the-“same”-elements-with-the-same-multiplicities-“Same”-means-here-that-the-elements-in-b-are-the-elements-in-a-squared-regardless-of-the-order"><a href="#1｜Given-two-arrays-a-and-b-write-a-function-comp-a-b-orcompSame-a-b-that-checks-whether-the-two-arrays-have-the-“same”-elements-with-the-same-multiplicities-“Same”-means-here-that-the-elements-in-b-are-the-elements-in-a-squared-regardless-of-the-order" class="headerlink" title="1｜Given two arrays a and b write a function comp(a, b) (orcompSame(a, b)) that checks whether the two arrays have the “same” elements, with the same multiplicities. “Same” means, here, that the elements in b are the elements in a squared, regardless of the order."></a>1｜Given two arrays <code>a</code> and <code>b</code> write a function <code>comp(a, b)</code> (or<code>compSame(a, b)</code>) that checks whether the two arrays have the “same” elements, with the same <em>multiplicities</em>. “Same” means, here, that the elements in <code>b</code> are the elements in <code>a</code> squared, regardless of the order.</h5><p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-18-024925.png" srcset="/img/loading.gif" alt="image-20210318104921162"></p>
+<blockquote>
+<p>解决方法：排序后对比</p>
+<p>因为数组或者是列表无序，如果使用for循环挨个对比，则时间复杂度为$O(n^2)$；</p>
+<p>所以使用排序后对比可以降低时间复杂度，而且可以保证正确性。</p>
+</blockquote>
+<blockquote>
+<p>语法：try、except、sorted()函数</p>
+<p>if……else和try、except的区别？</p>
+<p>try和except是python的异常处理</p>
+<ul>
+<li><input disabled="" type="checkbox"> python异常处理</li>
+</ul>
+<p>sorted函数</p>
+<p><code>sorted(iterable, ***, key=None, reverse=False)</code></p>
+<p>Return a new sorted list from the items in <em>iterable</em>.</p>
+<p><em>key</em> specifies a function of one argument that is used to extract a comparison key from each element in <em>iterable</em> (for example, <code>key=str.lower</code>). The default value is <code>None</code> (compare the elements directly).</p>
+<p>key就是一个函数的功能</p>
+<p><em>reverse</em> is a boolean value. If set to <code>True</code>, then the list elements are sorted as if each comparison were reversed.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">a = [<span class="hljs-string">&#x27;A&#x27;</span>,<span class="hljs-string">&#x27;B&#x27;</span>,<span class="hljs-string">&#x27;C&#x27;</span>,<span class="hljs-string">&#x27;D&#x27;</span>,<span class="hljs-string">&#x27;E&#x27;</span>]<br>b = <span class="hljs-built_in">sorted</span>(a,key=<span class="hljs-built_in">str</span>.lower,reverse=<span class="hljs-literal">True</span>)<br>print(b)<br></code></pre></td></tr></table></figure>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">comp</span>(<span class="hljs-params">array1, array2</span>):</span><br>    <span class="hljs-keyword">try</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">sorted</span>([i ** <span class="hljs-number">2</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> array1]) == <span class="hljs-built_in">sorted</span>(array2)<br>    <span class="hljs-keyword">except</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">comp</span>(<span class="hljs-params">array1, array2</span>):</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">sorted</span>([i*i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> array1]) == <span class="hljs-built_in">sorted</span>(array2):<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="2｜print-Error"><a href="#2｜print-Error" class="headerlink" title="2｜print Error"></a>2｜print Error</h5><p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-19-003310.png" srcset="/img/loading.gif" alt="image-20210319083309725"></p>
+<blockquote>
+<p>解题思路：</p>
+<p>就是在目标串中找出不符合要求的串，python中提供的机制有两种；第一种是使用re库进行查找，第二种是普通的查找，不满足要求的count++；</p>
+<p>1、利用正则表达式</p>
+<p>2、利用string的运算</p>
+</blockquote>
+<blockquote>
+<p>语法：</p>
+<p>正则表达式：<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/re.html?highlight=re#module-re">https://docs.python.org/zh-cn/3/library/re.html?highlight=re#module-re</a></p>
+</blockquote>
+<blockquote>
+<p>语法：</p>
+<p>string的查找与判断（子串的查找）</p>
+<ul>
+<li><pre><code class="python">[x for x in s if x not in &quot;abcdefghijklm&quot;]
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey"><br>- ```python<br>  if i &gt; <span class="hljs-string">&quot;m&quot;</span>:<br></code></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<p>len()函数的使用</p>
+<ul>
+<li><p>Return the length (the number of items) of an object. The argument may be a sequence (<code>such as a string, bytes, tuple, list, or range</code>) or a collection (such as a dictionary, set, or frozen set).</p>
+</li>
+<li><p>len()函数中参数可以是字符串、字节？、元素、列表或者是范围，字典、集合、冻结集</p>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 利用正则表达式</span><br><span class="hljs-keyword">from</span> re <span class="hljs-keyword">import</span> sub<br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printer_error</span>(<span class="hljs-params">s</span>):</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&#123;&#125;/&#123;&#125;&quot;</span>.<span class="hljs-built_in">format</span>(<span class="hljs-built_in">len</span>(sub(<span class="hljs-string">&quot;[a-m]&quot;</span>,<span class="hljs-string">&#x27;&#x27;</span>,s)),<span class="hljs-built_in">len</span>(s))<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printer_error</span>(<span class="hljs-params">s</span>):</span><br>    <span class="hljs-keyword">import</span> re<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">str</span>(<span class="hljs-built_in">len</span>(re.findall(<span class="hljs-string">&#x27;[n-z]&#x27;</span>, s))) + <span class="hljs-string">&quot;/&quot;</span> + <span class="hljs-built_in">str</span>(<span class="hljs-built_in">len</span>(s))<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printer_error</span>(<span class="hljs-params">s</span>):</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&#123;&#125;/&#123;&#125;&quot;</span>.<span class="hljs-built_in">format</span>(<span class="hljs-built_in">len</span>([x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> s <span class="hljs-keyword">if</span> x <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;abcdefghijklm&quot;</span>]), <span class="hljs-built_in">len</span>(s))<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printer_error</span>(<span class="hljs-params">s</span>):</span><br>    errors = <span class="hljs-number">0</span><br>    count = <span class="hljs-built_in">len</span>(s)<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> s:<br>        <span class="hljs-keyword">if</span> i &gt; <span class="hljs-string">&quot;m&quot;</span>:<br>            errors += <span class="hljs-number">1</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">str</span>(errors) + <span class="hljs-string">&quot;/&quot;</span> + <span class="hljs-built_in">str</span>(count)<br></code></pre></td></tr></table></figure>
+
+
+
+
+
 
             </div>
             <hr>
