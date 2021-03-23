@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5.2k 字
+      7.6k 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      76
+      109
        分钟
     </span>
   
@@ -265,7 +265,6 @@
 
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">1e6</span>+<span class="hljs-number">10</span>;<br><span class="hljs-keyword">int</span> q[N],tmp[N];<br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> LL;<br><span class="hljs-comment">//注意返回值res的类型</span><br><span class="hljs-function">LL <span class="hljs-title">Inversion</span><span class="hljs-params">(<span class="hljs-keyword">int</span> q[],<span class="hljs-keyword">int</span> left,<span class="hljs-keyword">int</span> right)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span>(left &gt;= right)   <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> mid = (left+right) &gt;&gt; <span class="hljs-number">1</span>;<br><span class="hljs-comment">//调用递归，递归叠加</span><br>    LL res = Inversion(q,left,mid) + Inversion(q,mid+<span class="hljs-number">1</span>,right);<br>    <span class="hljs-keyword">int</span> i=left,j=mid+<span class="hljs-number">1</span>,k=<span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span>(i&lt;= mid &amp;&amp; j&lt;=right)<br>        <span class="hljs-keyword">if</span>(q[i] &lt;= q[j])    tmp[k++] = q[i++];<br>        <span class="hljs-keyword">else</span>                  <br>        &#123;<br>            res += mid-i+<span class="hljs-number">1</span>;<br>            tmp[k++] = q[j++];<br>        &#125;<br>    <span class="hljs-keyword">while</span>(i&lt;=mid)   tmp[k++] = q[i++];<br>    <span class="hljs-keyword">while</span>(j&lt;=right) tmp[k++] = q[j++];<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=left,j=<span class="hljs-number">0</span>;i&lt;=right;i++,j++)    q[i] = tmp[j];<br>    <br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-keyword">int</span> n;<br>  <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;n);<br>  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)  <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;q[i]);<br>  <span class="hljs-built_in">cout</span> &lt;&lt; Inversion(q,<span class="hljs-number">0</span>,n<span class="hljs-number">-1</span>);<br>  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-
 </blockquote>
 <h5 id="2｜非递归实现归并排序"><a href="#2｜非递归实现归并排序" class="headerlink" title="2｜非递归实现归并排序"></a>2｜非递归实现归并排序</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><br></code></pre></td></tr></table></figure>
 
@@ -283,7 +282,8 @@
 <p>正确性：经过K趟扫描交换之后，最大的前K个元素必然就位，对应14行注释</p>
 <p>有穷性：经过K趟扫描交换之后，待求解问题的有效规模将缩减至n-k。每一次都有一个元素就位，所以经过n趟必然有序。</p>
 </blockquote>
-<h3 id="二、查找"><a href="#二、查找" class="headerlink" title="二、查找"></a>二、查找</h3><h4 id="1｜二分基于数组的下标进行操作"><a href="#1｜二分基于数组的下标进行操作" class="headerlink" title="1｜二分基于数组的下标进行操作"></a>1｜二分<code>基于数组的下标进行操作</code></h4><blockquote>
+<h3 id="二、查找"><a href="#二、查找" class="headerlink" title="二、查找"></a>二、查找</h3><h4 id="1｜二分"><a href="#1｜二分" class="headerlink" title="1｜二分"></a>1｜二分</h4><blockquote>
+<p><code>（基于数组的下标进行操作）</code></p>
 <p>严格单调的话：不存在边界问题</p>
 <p>有重复元素存在大量边界问题会造成死循环和查找不完全</p>
 </blockquote>
@@ -382,11 +382,14 @@
 <p>实际工程中大多使用的是结构体形式模拟存储，在实际工程中要仔细考虑边界条件。</p>
 <p>所以两种方法都要掌握，数组模拟主要就是解决关系问题，解决了关系问题其他操作都大致相同。</p>
 </blockquote>
-<h4 id="1｜链表"><a href="#1｜链表" class="headerlink" title="1｜链表"></a>1｜链表</h4><p><code>主要实现的功能：增｜删｜改｜查</code></p>
+<h4 id="1｜单链表"><a href="#1｜单链表" class="headerlink" title="1｜单链表"></a>1｜单链表</h4><p><code>主要实现的功能：增｜删｜改｜查</code></p>
 <blockquote>
-<p>在算法中要保证运算的效率，所以链表使用静态链表来实现</p>
+<p>在算法中要保证运算的效率，所以链表使用静态链表来实现。</p>
 </blockquote>
-<h5 id="1｜静态链表的构造"><a href="#1｜静态链表的构造" class="headerlink" title="1｜静态链表的构造"></a>1｜静态链表的构造</h5><blockquote>
+<blockquote>
+<p>做题的时候要分清楚题目的要求与已知条件，已知条件就是区分是数组下标为k还是第k个插入的点，最好是画图理解。</p>
+</blockquote>
+<h5 id="1｜静态链表"><a href="#1｜静态链表" class="headerlink" title="1｜静态链表"></a>1｜静态链表</h5><blockquote>
 <p>理解好链表中各个数据成员的</p>
 </blockquote>
 <blockquote>
@@ -500,8 +503,253 @@
 <img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-19-023615.png" srcset="/img/loading.gif" alt="image-20210319103615345" style="zoom:50%;" />
 
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> M = <span class="hljs-number">1e6</span>+<span class="hljs-number">10</span>;<br><span class="hljs-keyword">int</span> elem[M],List[M];<br><span class="hljs-keyword">int</span> n,m;<br><span class="hljs-keyword">int</span> head,avil;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Init</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    head = <span class="hljs-number">0</span>;<br>    avil = <span class="hljs-number">1</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Head</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    elem[avil] = x;<br>    List[avil] = head;<br>    head = avil;<br>    avil ++;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Insert</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k,<span class="hljs-keyword">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    elem[avil] = x;<br>    List[avil] = List[k];<br>    List[k] = avil;<br>    avil ++;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Delete</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k)</span></span><br><span class="hljs-function"></span>&#123;<br>    List[k] = List[List[k]];<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    Init();<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;m);<br>    <span class="hljs-keyword">char</span> op;<br>    <span class="hljs-keyword">while</span>(m--)<br>    &#123;<br>        <span class="hljs-keyword">int</span> x,k;<br>        <span class="hljs-built_in">cin</span> &gt;&gt; op;<br>        <span class="hljs-keyword">if</span>(op == <span class="hljs-string">&#x27;H&#x27;</span>)<br>        &#123;<br>            <span class="hljs-built_in">cin</span> &gt;&gt; x;<br>            Head(x);<br>        &#125;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(op == <span class="hljs-string">&#x27;I&#x27;</span>)<br>        &#123;<br>            <span class="hljs-built_in">cin</span> &gt;&gt;k &gt;&gt; x;<br>            Insert(k,x);<br>        &#125;<br>        <span class="hljs-keyword">else</span><br>        &#123;<br>            <span class="hljs-built_in">cin</span> &gt;&gt; k;<br>            <span class="hljs-keyword">if</span>(!k)  head = List[head];  <span class="hljs-comment">//这里不是很清楚，头结点的作用是什么？为了遍历？</span><br>            Delete(k);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i= head;i!=<span class="hljs-number">0</span>;i=List[i])     <span class="hljs-built_in">cout</span> &lt;&lt; elem[i]&lt;&lt;<span class="hljs-string">&#x27; &#x27;</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><br></code></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="2｜双链表"><a href="#2｜双链表" class="headerlink" title="2｜双链表"></a>2｜双链表</h4><h5 id="1｜双链表的性质"><a href="#1｜双链表的性质" class="headerlink" title="1｜双链表的性质"></a>1｜双链表的性质</h5><blockquote>
+<p>双链表给定一个结点node，可以通过该结点的left和right指针可以找到node-1和node+1结点。</p>
+</blockquote>
+<h5 id="2｜双链表的构造"><a href="#2｜双链表的构造" class="headerlink" title="2｜双链表的构造"></a>2｜双链表的构造</h5><blockquote>
+<p>通过三个数组进行构造，node结点的left[N]表示的是node-1的下标，right[N]表示的是node+1的下标。</p>
+<p>边界判断：</p>
+<ul>
+<li>当链表中没有结点的时候</li>
+<li>当链表中只有一个结点的时候</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>1、双链表的数据成员：</p>
+<p>1｜数据规模的大小为N</p>
+<p>2｜存储链表中值的数组$value[N]$</p>
+<p>3｜记录结点node的前后元素的指针数组$left[N]$    $right[N]$,数组中存储的值是对应node的数组的下标。</p>
+<p>4｜avil表示下一个可用的数组空间</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">1e56</span>+<span class="hljs-number">10</span>;<br><span class="hljs-keyword">int</span> value[N],left[N],right[N],avil;<br></code></pre></td></tr></table></figure>
+
+<p>使用数组的0号元素和1号元素记录数组的头结点和尾结点，在头结点和尾结点中插入链表的元素。</p>
+<p>$Head -&gt; Tail$        //初始化链表</p>
+<p>$Head -&gt; x -&gt; Tail$     //插入元素x</p>
+<table>
+<thead>
+<tr>
+<th>下标</th>
+<th>0｜H</th>
+<th>1｜T</th>
+<th>2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>value</td>
+<td>Head</td>
+<td>Tail</td>
+<td>x</td>
+</tr>
+<tr>
+<td>left</td>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>right</td>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>avil</td>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody></table>
+</blockquote>
+<blockquote>
+<p>2、初始化</p>
+<p>1｜取0号元素为头结点、1号元素为尾结点</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Init</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>  right[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>  left[<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;<br>  avil = <span class="hljs-number">2</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>3、插入元素：左插入、右插入</p>
+<p>$Head -&gt; x -&gt; Tail$     //插入元素x</p>
+<blockquote>
+<p>右插法<code>（在下标为k的点的右侧插入z）</code></p>
+<p>avil = 3；</p>
+<p>$Head -&gt;x -&gt; y -&gt; Tail$     //在y的右边插入z,此时不考虑边界条件,k = 2;</p>
+<p>$Head -&gt;x -&gt; y -&gt; z -&gt; Tail$     </p>
+<ul>
+<li><input disabled="" type="checkbox"> 写一个debug工具，可以可视化的按照表格的形式输出各个值，类似excel的数据透视表的功能。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>下标</th>
+<th>0｜H</th>
+<th>1｜T</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>value</td>
+<td>Head</td>
+<td>Tail</td>
+<td>x</td>
+<td>y</td>
+<td>z</td>
+</tr>
+<tr>
+<td>left</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>right</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>avil</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>保证不断链<code>（链表操作的关键）</code></p>
+<p>1｜要先设置插入元素的指针</p>
+<p>2｜在断链后修改原有指针；</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Insert_Right</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k,<span class="hljs-keyword">int</span> z)</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-comment">//先保证插入元素的指针，也就是z的指针的指向。</span><br>	value[avil] = z;<br>  right[avil] = right[k];<br>  left[avil] = k;<br>  <span class="hljs-comment">//断链,注意断链的顺序，因为要使用right[k]的值，所以要先保证right[k]的值没有改变前调用。</span><br>  <span class="hljs-comment">//难点其实在于找前指针和后指针的表达式，找到之后保证不断链的前提下，修改链。</span><br>  left[right[k]] = avil;<br>  right[k] = avil;<br>  avil++;<br>&#125; <br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>左插法<code>（在下标为k的点的左侧插入z）</code></p>
+<p>avil = 3；</p>
+<p>$Head -&gt;x -&gt; z-&gt; y -&gt;Tail$     //在y的左边插入z,此时不考虑边界条件,k = 2;</p>
+<p>保证不断链的条件和右插一样，但是指针不同</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Insert_Left</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k,<span class="hljs-keyword">int</span> z)</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-comment">//先赋值</span><br>  value[avil] = z;<br>  left[avil] = left[k];<br>  right[avil] = k;<br>  <span class="hljs-comment">//断链</span><br>  right[left[k]] = avil;<br>  left[k] = avil;<br>  avil++;<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>4、删除操作<code>删除第k个点</code></p>
+<p>$Head -&gt;x -&gt; y -&gt; z -&gt; Tail$  //删除z，那么就是删除第3个点，数组的话是删除avil = k+1的点，因为插入是从avil = 2开始操作的；删除也存在保证不断链的要求。</p>
+<p>也就是修改前一个元素的右链和后一个元素的左链；</p>
+<p>前一个元素的右链：right[left[k+1]]</p>
+<p>后一个元素的左链：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Delete</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k)</span></span><br><span class="hljs-function"></span>&#123;<br>  right[left[k+<span class="hljs-number">1</span>]] = right[k+<span class="hljs-number">1</span>];<br>  left[right[k+<span class="hljs-number">1</span>]] = left[k+<span class="hljs-number">1</span>];<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>5、输出（从头结点开始输出，到尾结点结束）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Input_List</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i!=<span class="hljs-number">1</span>;i=left[i])		<span class="hljs-built_in">cout</span> &lt;&lt; value[i] &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> 未完成</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><code class="hljs c++"><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">1e5</span>+<span class="hljs-number">10</span>;<br><span class="hljs-keyword">int</span> value[N],_left[N],_right[N];<br><span class="hljs-keyword">int</span> M,avil;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Init</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    _right[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>    _left[<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;<br>    avil = <span class="hljs-number">2</span>;<br>&#125;<br><span class="hljs-comment">//实现头插</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Head</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    value[avil] = x;<br>    _right[avil] = _right[<span class="hljs-number">0</span>];<br>    _left[avil] = <span class="hljs-number">0</span>;<br>    _left[_right[<span class="hljs-number">0</span>]] = avil;<br>    _right[<span class="hljs-number">0</span>] = avil;<br>    avil++;<br>&#125;<br><span class="hljs-comment">//实现尾插</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Tail</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    value[avil] = x;<br>    _right[avil] = <span class="hljs-number">1</span>;<br>    _left[avil] = _left[<span class="hljs-number">1</span>];<br>    _right[_left[<span class="hljs-number">1</span>]] = avil;<br>    _left[<span class="hljs-number">1</span>] = avil;<br>    avil++;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Inster_Left</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k,<span class="hljs-keyword">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    value[avil] = x;<br>    _left[avil] = _right[k];<br>    _right[avil] = k;<br>    _left[_right[k]] = avil;<br>    _right[k] = avil;<br>    avil ++;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Insert_Right</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k,<span class="hljs-keyword">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    value[avil] = x;<br>    _right[avil] = _left[k];<br>    _left[avil] = k;<br>    _left[_right[k]] = avil;<br>    _right[k] = avil;<br>    avil++;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Delete</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k)</span></span><br><span class="hljs-function"></span>&#123;<br>    _left[_right[k]] = _left[k];<br>    _right[_left[k]] = _right[k];<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">output_List</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">2</span>;i!= <span class="hljs-number">1</span>;i = _right[i])   <span class="hljs-built_in">cout</span> &lt;&lt; value[i] &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;M);<br>    Init();<br>    <span class="hljs-built_in">string</span> op;<br>    <span class="hljs-keyword">int</span> k,x;<br>    <span class="hljs-keyword">while</span>(M--)<br>    &#123;<br>        <span class="hljs-built_in">cin</span> &gt;&gt; op;<br>        <span class="hljs-keyword">if</span>( op == <span class="hljs-string">&quot;R&quot;</span>)  <br>        &#123;<br>            <span class="hljs-built_in">cin</span> &gt;&gt; x;<br>            Head(x);<br>        &#125;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( op == <span class="hljs-string">&quot;L&quot;</span>)<br>        &#123;<br>            <span class="hljs-built_in">cin</span> &gt;&gt; x;<br>            Tail(x);<br>        &#125;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( op == <span class="hljs-string">&quot;D&quot;</span>)<br>        &#123;<br>            <span class="hljs-built_in">cin</span> &gt;&gt; k;<br>            Delete(k+<span class="hljs-number">1</span>);<br>        &#125;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(op == <span class="hljs-string">&quot;IL&quot;</span>)<br>        &#123;<br>            <span class="hljs-built_in">cin</span> &gt;&gt; k &gt;&gt; x;<br>            Inster_Left(k,x);<br>        &#125;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>( op == <span class="hljs-string">&quot;IR&quot;</span>)<br>        &#123;<br>            <span class="hljs-built_in">cin</span> &gt;&gt; k &gt;&gt; x;<br>            Insert_Right(k,x);<br>        &#125;<br>    &#125;<br>    output_List();<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="3｜栈"><a href="#3｜栈" class="headerlink" title="3｜栈"></a>3｜栈</h4><h5 id="1｜栈的性质"><a href="#1｜栈的性质" class="headerlink" title="1｜栈的性质"></a>1｜栈的性质</h5><blockquote>
+<p>1、先进后出，所以适用于记录什么样的数据？</p>
+<p>1｜优先处理新加入的数据</p>
+<p>2、栈的操作：初始化、进栈、出栈、判空、判满</p>
+</blockquote>
+<h5 id="2｜栈的实现"><a href="#2｜栈的实现" class="headerlink" title="2｜栈的实现"></a>2｜栈的实现</h5><blockquote>
+<p>1、栈的数据组成：栈分为两种，一种是链栈（利用指针实现），另一种是顺序栈（利用数组实现）</p>
+<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-21-011946.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>在算法实现中，大多是利用顺序栈来实现，一般在算法做题中，栈是作为一种中间的工具实现一些功能。</p>
+<ul>
+<li><input disabled="" type="checkbox"> 所以注意栈用于哪些场景，要总结。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">1e6</span>+<span class="hljs-number">10</span>;<span class="hljs-comment">//栈内最大的容量为1e6</span><br><span class="hljs-keyword">int</span> Stack[N];<span class="hljs-comment">//顺序栈</span><br><span class="hljs-keyword">int</span> top;<span class="hljs-comment">//栈顶指针，因为栈先进栈的指针并不能进行操作，只能操作后进栈的指针，所以只需要栈顶指针即可。</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>2、栈的初始化（先不考虑边界条件）</p>
+<p>初始化只要对top指针进行初始化，初始化方式有两种<code>top = -1</code>或是<code>top = 0</code>，会导致判空与判满的条件不同。</p>
+<p><code>top = -1 </code>:那么栈的元素与数组下标一致，</p>
+<p><code>top = 0</code>：栈的元素的顺序与插入的顺序一致</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Init</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>  top = <span class="hljs-number">0</span>;<span class="hljs-comment">//个人喜好</span><br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>3、进栈(未考虑边界条件)</p>
+<p>top相当于栈顶的一个指针，标记栈顶，所以进栈和出栈都是对top进行操作；</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//未优化代码</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Push</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>  top ++;<span class="hljs-comment">//top标记栈顶，所以先为插入元素找到下一个插入的空间，也就是进行top++；</span><br>  Stack[top] = x;<span class="hljs-comment">//找到空间后，对空间进行赋值,所以就是先++，后赋值</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//优化代码</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Push</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>  Stack[++top] = x;<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>4、出栈（未考虑边界条件）</p>
+<p>top指向栈顶，要出栈只需要挪动栈顶指针即可，如果要输出栈顶元素，要先输出后挪动top指针</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//优化代码</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Pop</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-keyword">int</span> x;<br>  x = Stack[top --];<span class="hljs-comment">//先赋值，再--</span><br>  <span class="hljs-keyword">return</span> x;<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>5、获取栈顶元素</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getTop</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-keyword">return</span> Stack[top];<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>6、判空</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">Empty</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-keyword">return</span> (top == <span class="hljs-number">0</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>7、判满</p>
+<p>一半的算法题中貌似不会判满</p>
+</blockquote>
+<h5 id="3｜栈的应用"><a href="#3｜栈的应用" class="headerlink" title="3｜栈的应用"></a>3｜栈的应用</h5><blockquote>
+<p>一般来说很多问题，栈都作为辅助的工具，而不能够直接解题。</p>
+<p>将栈作为存储的工具，然后根据栈的性质，输出结果</p>
+</blockquote>
+<blockquote>
+<p>括号匹配</p>
+<p>左括号与之相邻的最近的右括号匹配</p>
+</blockquote>
+<blockquote>
+<p>栈思想的应用：</p>
+<p>利用栈的出栈和入栈思想，这个题是对出栈入栈的条件进行了限制，遇到’(‘相当于入栈，遇到’)’，相当于出栈；因为要去掉最外层的（），所以栈底保留一个元素，也就是要求top &gt; 1；</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-outermost-parentheses/">https://leetcode-cn.com/problems/remove-outermost-parentheses/</a></p>
+<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-21-083054.png" srcset="/img/loading.gif" alt="image-20210321163054142"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">removeOuterParentheses</span><span class="hljs-params">(<span class="hljs-built_in">string</span> S)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> top = <span class="hljs-number">0</span>;<br>        <span class="hljs-built_in">string</span> ans;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;S.length();i++)<br>        &#123;<br>            <span class="hljs-keyword">if</span>(S[i] == <span class="hljs-string">&#x27;(&#x27;</span>) <br>            &#123;<br>                top ++;<br>                <span class="hljs-keyword">if</span>(top &gt;<span class="hljs-number">1</span>)    ans += <span class="hljs-string">&#x27;(&#x27;</span>;<br>            &#125;<br>            <span class="hljs-keyword">else</span><br>            &#123;<br>                <span class="hljs-keyword">if</span>(top &gt; <span class="hljs-number">1</span>)     ans += <span class="hljs-string">&#x27;)&#x27;</span>;<br>                top --;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 
 </blockquote>
+<h4 id="4｜队列"><a href="#4｜队列" class="headerlink" title="4｜队列"></a>4｜队列</h4><h5 id="1｜队列的性质"><a href="#1｜队列的性质" class="headerlink" title="1｜队列的性质"></a>1｜队列的性质</h5><blockquote>
+<p> 只允许一端输入，另一端输出，允许输出是队头，允许输入是队尾，先进先出（FIFO）。</p>
+</blockquote>
+<h5 id="2｜队列实现（数组）"><a href="#2｜队列实现（数组）" class="headerlink" title="2｜队列实现（数组）"></a>2｜队列实现（数组）</h5><p><code>未进行边界条件判断</code></p>
+<blockquote>
+<p>1、数据成员</p>
+<p>因为输入和输出操作的是不同的位置，所以需要双指针来进行操作，设置队头指针为front，队尾指针为rear</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxSize <span class="hljs-number">1e6</span>+!<span class="hljs-number">0</span>;<br><span class="hljs-keyword">int</span> SeqQueue[maxSize];<br><span class="hljs-keyword">int</span> front,rear;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>2、初始化队列</p>
+<p>初始化时队列中没有元素，所以front = rear = 0</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Init</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>  front = rear = <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>3、插入元素(入队)</p>
+<p>插入元素只需操作队尾指针，指针rear的含义是下一个可以插入的位置，并不是指向真正的队尾。所以应该是rear ++ ，而不是++rear；这个操作和front = rear = 0 的初始化方式有关。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">EnQueue</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>  SeqQueue(rear++) = x;<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>4、出队</p>
+<p>出队因为只能在队头出队，所以只需要操作队头指针。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">DeQueue</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>  front ++ ;<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>5、判空</p>
+<p>判空的条件就是当队头和队尾相同的时候</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">Empty</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-keyword">return</span> (front == rear);<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>6、取出队头元素</p>
+<p>操作front指针</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getFront</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>  <span class="hljs-keyword">return</span> SeqQueue[front];<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+ <img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-22-001421.png" srcset="/img/loading.gif" alt="image-20210322081421032" style="zoom:50%;" />
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> maxSize = <span class="hljs-number">1e6</span>+<span class="hljs-number">10</span>;<br><span class="hljs-keyword">int</span> M,que[maxSize];<br><span class="hljs-built_in">string</span> op;<br><span class="hljs-keyword">int</span> x,front,rear;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Init</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    front = rear = <span class="hljs-number">0</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">push</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    que[rear++] = x;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pop</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    front ++;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">query</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">cout</span> &lt;&lt;  que[front] &lt;&lt; <span class="hljs-built_in">endl</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">empty</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span>(front == rear)   <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;YES&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;<br>    <span class="hljs-keyword">else</span>                <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;NO&quot;</span>&lt;&lt;<span class="hljs-built_in">endl</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;M);<br>    Init();<br>    <span class="hljs-keyword">while</span>(M--)<br>    &#123;<br>        <span class="hljs-built_in">cin</span> &gt;&gt; op;<br>        <span class="hljs-keyword">if</span>(op == <span class="hljs-string">&quot;push&quot;</span>)<br>        &#123;<br>            <span class="hljs-built_in">cin</span> &gt;&gt; x;<br>            push(x);<br>        &#125;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(op == <span class="hljs-string">&quot;pop&quot;</span>)    pop();<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(op == <span class="hljs-string">&quot;query&quot;</span>)  query();<br>        <span class="hljs-keyword">else</span>                    empty();<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure></blockquote>
 
             </div>
             <hr>

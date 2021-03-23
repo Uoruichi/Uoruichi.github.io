@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1k 字
+      1.3k 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      15
+      19
        分钟
     </span>
   
@@ -301,10 +301,46 @@
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">printer_error</span>(<span class="hljs-params">s</span>):</span><br>    errors = <span class="hljs-number">0</span><br>    count = <span class="hljs-built_in">len</span>(s)<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> s:<br>        <span class="hljs-keyword">if</span> i &gt; <span class="hljs-string">&quot;m&quot;</span>:<br>            errors += <span class="hljs-number">1</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">str</span>(errors) + <span class="hljs-string">&quot;/&quot;</span> + <span class="hljs-built_in">str</span>(count)<br></code></pre></td></tr></table></figure>
 
+<h4 id="2021-3-20"><a href="#2021-3-20" class="headerlink" title="2021-3-20"></a>2021-3-20</h4><h5 id="1｜Find-the-unique-number"><a href="#1｜Find-the-unique-number" class="headerlink" title="1｜Find the unique number"></a>1｜Find the unique number</h5><p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-20-092501.png" srcset="/img/loading.gif" alt="image-20210320172458124"></p>
+<blockquote>
+<p>算法：</p>
+<p>扫描数组，找到数组中count = 1的元素并输出</p>
+</blockquote>
+<blockquote>
+<p>语法：</p>
+<p>1、使用set（集合）的性质：set中会有去重的功能</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 对set内元素的赋值</span><br>s = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">3</span>&#125;<br>a ,b = s<br><span class="hljs-comment"># a = 1</span><br><span class="hljs-comment"># b = 3</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>2、count()方法的使用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">s.count(x) <span class="hljs-comment"># x在s中出现的次数</span><br></code></pre></td></tr></table></figure>
 
+<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-20-093528.png" srcset="/img/loading.gif" alt="image-20210320173528204"></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find_uniq</span>(<span class="hljs-params">arr</span>):</span><br>    a, b = <span class="hljs-built_in">set</span>(arr)<br>    <span class="hljs-keyword">return</span> a <span class="hljs-keyword">if</span> arr.count(a) == <span class="hljs-number">1</span> <span class="hljs-keyword">else</span> b<br></code></pre></td></tr></table></figure>
 
+<h5 id="2｜Take-a-Ten-Minute-Walk"><a href="#2｜Take-a-Ten-Minute-Walk" class="headerlink" title="2｜Take a Ten Minute Walk"></a>2｜Take a Ten Minute Walk</h5><p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-20-094310.png" srcset="/img/loading.gif" alt="image-20210320174310503"></p>
+<blockquote>
+<p>语法：</p>
+<p>count()方法的使用</p>
+</blockquote>
+<blockquote>
+<p>算法：</p>
+<p>如果返回原点则n、s、w、e的计数相同</p>
+<p>经过多次变化的后仍为0，n与s为相反，所以遇到n则加1，遇到s则减1；w与e同理;</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isValidWalk</span>(<span class="hljs-params">walk</span>):</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">len</span>(walk) == <span class="hljs-number">10</span> <span class="hljs-keyword">and</span> walk.count(<span class="hljs-string">&#x27;n&#x27;</span>) == walk.count(<span class="hljs-string">&#x27;s&#x27;</span>) <span class="hljs-keyword">and</span> walk.count(<span class="hljs-string">&#x27;e&#x27;</span>) == walk.count(<span class="hljs-string">&#x27;w&#x27;</span>)<br></code></pre></td></tr></table></figure>
 
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isValidWalk</span>(<span class="hljs-params">walk</span>):</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(walk) != <span class="hljs-number">10</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>    x, y = <span class="hljs-number">0</span>, <span class="hljs-number">0</span><br><br>    <span class="hljs-keyword">for</span> direction <span class="hljs-keyword">in</span> walk:<br>        <span class="hljs-keyword">if</span> direction == <span class="hljs-string">&#x27;n&#x27;</span>:<br>            y += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">elif</span> direction == <span class="hljs-string">&#x27;s&#x27;</span>:<br>            y -= <span class="hljs-number">1</span><br>        <span class="hljs-keyword">elif</span> direction == <span class="hljs-string">&#x27;e&#x27;</span>:<br>            x += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">elif</span> direction == <span class="hljs-string">&#x27;w&#x27;</span>:<br>            x -= <span class="hljs-number">1</span><br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>    <span class="hljs-keyword">return</span> x == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> y == <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
 
+<h5 id="3｜The-Supermarket-Queue"><a href="#3｜The-Supermarket-Queue" class="headerlink" title="3｜The Supermarket Queue"></a>3｜The Supermarket Queue</h5><p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-20-145114.png" srcset="/img/loading.gif" alt="image-20210320225114354"></p>
+<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-20-145125.png" srcset="/img/loading.gif" alt="image-20210320225125006"></p>
+<blockquote>
+<p>算法：</p>
+</blockquote>
+<blockquote>
+<p>语法：</p>
+</blockquote>
 
             </div>
             <hr>
