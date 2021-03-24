@@ -1,0 +1,490 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  
+    <meta name="description" content="">
+  
+  <meta name="author" content="Uoruichi">
+  <meta name="keywords" content="">
+  
+  <title>C++_函数、函数进阶 - 漫 漫 长 路 ～</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>From Zero To Hero</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/ironman.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="C++_函数、函数进阶">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-23 08:47" pubdate>
+        2021年3月23日 早上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      13
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">C++_函数、函数进阶</h1>
+            
+            <div class="markdown-body">
+              <h3 id="函数基础"><a href="#函数基础" class="headerlink" title="函数基础"></a>函数基础</h3><h4 id="1｜函数基本知识"><a href="#1｜函数基本知识" class="headerlink" title="1｜函数基本知识"></a>1｜函数基本知识</h4><h5 id="0｜库函数的使用"><a href="#0｜库函数的使用" class="headerlink" title="0｜库函数的使用"></a>0｜库函数的使用</h5><blockquote>
+<p>库函数的使用涉及到编译的知识，以后在慢慢往懂搞吧，比较复杂，目前先学会库函数的使用，以及哪些库中有哪些常用的函数。</p>
+</blockquote>
+<blockquote>
+<p>库函数是已经定义和编译好的函数，所以使用库函数的话，只需要增加相应的标准头文件，然后正确的调用函数。</p>
+</blockquote>
+<blockquote>
+<h6 id="C-服务编译耗时优化原理及实践"><a href="#C-服务编译耗时优化原理及实践" class="headerlink" title="C++服务编译耗时优化原理及实践"></a><a target="_blank" rel="noopener" href="https://tech.meituan.com/2020/12/10/apache-kylin-practice-in-meituan.html">C++服务编译耗时优化原理及实践</a></h6></blockquote>
+<h5 id="1｜函数的定义"><a href="#1｜函数的定义" class="headerlink" title="1｜函数的定义"></a>1｜函数的定义</h5><blockquote>
+<p>函数的定义需要说明函数的返回值类型即typeName，typeName为数据类型的名字，若返回值类型不为void，则必须有return；</p>
+<p>返回值类型不能是数组，除数组之外可以是任何数据类型（可以是结构和对象，如果非要返回数组的话，那么可以将数组作为结构或者对象的一部分返回）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//伪代码</span><br><span class="hljs-meta"># <span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;Head&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Function</span><span class="hljs-params">()</span></span>;	<span class="hljs-comment">//提供函数原型</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>  Function();			<span class="hljs-comment">//函数的调用</span><br>  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><span class="hljs-function">typeName <span class="hljs-title">Function</span><span class="hljs-params">(para)</span>		<span class="hljs-comment">// 函数的定义</span></span><br><span class="hljs-function"></span>&#123;<br>  statements;<br>  <span class="hljs-keyword">return</span> ;<span class="hljs-comment">// optional</span><br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>函数参数：</p>
+<p>按值传递：将数值参数传递给函数，函数将其赋值给新的变量；按值传递不会影响到main中的数据。</p>
+<p>实参：argu（传递给函数的值）</p>
+<p>形参：para（用于接收传递值的变量）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">double</span> volume = cube(side);<br><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">volume</span><span class="hljs-params">(<span class="hljs-keyword">double</span> x)</span></span><br><span class="hljs-function">  <span class="hljs-comment">//被调用时函数创建名字为x的变量，并将其初始化为5</span></span><br><span class="hljs-function">  <span class="hljs-comment">//side 为实参 ， x 为形参</span></span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>作用域：</p>
+<p>函数中声明的变量为该函数私有，在调用该函数的时候在内存中开辟空间，调用完成后会回收空间。</p>
+</blockquote>
+<h5 id="2｜提供函数原型"><a href="#2｜提供函数原型" class="headerlink" title="2｜提供函数原型"></a>2｜提供函数原型</h5><blockquote>
+<p>为什么要提供函数原型：</p>
+<p>第一：原型告诉编译器，函数的参数，如果函数的参数类型或者数量存在问题，编译器可以捕捉到这类错误。</p>
+<p>第二：在函数执行完毕之后，将把返回值放置在指定的位置（CPU寄存器或内存中），然后调用这个函数的时候，就从这个位置取得返回值。由于原型指出了函数的返回值类型，所以编译器就可以知道检索多少个字节来解释这个返回值。</p>
+<p>第三：单文件编译不存在函数原型和函数定义分离，但是如果是多文件编程，那么如果不提供函数原型，则会影响编译速度。避免使用函数原型的方法就是在调用函数前就定义函数，但是在实际的项目中有时是不可行的。</p>
+</blockquote>
+<blockquote>
+<p>函数原型语法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">cube</span><span class="hljs-params">(<span class="hljs-keyword">double</span> x)</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">cube</span><span class="hljs-params">(<span class="hljs-keyword">double</span>)</span></span>;<br><span class="hljs-comment">//以上几种定义都是可以的，函数的参数只需提供类型列表，不一定一定要类型名字。</span><br><span class="hljs-comment">//这是函数原型的语法，不能与函数定义混淆，函数定义一定要提供类型名字的。</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">cube1</span><span class="hljs-params">(<span class="hljs-keyword">double</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> x * x;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">cube2</span><span class="hljs-params">(<span class="hljs-keyword">double</span>)</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">double</span> x = <span class="hljs-number">4.5</span>,y = <span class="hljs-number">4.6</span>;<br>    <span class="hljs-built_in">cout</span> &lt;&lt; cube1(x) &lt;&lt; <span class="hljs-built_in">endl</span>;<br>    <span class="hljs-built_in">cout</span> &lt;&lt; cube2(y) &lt;&lt; <span class="hljs-built_in">endl</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">cube2</span><span class="hljs-params">(<span class="hljs-keyword">double</span> y)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> y*y;<br>&#125;<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">错误做法：</span><br><span class="hljs-comment">double cube2(double)</span><br><span class="hljs-comment">&#123;</span><br><span class="hljs-comment">    return y*y;</span><br><span class="hljs-comment">&#125;</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="3｜调用函数"><a href="#3｜调用函数" class="headerlink" title="3｜调用函数"></a>3｜调用函数</h5><h4 id="2｜函数与数组"><a href="#2｜函数与数组" class="headerlink" title="2｜函数与数组"></a>2｜函数与数组</h4><blockquote>
+<p>函数参数为数组：</p>
+<p>传递数组的时候，并没有发生拷贝的情况，而是将数组在内存中地址等数组信息传递给函数，是在原有数组的基础上进行操作的。其实相当于函数创建了一个新的变量，这个新的变量是地址。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// int arr[] []为空则表示可以将任意长度的数组传递给函数</span><br><span class="hljs-comment">//实际情况时arr并不是数组，而是指针，但是在编写函数其余部分时候，可以将arr看作是数组。</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arr[],<span class="hljs-keyword">int</span> n)</span></span>;<br><span class="hljs-comment">//如果要同时操作数组和数组的长度的时候要传递两个参数，数组名字和数组的长度</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fillArray</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arr[],<span class="hljs-keyword">int</span> size)</span></span>;<br><span class="hljs-comment">//bad prototype</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fillArray</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arr[size])</span></span>;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>C++将数组名解释为其第一个元素的地址，但是也有例外。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++">cookies = &amp; cookies[<span class="hljs-number">0</span>];<br><span class="hljs-comment">//表示的是整个数组的长度，而不是单个元素的长度</span><br><span class="hljs-keyword">sizeof</span>(cookies);	<br><span class="hljs-comment">//因为数组的内存空间是连续的，所以&amp; cookies返回的是整个数组大小的内存块地址</span><br>&amp; cookies;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>在C++中，当且仅当用于函数头或者函数原型的时候<code>int *arr</code>和<code>int arr[]</code>的含义才相同，并不能在函数体中使用<code>int arr[]</code>来声明指针。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++">arr[i] == *(arr+i);<br>&amp;arr[i] == arr+i;<br><span class="hljs-comment">//由以上两个等式知道遍历数组的时候使用指针加法和数组的下标是等效的。</span><br></code></pre></td></tr></table></figure></blockquote>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/C/">C++</a>
+                    
+                      <a class="hover-with-bg" href="/categories/C/Grammar/">Grammar</a>
+                    
+                      <a class="hover-with-bg" href="/categories/C/Base/">Base</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/03/17/9_Reading-And-Thinking/">
+                        <span class="hidden-mobile">Reading And Thinking</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
