@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.6k 字
+      3.3k 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      38
+      45
        分钟
     </span>
   
@@ -389,17 +389,72 @@
 </blockquote>
 <h4 id="Web和HTTP"><a href="#Web和HTTP" class="headerlink" title="Web和HTTP"></a>Web和HTTP</h4><h5 id="1｜HTTP概况"><a href="#1｜HTTP概况" class="headerlink" title="1｜HTTP概况"></a>1｜HTTP概况</h5><p><code>HTTP:超文本传输协议（HyperText Transfer Protocol</code></p>
 <blockquote>
-<p>1、HTTP由两个程序实现：一个是客户程序，一个是服务器程序。这两个程序运行在不同的端系统中，通过交换HTTP报文进行会话。HTTP协议定义了这些报文的结构以及客户和服务器进行报文交换的方式。</p>
+<p>1、HTTP由两个程序实现：一个是<code>客户程序</code>，一个是<code>服务器程序</code>。这两个程序运行在不同的端系统中，通过交换HTTP报文进行会话。HTTP协议定义了这些报文的结构以及客户和服务器进行报文交换的方式。</p>
 <p><code>python网络爬虫就是对HTTP报文进行操作的一个实际的例子</code></p>
 </blockquote>
 <blockquote>
-<p>2、Web页面（也即前端）</p>
+<p>2、Web页面</p>
 <p>Web页面由对象组成，一个对象可以是HTML文件、图片、视频或者是一个小程序。他们通过一个URL地址寻址，图示为页面中的对象</p>
 <p><code>URL地址的构成</code></p>
 <p>http<code>协议名</code>://<a target="_blank" rel="noopener" href="http://www.someschool.edu`主机名`/someDepartment/picture.gif%60%E8%AE%BF%E9%97%AE%E7%9A%84%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E5%90%8D%60">www.someSchool.edu`主机名`/someDepartment/picture.gif`访问的文件路径名`</a></p>
 <p><code>python爬虫中对于页面的解析</code></p>
 <p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-18-020234.png" srcset="/img/loading.gif" alt="image-20210318100234461"></p>
 <p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-18-020303.png" srcset="/img/loading.gif" alt="image-20210318100302919"></p>
+</blockquote>
+<blockquote>
+<p>3、Web服务器</p>
+<p>实现了HTTP的服务器端，用于存储Web对象，每个对象由URL寻址，流行的Web服务器由Apache和Mic Server</p>
+<blockquote>
+<p>link：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/22544725">https://zhuanlan.zhihu.com/p/22544725</a></p>
+</blockquote>
+</blockquote>
+<h5 id="2｜HTTP协议的功能"><a href="#2｜HTTP协议的功能" class="headerlink" title="2｜HTTP协议的功能"></a>2｜HTTP协议的功能</h5><blockquote>
+<ul>
+<li>定义了Web客户向Web服务器请求Web页面的方式</li>
+<li>服务器向客户传送Web页面的方式</li>
+<li></li>
+</ul>
+</blockquote>
+<h5 id="3｜客户与服务器的交互过程"><a href="#3｜客户与服务器的交互过程" class="headerlink" title="3｜客户与服务器的交互过程"></a>3｜客户与服务器的交互过程</h5><h5 id="4｜HTTP协议的执行过程"><a href="#4｜HTTP协议的执行过程" class="headerlink" title="4｜HTTP协议的执行过程"></a>4｜HTTP协议的执行过程</h5><blockquote>
+<p>1｜建立连接</p>
+<blockquote>
+<p>使用TCP作为支撑运输协议，端口号为80（默认端口号）</p>
+<ul>
+<li><input disabled="" type="checkbox"> 为什么不使用UDP？</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown">1、TCP为HTTP提供可靠数据传输服务<br>2、客户进程发出的每个HTTP请求报文都能完整的到达服务器，同理服务器进程发出的每个HTTP响应也可以到达客户。<br></code></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>HTTP 客户发起一个与服务器的TCP连接</li>
+</ul>
+<p>2｜建立连接后</p>
+<blockquote>
+<p>浏览器和服务器进程通过<code>套接字接口</code>访问<code>TCP</code>，一旦客户向它的<code>套接字接口</code>发送了一个请求报文，该报文就脱离了客户控制并进入TCP控制。（进入TCP以后就是由运输层负责）</p>
+</blockquote>
+</blockquote>
+<h5 id="5｜HTTP协议的特性—P68"><a href="#5｜HTTP协议的特性—P68" class="headerlink" title="5｜HTTP协议的特性—P68"></a>5｜HTTP协议的特性—P68</h5><blockquote>
+<p>1｜HTTP服务器并不保存关于客户的任何信息，所以HTTP是一个无状态协议。</p>
+<p>2｜持续连接和非持续连接</p>
+<blockquote>
+<p>概念：</p>
+<p>非持续连接：每个请求/响应都是经过一个单独的TCP连接发送</p>
+<p>持续连接：所有的请求及其响应都经相同TCP连接发送</p>
+</blockquote>
+<blockquote>
+<p>非持续连接：</p>
+<p>HTTP客户进程在端口号80发起一个到服务器的TCP连接</p>
+<p>HTTP客户经过它的套接字向该服务器发送一个HTTP请求报文。</p>
+<p>HTTP服务器经服务器的套接字接收该请求报文，从存储器中检索出对象，在HTTP响应报文中封装对象，并通过其套接字向客户发送响应报文。‘</p>
+<p>待TCP确认客户已经完成的收到响应报文，关闭TCP连接。</p>
+<ul>
+<li>每个TCP连接在服务器发送一个对象后关闭，即该连接部位其他的对象而持续下来。</li>
+<li>如果是页面中包含一个HTML基本文件和10个JPEG图形的话，那么非持续连接要产生11个TCP连接。</li>
+</ul>
+<p>客户从响应报文中提取出HTML文件，得到对HTML文件中元素的引用，然后对每个引用重复前几步，得到完成的HTML文件</p>
+</blockquote>
+</blockquote>
+<h5 id="6｜并行TCP连接和串行TCP连接"><a href="#6｜并行TCP连接和串行TCP连接" class="headerlink" title="6｜并行TCP连接和串行TCP连接"></a>6｜并行TCP连接和串行TCP连接</h5><blockquote>
+<p>目前大部分浏览器都适用并行的TCP连接，就是浏览器打开5～10个并行的TCP连接，而且每条处理一个请求响应事物。</p>
 </blockquote>
 <h4 id="1｜DNS"><a href="#1｜DNS" class="headerlink" title="1｜DNS"></a>1｜DNS</h4><blockquote>
 <p>DNS协议的作用：域名与ip地址之间通过DNS服务器实现相互转化。</p>
@@ -464,7 +519,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/03/0_Introduction_to_Algorithms_Sorting/">
+                      <a href="/2021/03/03/1_AL_Introduction_to_Algorithms_Sorting/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">Introduction to Algorithms：Sorting And Finding</span>
                         <span class="visible-mobile">上一篇</span>

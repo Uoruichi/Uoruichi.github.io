@@ -20,7 +20,7 @@
   <meta name="author" content="Uoruichi">
   <meta name="keywords" content="">
   
-  <title>Reading And Thinking - 漫 漫 长 路 ～</title>
+  <title>单调栈 - 漫 漫 长 路 ～</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -153,7 +153,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Reading And Thinking">
+            <span class="h2" id="subtitle" title="单调栈">
               
             </span>
 
@@ -163,8 +163,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-17 08:54" pubdate>
-        2021年3月17日 早上
+      <time datetime="2021-03-24 09:00" pubdate>
+        2021年3月24日 上午
       </time>
     </span>
   
@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.6k 字
+      978 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      16
+      13
        分钟
     </span>
   
@@ -219,122 +219,79 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Reading And Thinking</h1>
+            <h1 style="display: none">单调栈</h1>
             
             <div class="markdown-body">
-              <h3 id="0｜计算机网络-自顶向下方法"><a href="#0｜计算机网络-自顶向下方法" class="headerlink" title="0｜计算机网络-自顶向下方法"></a>0｜计算机网络-自顶向下方法</h3><h4 id="2021-3-17"><a href="#2021-3-17" class="headerlink" title="2021-3-17"></a>2021-3-17</h4><h5 id="计算机网络概论-P54"><a href="#计算机网络概论-P54" class="headerlink" title="计算机网络概论 P54"></a>计算机网络概论 <code>P54</code></h5><blockquote>
-<p>未来网络的发展方向：</p>
-<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-17-005635.png" srcset="/img/loading.gif" alt="image-20210317085634458"></p>
-<p>未来的网络部署的智能软件代理功能就是数据挖掘，所以数据挖掘的范围并不是局限于互联网的内容产生的数据，更广阔的应用在于对于端（主机）产生的数据挖掘。</p>
-<p>对于主机，我们一定要使用一种安全的语言，所以这可能是Rust具有未来的原因吧。</p>
+              <h3 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h3><blockquote>
+<p>单调栈主要是用于寻找next bigger或者是next smaller 的元素；</p>
+<p>因为数组是从 i = 0开始遍历，然后一直遍历到maxSize-1，但是不能够回溯，所以在比较的过程中没有记忆功能，如1 3 7 5 6 4 8序列，当数组遍历到7 5 6 8 时，过了7，遍历到5时就没有变量来记录7了，所以暴力解法的时间复杂度为$$O(n^2)$$。</p>
+<p>在相同空间复杂度的下没有办法进行优化，那么就采用以空间换时间的方法进行，借助其他的数据结构来进行优化时间复杂度。</p>
+<p>单调栈并不是将原数组的元素保证单调，而是要借助单调栈这种数据结构作为辅助手段来实现寻找next bigger或者是next smaller 的元素。</p>
+</blockquote>
+<blockquote>
+<p>单调栈是保证从栈顶 —&gt; 栈底保证栈内的单调不减或者是不增。并不是将数组中所有的元素都放入栈中，而是将满足要求的元素入栈，入栈的元素要保证栈的单调性。</p>
+<p>例：以next bigger问题为例</p>
+<table>
+<thead>
+<tr>
+<th>i</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>num[i]</td>
+<td>2</td>
+<td>1</td>
+<td>5</td>
+<td>4</td>
+<td>6</td>
+</tr>
+<tr>
+<td>top = -1（栈顶）</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Stack[j]（辅助）</td>
+<td>2</td>
+<td>2、1</td>
+<td>5</td>
+<td>4</td>
+<td>6</td>
+</tr>
+</tbody></table>
+<p>分析：</p>
+<p>1、遍历数组i = 0开始</p>
+<p>2、此时栈中为空，入栈</p>
+<p>3、i = 1 num[1] &lt; Stack[top] ,入栈，保证了栈的单调，此时栈中最小值为Stack[top]，此时没有比num[0]更大的元素</p>
+<p>4、i = 2 num[2] &gt; Stack[top]，出栈，再次对比num[2] 与 Stack[top]，num[2] &gt; Stack[top]，那么继续出栈，出栈后栈空，入栈；此时就找到了比num[0]~num[1]的next bigger number。</p>
 <ul>
-<li>未来网络发展要解决的问题</li>
-<li>未来网络发展的方向</li>
-<li>Rust应用在嵌入式中有哪些弊端？相比其他的语言有什么优势？</li>
+<li><input disabled="" type="checkbox"> 使用python画图理解</li>
 </ul>
 </blockquote>
 <blockquote>
-<p>计算机网络存在的理由：</p>
-<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-17-010231.png" srcset="/img/loading.gif" alt="image-20210317090231061"></p>
-<p>未来的技术发展是要开拓更加实用的网络应用，而不是局限于现在的网络应用。<code>本书的读者能够创建下一代招人喜爱的因特网应用。</code>这才是学习计算机网络的目的。</p>
-<p>创建下一代因特网应用的前提是要明白计算机网络的原理。</p>
-<p>未来的网络应用：</p>
-<ul>
-<li>全息投影的游戏</li>
-<li>全息投影的导航系统</li>
-<li>根据数据挖掘出来的生活习惯—嵌入式助手（规划个人的生活）</li>
-<li>5G的发展对于人们生活的影响<ul>
-<li><input disabled="" type="checkbox"> 下一代5G的因特网应用</li>
-<li><input disabled="" type="checkbox"> 了解5G的优点和缺点</li>
-<li><input disabled="" type="checkbox"> 5G开发已经在路上</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<h4 id="2021-3-18"><a href="#2021-3-18" class="headerlink" title="2021-3-18"></a>2021-3-18</h4><blockquote>
-<p>1、如何将想法转化为真实世界的网络应用：</p>
-<p>研发网络应用程序的核心是写出能够运行在<code>不同的端系统</code>和<code>通过网络彼此通信的程序</code>。</p>
-<p>应用程序体系结构：</p>
-<p>规定如何在各种端系统上组织该应用程序，在现在网络应用程序中使用的两种主流体系结构：客户-服务器体系结构或对等（P2P）体系结构。</p>
-<p>客户服务器体系：比如Web应用程序，当Web服务器收到来自某用户的请求时，它向客户发送<code>所请求的对象(request)</code>作为<code>响应(response)</code>。</p>
-<p>P2P体系结构：</p>
-<p>应用程序在<code>间接连接</code>的主机对之间使用<code>直接通信</code>。</p>
-<ul>
-<li><input disabled="" type="checkbox"> 加密的百度云盘（企业级应用，安全、高效）</li>
-<li><input disabled="" type="checkbox"> 如何对等（上传和下载一样多）</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>2、进程通信</p>
-<p>运行在多个端系统上的程序是如何相互通信的情况有一个基本的了解，在操作系统的层次上，相互通信的实际是进程而不是程序。进程间通信的规则由端系统上的操作系统确定。</p>
-<p>在不同端系统上的进程，通过跨国计算机网络交换报文的相互通信。发送进程生成并向网络中发送报文，接收进程接收这些报文，并通过报文发送回去进行响应。</p>
-<ul>
-<li><input disabled="" type="checkbox"> 可能不好理解的就是为什么是进程到进程之间的通信？</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>3、进程与计算机网络之间的接口：</p>
-<p>进程通过一个称为套接字<code>socket</code>的软件结构向网络发送报文和从网络接收报文。进程好比是房子，套接字好比是他的门。</p>
-<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-18-003403.png" srcset="/img/loading.gif" alt="image-20210318083357996"></p>
-</blockquote>
-<blockquote>
-<p>4、进程寻址</p>
-<p>为了保证进程通信之间的准确性（比如QQ发送的消息微信并不能收到，你发送的消息别人并不能收到），发送目的地必须要一个地址，所以这就涉及到网络协议中各层的地址标识。</p>
-<ul>
-<li><input disabled="" type="checkbox"> 在网络应用编程中这些参数应该如何使用？</li>
-</ul>
-<p>应用层：端口号</p>
-<p>网络层：ip地址</p>
-<p>链路层：MAC地址</p>
-</blockquote>
-<blockquote>
-<p>5、可供应用程序使用的运输服务</p>
-<p><code>套接字是应用程序进程和运输层协议之间的接口</code></p>
-<p>很多网络提供了不知一种运输层协议，在开发一个应用时，必须根据实际情况选用一种运输层协议，为你的应用需求提供恰当服务的协议。比如银行的数据传输必须是安全的不能丢失的，微信视频的时候允许有卡顿、丢失（你刚说了啥我没听见）</p>
-<p>在运输层既可以提供可靠的数据传输、也可以提供不可靠的数据传输</p>
-</blockquote>
-<h3 id="1｜数据结构-邓俊辉"><a href="#1｜数据结构-邓俊辉" class="headerlink" title="1｜数据结构                                    邓俊辉"></a>1｜数据结构                                    <code>邓俊辉</code></h3><h4 id="2021-3-17-1"><a href="#2021-3-17-1" class="headerlink" title="2021-3-17"></a>2021-3-17</h4><h5 id="1｜算法的基本要求：P5-P16"><a href="#1｜算法的基本要求：P5-P16" class="headerlink" title="1｜算法的基本要求：P5-P16"></a>1｜算法的基本要求：<code>P5-P16</code></h5><blockquote>
-<p>1、输入与输出</p>
-</blockquote>
-<blockquote>
-<p>2、基本操作、确定性、可行性</p>
-</blockquote>
-<blockquote>
-<p>3、正确定、有穷性</p>
-<p>如何保证算法的正确性与有穷性？</p>
-<p>通过不变性与单调性进行保证（此处的单调性与数学中的单调性有略微差别）</p>
-<p>单调性是指问题的有效规模会随着算法的推进不断递减</p>
-<p>不变形是指程序的每一轮循环或者是迭代都满足题目的要求，所以掌握迭代和循环很重要。</p>
-</blockquote>
-<blockquote>
-<p>4、退化与鲁棒性</p>
-<p>退化就是要考虑输入的各种极端的实例，也就是边界条件的考虑</p>
-<p>鲁棒性：将可能的将边界条件考虑全面</p>
-</blockquote>
-<blockquote>
-<p>5、重用性</p>
-<p>算法模式推广：比如说用于不同的数据类型</p>
-</blockquote>
-<h5 id="2｜算法效率"><a href="#2｜算法效率" class="headerlink" title="2｜算法效率"></a>2｜算法效率</h5><blockquote>
-<p>1、计算效率</p>
-</blockquote>
-<blockquote>
-<p>2、数据结构</p>
-<p>不论输入、输出、中间结果都是在计算机中以数据的形式表示的，对数据的存储、组织、转移以及变换等操作，对不同的计算模型和平台环境所支持的具体形式不尽相同，执行效率直接影响整体的效率。</p>
-<p>数据结构就是以数据作为研究对象，建立支持高效算法的数据处理策略、技巧以及方法。也就是研究数据如何进行增、删、改、查更加高效而且满足实际的要求。</p>
-<p>要做到根据实际应用需求自如的设计、实现和选用适当的数据结构，必须要首先对算法设计的技巧以及相应的数据结构的特征了然于心。</p>
-<p>归根结底在于：算法设计的技巧、数据结构的特征。</p>
-<p>所以学习这本书的关键在于掌握书中算法设计的技巧，以及掌握数据结构的特征。</p>
-</blockquote>
-<h5 id="3｜复杂度分析"><a href="#3｜复杂度分析" class="headerlink" title="3｜复杂度分析"></a>3｜复杂度分析</h5><blockquote>
-<p>时间复杂度</p>
-</blockquote>
-<blockquote>
-<p>空间复杂度</p>
-</blockquote>
-<blockquote>
-<p>渐进复杂度</p>
-</blockquote>
+<p>Acwing 830 单调栈: </p>
+<img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-24-013110.png" srcset="/img/loading.gif" alt="image-20210324093110207" style="zoom:50%;" />
+
+<p>1、先考虑不是边界条件的情况：</p>
+<p>1｜因为是要找左边的元素，所以只能将遍历的元素入栈，然后考虑什么情况下出栈</p>
+<p>2｜如果满足Stack[N]单调递减的，要保证Stack[top]是最小值，那么就要求入栈的元素要比Stack[top]小，所以只要Stack[top] &gt; = x的，那么就要求栈顶元素一直出栈。当Stack[top] &lt; x的时候，那么就满足题目要求</p>
+<p>3｜只要给定的条件为真，<strong>while</strong> 循环语句会重复执行一个目标语句。题目要求是找到比x小的元素，<code>直到Stack[top] &lt; x为止</code>，所以如果说Stack[top] &gt;= x,那么就不满足题目要求，要一直循环；所以while的条件就是Stack[top] &gt;= x；</p>
+<p>4｜边界条件：栈空的时候<code>top</code>就不能在进行后续的操作了,所以while循环中加入限定条件<code>top != 0</code></p>
+<p>5 | 如果此时栈不为空了，那么就说明待插入的x左侧的最小元素为Stack[top]，那么输出，然后将x入栈。</p>
+<p>6｜如果此时栈为空，那么就说明左侧没有比x更小的数了，则输出-1，并且为了后续的对比同样要将x入栈。</p>
+<p>正常逻辑分析代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">1e5</span>+<span class="hljs-number">10</span>;<br><span class="hljs-keyword">int</span> Stack[N];<br><span class="hljs-keyword">int</span> n,top = <span class="hljs-number">0</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;n);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)<br>    &#123;<br>        <span class="hljs-keyword">int</span> x;<br>        <span class="hljs-built_in">cin</span> &gt;&gt; x;<br>        <span class="hljs-keyword">if</span>(top == <span class="hljs-number">0</span>)    <br>        &#123;<br>            <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-number">-1</span> &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span>;<br>            Stack[++top] = x;<br>        &#125;<br>        <span class="hljs-keyword">else</span><br>        &#123;<br>            <span class="hljs-keyword">while</span>(top != <span class="hljs-number">0</span> &amp;&amp; Stack[top] &gt;= x)  top--;<br>            <span class="hljs-keyword">if</span>(top == <span class="hljs-number">0</span>)<br>            &#123;<br>                <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-number">-1</span> &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span>;<br>                Stack[++top] = x;<br>            &#125;<br>            <span class="hljs-keyword">else</span><br>            &#123;<br>                <span class="hljs-built_in">cout</span> &lt;&lt; Stack[top] &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span>;<br>                Stack[++top] = x;<br>            &#125;<br>        &#125;<br>        <br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>优化代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">1e5</span>+<span class="hljs-number">10</span>;<br><span class="hljs-keyword">int</span> Stack[N];<br><span class="hljs-keyword">int</span> n,top = <span class="hljs-number">0</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;n);<br>    <br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)<br>    &#123;<br>        <span class="hljs-keyword">int</span> x;<br>        <span class="hljs-built_in">cin</span> &gt;&gt; x;<br>        <span class="hljs-keyword">while</span>( top !=<span class="hljs-number">0</span> &amp;&amp; Stack[top] &gt;= x)   top --; <br>        <span class="hljs-keyword">if</span>(top)<br>            <span class="hljs-built_in">cout</span> &lt;&lt; Stack[top] &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span>;<br>        <span class="hljs-keyword">else</span><br>            <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-number">-1</span> &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span>;<br>        Stack[++top] = x;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure></blockquote>
 
             </div>
             <hr>
@@ -344,7 +301,9 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Reading/">Reading</a>
+                      <a class="hover-with-bg" href="/categories/Algorithm/">Algorithm</a>
+                    
+                      <a class="hover-with-bg" href="/categories/Algorithm/Stack/">Stack</a>
                     
                   </div>
                 
@@ -352,7 +311,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Reading/">Reading</a>
+                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/">算法导论</a>
                     
                   </div>
                 
@@ -369,9 +330,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/23/0_C++_%E5%87%BD%E6%95%B0%E3%80%81%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/">
+                      <a href="/2021/03/24/0_C++_Map/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">C++_函数、函数进阶</span>
+                        <span class="hidden-mobile">Map</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -379,8 +340,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/16/0_C++_Acwing/">
-                        <span class="hidden-mobile">C++_Acwing</span>
+                      <a href="/2021/03/23/0_C++_%E5%87%BD%E6%95%B0%E3%80%81%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6/">
+                        <span class="hidden-mobile">C++_函数、函数进阶</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -1,0 +1,569 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  
+    <meta name="description" content="">
+  
+  <meta name="author" content="Uoruichi">
+  <meta name="keywords" content="">
+  
+  <title>Codewars_2021_3_24 - 漫 漫 长 路 ～</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>From Zero To Hero</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/ironman.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Codewars_2021_3_24">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-24 23:47" pubdate>
+        2021年3月24日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      21
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Codewars_2021_3_24</h1>
+            
+            <div class="markdown-body">
+              <h4 id="题目1"><a href="#题目1" class="headerlink" title="题目1:"></a>题目1:</h4><p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-24-154826.png" srcset="/img/loading.gif" alt="image-20210324234826225"></p>
+<blockquote>
+<p>分析：题目没有对时间复杂度的要求，所以尽可能的最短化时间复杂度</p>
+</blockquote>
+<blockquote>
+<p>暴力解法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">runningSum</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> _ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ans;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;nums.size();i++)<br>        &#123;<br>            _ans += nums[i];<br>            ans.push_back(_ans);<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>优化解法</p>
+<p><code>就地运算</code></p>
+<p>就地运算的时间花费要比开辟数组的时间花费较小；从《剑指offer》得到的一个结论：越简单的问题，越要注意坑，而且要考虑全面。题目非常简单，只是求出每个下标对应的动态和，这个动态和就是一个累加和。</p>
+<p>因为题目给的信息比较少，所以更多的限制条件需要我们去问面试官，时间复杂度有没有限制，能不能用额外空间，能不能用库函数,能不能修改原数组等。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">runningSum</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;nums.size();i++)<br>        	nums[i] += num[i<span class="hljs-number">-1</span>];<br>    &#125;<br>  <span class="hljs-keyword">return</span> nums;<br>&#125;;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="题目2："><a href="#题目2：" class="headerlink" title="题目2："></a>题目2：</h4><h4 id="1481-不同整数的最少数目"><a href="#1481-不同整数的最少数目" class="headerlink" title="1481. 不同整数的最少数目"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/least-number-of-unique-integers-after-k-removals/">1481. 不同整数的最少数目</a></h4><blockquote>
+</blockquote>
+<h4 id="题目3：Returning-Strings"><a href="#题目3：Returning-Strings" class="headerlink" title="题目3：Returning Strings"></a>题目3：Returning Strings</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.codewars.com/kata/55a70521798b14d4750000a4/train/python">https://www.codewars.com/kata/55a70521798b14d4750000a4/train/python</a></p>
+<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-24-162904.png" srcset="/img/loading.gif" alt="image-20210325002904086"></p>
+</blockquote>
+<blockquote>
+<p>语法：python 中f - String的用法</p>
+<p>link : <a target="_blank" rel="noopener" href="https://realpython.com/python-f-strings/">https://realpython.com/python-f-strings/</a></p>
+<ul>
+<li>使用%-formatting()进行格式化</li>
+</ul>
+<p>使用<code>%s</code>匹配要格式化输出内容的类型 ，字符串类型为<code>%s</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(<span class="hljs-params">name</span>):</span><br> <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hello, %s how are you doing today?&quot;</span> % name<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>如果说插入的元素多于一个的话，使用元组的形式，但是数据类型要匹配</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">name = <span class="hljs-string">&quot;Eric&quot;</span><br>age = <span class="hljs-number">74</span><br><span class="hljs-built_in">print</span> <span class="hljs-string">&quot;Hello, %s. You are %s.&quot;</span> % (name, age)<br><span class="hljs-string">&#x27;Hello Eric. You are 74.&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>使用str.format()</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(<span class="hljs-params">name</span>):</span><br> <span class="hljs-comment">#Good Luck (like you need it)</span><br> <span class="hljs-keyword">return</span> (<span class="hljs-string">&quot;Hello, &#123;&#125; how are you doing today?&quot;</span>.<span class="hljs-built_in">format</span>(name))<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>format()中参数多于一个的话，按照顺序输入，或者按照元组的下标进行</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&quot;Hello, &#123;1&#125;. You are &#123;0&#125;.&quot;</span>.<span class="hljs-built_in">format</span>(age, name)<br><span class="hljs-string">&#x27;Hello, Eric. You are 74.&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>使用字典</li>
+</ul>
+<p>用变量匹配字典中的键值对，或者直接使用<code>**</code>引用字典</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>person = &#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;Eric&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">74</span>&#125;<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&quot;Hello, &#123;name&#125;. You are &#123;age&#125;.&quot;</span>.<span class="hljs-built_in">format</span>(name=person[<span class="hljs-string">&#x27;name&#x27;</span>], age=person[<span class="hljs-string">&#x27;age&#x27;</span>])<br><span class="hljs-string">&#x27;Hello, Eric. You are 74.&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>person = &#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;Eric&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">74</span>&#125;<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&quot;Hello, &#123;name&#125;. You are &#123;age&#125;.&quot;</span>.<span class="hljs-built_in">format</span>(**person)<br><span class="hljs-string">&#x27;Hello, Eric. You are 74.&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>使用str.format()的弊端</li>
+</ul>
+<p><code>str.format()</code> can still be quite verbose when you are dealing with multiple parameters and longer strings. Take a look at this:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span>first_name = <span class="hljs-string">&quot;Eric&quot;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>last_name = <span class="hljs-string">&quot;Idle&quot;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>age = <span class="hljs-number">74</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>profession = <span class="hljs-string">&quot;comedian&quot;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>affiliation = <span class="hljs-string">&quot;Monty Python&quot;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>print((<span class="hljs-string">&quot;Hello, &#123;first_name&#125; &#123;last_name&#125;. You are &#123;age&#125;. &quot;</span> + <br><span class="hljs-meta">&gt;&gt;&gt; </span>       <span class="hljs-string">&quot;You are a &#123;profession&#125;. You were a member of &#123;affiliation&#125;.&quot;</span>) \<br><span class="hljs-meta">&gt;&gt;&gt; </span>       .<span class="hljs-built_in">format</span>(first_name=first_name, last_name=last_name, age=age, \<br><span class="hljs-meta">&gt;&gt;&gt; </span>               profession=profession, affiliation=affiliation))<br><span class="hljs-string">&#x27;Hello, Eric Idle. You are 74. You are a comedian. You were a member of Monty Python.&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>使用<code>f</code>前缀格式化输出字符串</li>
+</ul>
+<p>Formatted string literals are prefixed with <code>&#39;f&#39;</code> and are similar to the format strings accepted by <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/stdtypes.html#str.format"><code>str.format()</code></a>. They contain replacement fields surrounded by curly braces. The replacement fields are expressions, which are evaluated at run time, and then formatted using the <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#format"><code>format()</code></a> protocol:</p>
+<p><code>f</code>前缀的功能相当于<code>str.format()</code>，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(<span class="hljs-params">name</span>):</span><br> <span class="hljs-keyword">return</span> <span class="hljs-string">f&#x27;Hello, <span class="hljs-subst">&#123;name&#125;</span> how are you doing today?&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">f&quot;He said his name is <span class="hljs-subst">&#123;name&#125;</span>.&quot;</span><br><span class="hljs-string">&#x27;He said his name is Fred.&#x27;</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>width = <span class="hljs-number">10</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>precision = <span class="hljs-number">4</span><br><span class="hljs-meta">&gt;&gt;&gt; </span>value = decimal.Decimal(<span class="hljs-string">&quot;12.34567&quot;</span>)<br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">f&quot;result: <span class="hljs-subst">&#123;value:&#123;width&#125;</span>.<span class="hljs-subst">&#123;precision&#125;</span>&#125;&quot;</span>  <span class="hljs-comment"># 通过value设置格式</span><br><span class="hljs-string">&#x27;result:      12.35&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>使用字符串拼接</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet</span>(<span class="hljs-params">name</span>):</span><br> <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hello, &quot;</span> + name + <span class="hljs-string">&quot; how are you doing today?&quot;</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>使用lambda表达式</li>
+</ul>
+<blockquote>
+<p>link:</p>
+<p><a target="_blank" rel="noopener" href="https://www.codenong.com/39795734/">https://www.codenong.com/39795734/</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/tutorial/controlflow.html#lambda-expressions">https://docs.python.org/zh-cn/3/tutorial/controlflow.html#lambda-expressions</a></p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/reference/expressions.html#lambda"><code>lambda</code></a> 关键字用于创建小巧的匿名函数。<code>lambda a, b: a+b</code> 函数返回两个参数的和。Lambda 函数可用于任何需要函数对象的地方。在语法上，匿名函数只能是单个表达式。在语义上，它只是常规函数定义的语法糖。与嵌套函数定义一样，lambda 函数可以引用包含作用域中的变量：</p>
+<p>lambda 变量：对变量进行的操作</p>
+<ul>
+<li><input disabled="" type="checkbox"> 主要要理解sort方法的使用,具体内部是怎么实现的？写就是怎么实现sort？</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">greet = <span class="hljs-keyword">lambda</span> name: <span class="hljs-string">f&#x27;Hello, <span class="hljs-subst">&#123;name&#125;</span> how are you doing today?&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">pairs = [(<span class="hljs-number">1</span>, <span class="hljs-string">&#x27;one&#x27;</span>), (<span class="hljs-number">2</span>, <span class="hljs-string">&#x27;two&#x27;</span>), (<span class="hljs-number">3</span>, <span class="hljs-string">&#x27;three&#x27;</span>), (<span class="hljs-number">4</span>, <span class="hljs-string">&#x27;four&#x27;</span>)]<br><span class="hljs-comment"># 主要要理解sort方法的使用</span><br><span class="hljs-comment"># key相当于处理pairs[0]-pairs[3]中的每一个元素</span><br>pairs.sort(key=<span class="hljs-keyword">lambda</span> pair: pair[<span class="hljs-number">1</span>])<br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">key</span>(<span class="hljs-params">pair</span>):</span><br>  <span class="hljs-keyword">return</span> pair[<span class="hljs-number">1</span>]<br>pairs<br></code></pre></td></tr></table></figure>
+
+<p>您的lambda函数将一个元组作为输入，并返回索引为1的元素，因此排序只会考虑每个元组的第二个元素(英文单词)。这就是为什么您的输出在第二个元素’four’&gt;’one’&gt;’three’&gt;’two’中按字母顺序排序的原因。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># lambda是匿名表达式，所以其中没有参数的名字</span><br>key=<span class="hljs-keyword">lambda</span> pair: pair[<span class="hljs-number">1</span>]<br>key(pair=pairs[<span class="hljs-number">0</span>])<br></code></pre></td></tr></table></figure>
+
+<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-25-082927.png" srcset="/img/loading.gif" alt="image-20210325162923718"></p>
+</blockquote>
+<h4 id="题目4-Sum-of-positive"><a href="#题目4-Sum-of-positive" class="headerlink" title="题目4 : Sum of positive"></a>题目4 : Sum of positive</h4><blockquote>
+<img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-24-164114.png" srcset="/img/loading.gif" alt="image-20210325004114207" style="zoom:50%;" />
+</blockquote>
+<blockquote>
+<p>语法：循环遍历</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">positive_sum</span>(<span class="hljs-params">arr</span>):</span><br>    <span class="hljs-comment"># Your code here</span><br>    ans = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> arr:<br>        <span class="hljs-keyword">if</span>(i &gt; <span class="hljs-number">0</span>):<br>            ans += i;<br>    <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">positive_sum</span>(<span class="hljs-params">arr</span>):</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span>(x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> arr <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">positive_sum</span>(<span class="hljs-params">arr</span>):</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span>(<span class="hljs-built_in">filter</span>(<span class="hljs-keyword">lambda</span> x: x &gt; <span class="hljs-number">0</span>,arr))<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">positive_sum</span>(<span class="hljs-params">arr</span>):</span><br>    <span class="hljs-string">&#x27;&#x27;&#x27; I really hate these one line codes, but here I am...</span><br><span class="hljs-string">        trying to be cool here... and writing some&#x27;&#x27;&#x27;</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span>(<span class="hljs-built_in">map</span>(<span class="hljs-keyword">lambda</span> x: x <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span>, arr))<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="题目5-string-repeat"><a href="#题目5-string-repeat" class="headerlink" title="题目5:string repeat"></a>题目5:string repeat</h4><blockquote>
+<img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-25-084735.png" srcset="/img/loading.gif" alt="image-20210325004913204" style="zoom:50%;" />
+</blockquote>
+<blockquote>
+<p>语法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">repeat_str</span>(<span class="hljs-params">repeat, string</span>):</span><br>    s = <span class="hljs-string">&#x27;&#x27;</span><br>    <span class="hljs-keyword">while</span> (repeat &gt; <span class="hljs-number">0</span>):<br>        repeat -= <span class="hljs-number">1</span><br>        s += string<br>    <span class="hljs-keyword">return</span> s<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">repeat_str</span>(<span class="hljs-params">repeat, string</span>):</span><br>    <span class="hljs-keyword">return</span> string*repeat<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">repeat_str = <span class="hljs-keyword">lambda</span> r, s: s * r<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">repeat_str=<span class="hljs-built_in">__import__</span>(<span class="hljs-string">&#x27;operator&#x27;</span>).mul<br></code></pre></td></tr></table></figure>
+</blockquote>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Code/">Code</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Codewars/">Codewars</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Array/">Array</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/03/25/1-AL-Trie/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">1_AL_Trie</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/03/24/0_C++_Map/">
+                        <span class="hidden-mobile">Map</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
