@@ -20,7 +20,7 @@
   <meta name="author" content="Uoruichi">
   <meta name="keywords" content="">
   
-  <title>环境搭建常见问题 - 漫 漫 长 路 ～</title>
+  <title>高数极限 - 漫 漫 长 路 ～</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -153,7 +153,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="环境搭建常见问题">
+            <span class="h2" id="subtitle" title="高数极限">
               
             </span>
 
@@ -163,8 +163,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-12 08:28" pubdate>
-        2021年3月12日 早上
+      <time datetime="2021-03-09 21:31" pubdate>
+        2021年3月9日 晚上
       </time>
     </span>
   
@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      576 字
+      59 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      1
        分钟
     </span>
   
@@ -219,25 +219,26 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">环境搭建常见问题</h1>
+            <h1 style="display: none">高数极限</h1>
             
             <div class="markdown-body">
-              <h3 id="环境搭建常见问题及处理"><a href="#环境搭建常见问题及处理" class="headerlink" title="环境搭建常见问题及处理"></a>环境搭建常见问题及处理</h3><h4 id="1｜VS-Code配置C-的debug"><a href="#1｜VS-Code配置C-的debug" class="headerlink" title="1｜VS Code配置C++的debug"></a>1｜VS Code配置C++的debug</h4><p><code>mac OS</code></p>
-<h5 id="问题1-无法在vs-code的内置终端中进行输入，也就是会出现终端将被任务重用，按任意键关闭，而且不启动外部终端，即使启动外部终端也无法读入输入。"><a href="#问题1-无法在vs-code的内置终端中进行输入，也就是会出现终端将被任务重用，按任意键关闭，而且不启动外部终端，即使启动外部终端也无法读入输入。" class="headerlink" title="问题1:无法在vs code的内置终端中进行输入，也就是会出现终端将被任务重用，按任意键关闭，而且不启动外部终端，即使启动外部终端也无法读入输入。"></a>问题1:无法在vs code的内置终端中进行输入，也就是会出现终端将被任务重用，按任意键关闭，而且不启动外部终端，即使启动外部终端也无法读入输入。</h5><blockquote>
-<p>问题原因：The issue is when VSCode launches the debug adapter, then the debug adapter launches <code>lldb-mi</code>, then <code>lldb-mi</code> launches <code>Terminal</code>. There is a prompt that should appear, but somehow the DebugAdapter is not forwarding this permissions request.</p>
-<p>解决方法：因为vscode的macos版本目前还不支持C++的debug的内置终端输入，所以要启动自带的终端进行调试的输入。按照官方文档配置launch.json和tasks.json文件，然后在tasks.json文件中加入启动外部终端的代码块。</p>
-<p><code>launch.json配置</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&#123;<br>    <span class="hljs-comment">// 使用 IntelliSense 了解相关属性。 </span><br>    <span class="hljs-comment">// 悬停以查看现有属性的描述。</span><br>    <span class="hljs-comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br>    <span class="hljs-string">&quot;version&quot;</span>: <span class="hljs-string">&quot;0.2.0&quot;</span>,<br>    <span class="hljs-string">&quot;configurations&quot;</span>: [<br>        &#123;<br>            <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;g++-10 - 生成和调试活动文件&quot;</span>,<br>            <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;cppdbg&quot;</span>,<br>            <span class="hljs-string">&quot;request&quot;</span>: <span class="hljs-string">&quot;launch&quot;</span>,<br>            <span class="hljs-string">&quot;program&quot;</span>: <span class="hljs-string">&quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;&quot;</span>,<br>            <span class="hljs-string">&quot;args&quot;</span>: [],<br>            <span class="hljs-string">&quot;stopAtEntry&quot;</span>: <span class="hljs-literal">false</span>,<br>            <span class="hljs-string">&quot;cwd&quot;</span>: <span class="hljs-string">&quot;$&#123;workspaceFolder&#125;&quot;</span>,<br>            <span class="hljs-string">&quot;environment&quot;</span>: [],<br>            <span class="hljs-string">&quot;externalConsole&quot;</span>: <span class="hljs-literal">true</span>,<br>            <span class="hljs-string">&quot;MIMode&quot;</span>: <span class="hljs-string">&quot;lldb&quot;</span>,<br>            <span class="hljs-string">&quot;preLaunchTask&quot;</span>: <span class="hljs-string">&quot;C/C++: g++-10 生成活动文件&quot;</span><br>        &#125;<br>    ]<br>&#125;<br></code></pre></td></tr></table></figure>
+              <h3 id="一、极限"><a href="#一、极限" class="headerlink" title="一、极限"></a>一、极限</h3><h4 id="1｜极限基础理解"><a href="#1｜极限基础理解" class="headerlink" title="1｜极限基础理解"></a>1｜极限基础理解</h4><h4 id="2｜极限的概念"><a href="#2｜极限的概念" class="headerlink" title="2｜极限的概念"></a>2｜极限的概念</h4><h5 id="0-｜-等价无穷小替换"><a href="#0-｜-等价无穷小替换" class="headerlink" title="0 ｜ 等价无穷小替换"></a>0 ｜ 等价无穷小替换</h5><h5 id="1｜泰勒公式"><a href="#1｜泰勒公式" class="headerlink" title="1｜泰勒公式"></a>1｜泰勒公式</h5><blockquote>
+<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-15-003430.png" srcset="/img/loading.gif" alt="image-20210315083425612"></p>
+<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-24-091224.png" srcset="/img/loading.gif" alt="image-20210324171224102"></p>
+</blockquote>
+<h4 id="3｜极限计算技巧"><a href="#3｜极限计算技巧" class="headerlink" title="3｜极限计算技巧"></a>3｜极限计算技巧</h4><h4 id="4｜错题"><a href="#4｜错题" class="headerlink" title="4｜错题"></a>4｜错题</h4><h5 id="1｜1800"><a href="#1｜1800" class="headerlink" title="1｜1800"></a>1｜1800</h5><blockquote>
+<p>P3</p>
+</blockquote>
+<ul>
+<li><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-09-133427.png" srcset="/img/loading.gif" alt="image-20210309213426821" style="zoom:50%;" /></li>
+<li><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-09-133451.png" srcset="/img/loading.gif" alt="image-20210309213450849" style="zoom:50%;" /></li>
+<li><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-09-133505.png" srcset="/img/loading.gif" alt="image-20210309213504928" style="zoom:50%;" />
 
-<p><code>tasks.json配置</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&#123;<br>    <span class="hljs-string">&quot;tasks&quot;</span>: [<br>        &#123;<br>            <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;cppbuild&quot;</span>,<br>            <span class="hljs-string">&quot;label&quot;</span>: <span class="hljs-string">&quot;C/C++: g++-10 生成活动文件&quot;</span>,<br>            <span class="hljs-string">&quot;command&quot;</span>: <span class="hljs-string">&quot;/usr/local/bin/g++-10&quot;</span>,<br>            <span class="hljs-string">&quot;args&quot;</span>: [<br>                <span class="hljs-string">&quot;-g&quot;</span>,<br>                <span class="hljs-string">&quot;$&#123;file&#125;&quot;</span>,<br>                <span class="hljs-string">&quot;-o&quot;</span>,<br>                <span class="hljs-string">&quot;$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;&quot;</span><br>            ],<br>            <span class="hljs-string">&quot;options&quot;</span>: &#123;<br>                <span class="hljs-string">&quot;cwd&quot;</span>: <span class="hljs-string">&quot;$&#123;workspaceFolder&#125;&quot;</span><br>            &#125;,<br>            <span class="hljs-string">&quot;problemMatcher&quot;</span>: [<br>                <span class="hljs-string">&quot;$gcc&quot;</span><br>            ],<br>            <span class="hljs-string">&quot;group&quot;</span>: &#123;<br>                <span class="hljs-string">&quot;kind&quot;</span>: <span class="hljs-string">&quot;build&quot;</span>,<br>                <span class="hljs-string">&quot;isDefault&quot;</span>: <span class="hljs-literal">true</span><br>            &#125;,<br>            <span class="hljs-string">&quot;detail&quot;</span>: <span class="hljs-string">&quot;调试器生成的任务。&quot;</span><br>        &#125;,<br><span class="hljs-comment">//需要在tasks的内容中增加以下的代码块以启动终端</span><br>        &#123;<br>            <span class="hljs-string">&quot;label&quot;</span>: <span class="hljs-string">&quot;Open Terminal&quot;</span>,<br>            <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;shell&quot;</span>,<br>            <span class="hljs-string">&quot;command&quot;</span>: <span class="hljs-string">&quot;osascript -e &#x27;tell application \&quot;Terminal\&quot;\ndo script \&quot;echo hello\&quot;\nend tell&#x27;&quot;</span>,<br>            <span class="hljs-string">&quot;problemMatcher&quot;</span>: []<br>          &#125;<br>    ],<br>    <span class="hljs-string">&quot;version&quot;</span>: <span class="hljs-string">&quot;2.0.0&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>配置完tasks.json文件后</p>
-<p>1、You can run this specific task using <code>Command + Shift + p</code>. </p>
-<p>2、Type <code>Tasks</code> and look for <code>Tasks: Run Tasks</code> then select <code>Open Terminal</code>.</p>
-<p>Once you allow this permission, then the external console should appear when you debug.</p>
-<p>成功配置后进行debug显示：</p>
-<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-12-003807.png" srcset="/img/loading.gif" alt="image-20210312083804302"></p>
+</li>
+</ul>
+<h4 id="5｜常用公式"><a href="#5｜常用公式" class="headerlink" title="5｜常用公式"></a>5｜常用公式</h4><blockquote>
+<p>三角函数公式：</p>
+<p>前n项和公式</p>
 </blockquote>
 
             </div>
@@ -248,9 +249,9 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/C/">C++</a>
+                      <a class="hover-with-bg" href="/categories/408/">408</a>
                     
-                      <a class="hover-with-bg" href="/categories/C/VSCode/">VSCode</a>
+                      <a class="hover-with-bg" href="/categories/408/%E9%AB%98%E6%95%B0/">高数</a>
                     
                   </div>
                 
@@ -258,7 +259,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">环境搭建</a>
+                      <a class="hover-with-bg" href="/tags/%E9%AB%98%E6%95%B0/">高数</a>
                     
                   </div>
                 
@@ -275,9 +276,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/16/0_C++_Acwing/">
+                      <a href="/2021/03/09/2-Python-%E7%88%AC%E8%99%AB/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">C++_Acwing</span>
+                        <span class="hidden-mobile">Python爬虫</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -285,8 +286,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/10/1_Python_Codewar/">
-                        <span class="hidden-mobile">Python语法</span>
+                      <a href="/2021/03/03/1_AL_Introduction_to_Algorithms_Sorting/">
+                        <span class="hidden-mobile">Introduction to Algorithms：Sorting And Finding</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
