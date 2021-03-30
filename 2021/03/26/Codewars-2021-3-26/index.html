@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      780 字
+      807 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      11
        分钟
     </span>
   
@@ -277,6 +277,7 @@
 <p>返回一个枚举对象。<em>iterable</em> 必须是一个序列，或 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/glossary.html#term-iterator">iterator</a>，或其他支持迭代的对象。 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/functions.html?highlight=enumerate#enumerate"><code>enumerate()</code></a> 返回的迭代器的 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/stdtypes.html#iterator.__next__"><code>__next__()</code></a> 方法返回一个元组，里面包含一个计数值（从 <em>start</em> 开始，默认为 0）和通过迭代 <em>iterable</em> 获得的值。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">seasons = [<span class="hljs-string">&#x27;Spring&#x27;</span>, <span class="hljs-string">&#x27;Summer&#x27;</span>, <span class="hljs-string">&#x27;Fall&#x27;</span>, <span class="hljs-string">&#x27;Winter&#x27;</span>]<br>enum = <span class="hljs-built_in">enumerate</span>(seasons) <span class="hljs-comment"># enumerate返回值是一个对象</span><br><span class="hljs-built_in">list</span>(enum)								<span class="hljs-comment"># 将枚举对象转化为列表</span><br></code></pre></td></tr></table></figure>
 </blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">filter_func</span>(<span class="hljs-params">a</span>):</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span>(<span class="hljs-built_in">int</span>(d) ** (i+<span class="hljs-number">1</span>) <span class="hljs-keyword">for</span> i, d <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(<span class="hljs-built_in">str</span>(a))) == a<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum_dig_pow</span>(<span class="hljs-params">a, b</span>):</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">filter</span>(filter_func, <span class="hljs-built_in">range</span>(a, b+<span class="hljs-number">1</span>))<br></code></pre></td></tr></table></figure>
 </blockquote>
 
             </div>
@@ -315,6 +316,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/03/27/1-AL-greedyAlgorithm/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">1_AL_greefyAlgorithm</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

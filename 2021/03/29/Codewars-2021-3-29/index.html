@@ -1,0 +1,525 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  
+    <meta name="description" content="">
+  
+  <meta name="author" content="Uoruichi">
+  <meta name="keywords" content="">
+  
+  <title>Codewars_2021_3_29 - 漫 漫 长 路 ～</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>From Zero To Hero</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/ironman.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Codewars_2021_3_29">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-29 08:12" pubdate>
+        2021年3月29日 早上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      832 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      12
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Codewars_2021_3_29</h1>
+            
+            <div class="markdown-body">
+              <h4 id="题目1-Money、Money、Money"><a href="#题目1-Money、Money、Money" class="headerlink" title="题目1:Money、Money、Money"></a>题目1:Money、Money、Money</h4><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-29-012145.png" srcset="/img/loading.gif" alt="image-20210329083803446" style="zoom:40%;" />
+
+<blockquote>
+<p>My Solution:</p>
+<blockquote>
+<p>解题思路：迭代</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">calculate_years</span>(<span class="hljs-params">principal, interest, tax, desired</span>):</span><br>    <span class="hljs-keyword">if</span> principal &gt;= desired:<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">else</span>:<br>        n = <span class="hljs-number">1</span>	<br>        <span class="hljs-built_in">sum</span>  = principal + principal*interest*(<span class="hljs-number">1</span> - tax)<br>        <span class="hljs-keyword">while</span>(<span class="hljs-built_in">sum</span> &lt; desired):<br>                n += <span class="hljs-number">1</span><br>                ans = <span class="hljs-built_in">sum</span> <br>                <span class="hljs-built_in">sum</span> = ans + ans*interest*(<span class="hljs-number">1</span> - tax)<br>        <span class="hljs-keyword">return</span> n<br></code></pre></td></tr></table></figure>
+
+<p>Good Solution：</p>
+<blockquote>
+<p>解题思路：递归</p>
+<p>递归结束的条件是  p &gt;= d，每次对p进行赋值，递归调用函数calculate_years，最终结果是返回n的。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">calculate_years</span>(<span class="hljs-params">p, i, t, d, n=<span class="hljs-number">0</span></span>):</span><br>    <span class="hljs-keyword">if</span> p &gt;= d:<br>        <span class="hljs-keyword">return</span> n<br>    p = p + p * i * (<span class="hljs-number">1</span> - t)<br>    <span class="hljs-keyword">return</span> calculate_years(p, i, t, d, n+<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+
+<p>Good Solution：</p>
+<blockquote>
+<p>解题思路：利用python库中的函数</p>
+<p>$ p = p + p * i * (1 - t)$</p>
+<p>第一年：$p = p *[1+i(1-t)]$</p>
+<p>第n年：$p = p *{[1+i(1-t)]}^n$</p>
+<p>$ n = log_{[1+i(1-t)]}{float(desired) / principal}$</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> ceil, log<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">calculate_years</span>(<span class="hljs-params">principal, interest, tax, desired</span>):</span><br>    <span class="hljs-keyword">return</span> ceil(log(<span class="hljs-built_in">float</span>(desired) / principal, <span class="hljs-number">1</span> + interest * (<span class="hljs-number">1</span> - tax)))<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>语法：</p>
+<p>1、ceil()函数</p>
+<p><code>math.ceil(*x*)</code></p>
+<p>返回 <em>x</em> 的上限，即大于或者等于 <em>x</em> 的最小整数。如果 <em>x</em> 不是一个浮点数，则委托 <code>x.__ceil__()</code>, 返回一个 <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/numbers.html#numbers.Integral"><code>Integral</code></a> 类的值。</p>
+<p>log得到的结果为n，所以返回n向上取整整数</p>
+<p>2、log（）函数</p>
+<p><code>math.log(x[, base])</code></p>
+<p>使用一个参数，返回 <em>x</em> 的自然对数（底为 <em>e</em> ）。</p>
+<p>使用两个参数，返回给定的 <em>base</em> 的对数 <em>x</em> ，计算为 $log_{base}x$ 。</p>
+</blockquote>
+</blockquote>
+<h4 id="题目2-Two-to-One"><a href="#题目2-Two-to-One" class="headerlink" title="题目2:Two to One"></a>题目2:Two to One</h4><blockquote>
+<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-29-011514.png" srcset="/img/loading.gif" alt="image-20210329091511271"></p>
+<blockquote>
+<p>解题思路：</p>
+<p>1、字符串合并、去重、排序</p>
+<p>2、集合的完成去重工作，调用函数<code>sorted()</code>进行排序</p>
+</blockquote>
+<p>My Solution：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">longest</span>(<span class="hljs-params">a1, a2</span>):</span><br>    ans = <span class="hljs-string">&quot;&quot;</span><br>    <span class="hljs-keyword">for</span> it <span class="hljs-keyword">in</span> <span class="hljs-built_in">sorted</span>((<span class="hljs-built_in">set</span>(a1+a2))):<br>        ans += it<br>    <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure>
+
+<p>Good Solution:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">longest</span>(<span class="hljs-params">a1, a2</span>):</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&quot;</span>.join(<span class="hljs-built_in">sorted</span>(<span class="hljs-built_in">set</span>(a1 + a2)))<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>语法：</p>
+<p>1、set()</p>
+<p>不重复的话首先想到使用set()</p>
+<p>2、sorted()</p>
+<p>3、join()</p>
+</blockquote>
+</blockquote>
+<h4 id="题目3-两数之和"><a href="#题目3-两数之和" class="headerlink" title="题目3:两数之和"></a>题目3:<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/two-sum/">两数之和</a></h4><blockquote>
+<img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-29-014245.png" srcset="/img/loading.gif" alt="image-20210329094244570" style="zoom:50%;" />
+
+<p>My Solution:</p>
+<blockquote>
+<p>解题思路：暴力枚举，寻找数组中是否存在 <code>target - x</code>，时间复杂度为$O(n^2)$</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">twoSum</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> target)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> n = nums.size();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = i + <span class="hljs-number">1</span>; j &lt; n; ++j) &#123;<br>                <span class="hljs-keyword">if</span> (nums[i] + nums[j] == target) &#123;<br>                    <span class="hljs-keyword">return</span> &#123;i, j&#125;;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> &#123;&#125;;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">twoSum</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> target)</span> </span>&#123;<br>        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ans;<br>        <span class="hljs-keyword">int</span> i,j;<br>        <span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;nums.size()<span class="hljs-number">-1</span>;i++)<br>        &#123;<br>            j = i+<span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">while</span>(j &lt; nums.size())<br>            &#123;<br>                <span class="hljs-keyword">if</span>(nums[i] + nums[j] != target) j++;<br>                <span class="hljs-keyword">else</span><br>                &#123;<br>                    ans.push_back(i);<br>                    ans.push_back(j);<br>                    <span class="hljs-keyword">break</span>;<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">if</span>(ans.size() == <span class="hljs-number">2</span>) <span class="hljs-keyword">break</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<p>Good Solution：</p>
+<blockquote>
+<p>解题思路：哈希表查找</p>
+<p>注意到方法一的时间复杂度较高的原因是寻找 target - x 的时间复杂度过高。因此，我们需要一种更优秀的方法，能够快速寻找数组中是否存在目标元素。如果存在，我们需要找出它的索引。使用哈希表，可以将寻找 <code>target - x</code> 的时间复杂度降低到从 O(N) 降低到 O(1)。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">twoSum</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> target)</span> </span>&#123;<br>        <span class="hljs-built_in">unordered_map</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt; hashtable;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.size(); ++i) &#123;<br>            <span class="hljs-keyword">auto</span> it = hashtable.find(target - nums[i]);<br>            <span class="hljs-keyword">if</span> (it != hashtable.end()) &#123;<br>                <span class="hljs-keyword">return</span> &#123;it-&gt;second, i&#125;;<br>            &#125;<br>            hashtable[nums[i]] = i;<br>        &#125;<br>        <span class="hljs-keyword">return</span> &#123;&#125;;<br>    &#125;<br>&#125;;<br><br>作者：LeetCode-Solution<br>链接：https:<span class="hljs-comment">//leetcode-cn.com/problems/two-sum/solution/liang-shu-zhi-he-by-leetcode-solution/</span><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。<br></code></pre></td></tr></table></figure>
+
+<p>语法：</p>
+<p>1、unordered_map</p>
+</blockquote>
+</blockquote>
+<h4 id="题目4-两数相加"><a href="#题目4-两数相加" class="headerlink" title="题目4: 两数相加"></a>题目4:<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/add-two-numbers/"> 两数相加</a></h4><blockquote>
+<img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-29-022142.png" srcset="/img/loading.gif" alt="image-20210329102142055" style="zoom:30%;" />
+
+<blockquote>
+<p>解题思路：用链表实现大整数的加法</p>
+</blockquote>
+</blockquote>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Codewars/">Codewars</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/03/30/Codewars-2021-3-30/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Codewars_2021_3_30</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/03/28/9-408-Math-%E5%AF%BC%E6%95%B0/">
+                        <span class="hidden-mobile">1_408_Math_导数</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
