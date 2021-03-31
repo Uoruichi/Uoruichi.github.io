@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.5k 字
+      2.9k 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      41
+      48
        分钟
     </span>
   
@@ -320,6 +320,29 @@
 <p>2、find()函数的，通过key来找到value，输入的参数为key</p>
 <p>3、返回值：指向键等于 <code>key</code> 的元素的迭代器。若找不到这种元素，则返回尾后（见 <a target="_blank" rel="noopener" href="https://www.apiref.com/cpp-zh/cpp/container/unordered_map/end.html">end()</a> ）迭代器，所以返回值的定义有两种，第一种是使用<code>auto</code>关键字，第二种是使用定义迭代器的方法。</p>
 </blockquote>
+</blockquote>
+<h4 id="3｜例题练习"><a href="#3｜例题练习" class="headerlink" title="3｜例题练习"></a>3｜例题练习</h4><h5 id="1｜771-宝石与石头"><a href="#1｜771-宝石与石头" class="headerlink" title="1｜771. 宝石与石头"></a>1｜<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/jewels-and-stones/">771. 宝石与石头</a></h5><blockquote>
+<img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-31-034240.png" srcset="/img/loading.gif" alt="image-20210331114240185" style="zoom:50%;" />
+
+<p>My Solution:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">numJewelsInStones</span><span class="hljs-params">(<span class="hljs-built_in">string</span> jewels, <span class="hljs-built_in">string</span> stones)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-built_in">unordered_map</span>&lt;<span class="hljs-keyword">int</span>,<span class="hljs-keyword">int</span>&gt;hashmap;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;stones[i];i++)<br>            hashmap[stones[i] - <span class="hljs-string">&#x27;a&#x27;</span>]++;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;jewels[i];i++)<br>        &#123;<br>            <span class="hljs-keyword">auto</span> it = hashmap.find(jewels[i] - <span class="hljs-string">&#x27;a&#x27;</span>);<br>            <span class="hljs-keyword">if</span>(it != hashmap.end())  ans += it-&gt;second;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>语法：</p>
+<p>1、hash map[key] = value，可以进行自加操作<code>hashmap[stones[i] - &#39;a&#39;]++;</code></p>
+<p>2、注意边界条件的判断：<code>if(it != hashmap.end())  ans += it-&gt;second;</code></p>
+</blockquote>
+<h5 id="2｜136-只出现一次的数字"><a href="#2｜136-只出现一次的数字" class="headerlink" title="2｜136. 只出现一次的数字"></a>2｜<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/single-number/">136. 只出现一次的数字</a></h5><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-31-042238.png" srcset="/img/loading.gif" alt="image-20210331122237387" style="zoom:50%;" />
+
+<blockquote>
+<p>My Solution:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">singleNumber</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-built_in">unordered_map</span>&lt;<span class="hljs-keyword">int</span>,<span class="hljs-keyword">int</span>&gt;hashmap;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;nums.size();i++)<br>        &#123;<br>            hashmap[nums[i]]++;<br>        &#125;<br>        <span class="hljs-built_in">unordered_map</span>&lt;<span class="hljs-keyword">int</span>,<span class="hljs-keyword">int</span>&gt;::iterator it;<br>        <span class="hljs-keyword">for</span>(it = hashmap.begin();it!=hashmap.end();it++)<br>            <span class="hljs-keyword">if</span> (it-&gt;second == <span class="hljs-number">1</span>)    <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">return</span> it-&gt;first;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>Good Solution</p>
+<p>解题思路：使用位运算进行解答</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">singleNumber</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> ret = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> e: nums) ret ^= e;<br>        <span class="hljs-keyword">return</span> ret;<br>    &#125;<br>&#125;;<br><br>作者：LeetCode-Solution<br>链接：https:<span class="hljs-comment">//leetcode-cn.com/problems/single-number/solution/zhi-chu-xian-yi-ci-de-shu-zi-by-leetcode-solution/</span><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">int</span> ans = nums[<span class="hljs-number">0</span>];<br><span class="hljs-keyword">if</span> (nums.length &gt; <span class="hljs-number">1</span>) &#123;<br>   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; nums.length; i++) &#123;<br>      ans = ans ^ nums[i];<br>   &#125;<br> &#125;<br> <span class="hljs-keyword">return</span> ans;<br><br>作者：yinyinnie<br>链接：https:<span class="hljs-comment">//leetcode-cn.com/problems/single-number/solution/xue-suan-fa-jie-guo-xiang-dui-yu-guo-cheng-bu-na-y/</span><br>来源：力扣（LeetCode）<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。<br></code></pre></td></tr></table></figure>
+
 </blockquote>
 
             </div>
