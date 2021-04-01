@@ -20,7 +20,7 @@
   <meta name="author" content="Uoruichi">
   <meta name="keywords" content="">
   
-  <title>3-Codewars-2021-3-31 - 漫 漫 长 路 ～</title>
+  <title>1-AL-Heap - 漫 漫 长 路 ～</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -153,7 +153,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="3-Codewars-2021-3-31">
+            <span class="h2" id="subtitle" title="1-AL-Heap">
               
             </span>
 
@@ -163,8 +163,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-31 08:08" pubdate>
-        2021年3月31日 早上
+      <time datetime="2021-04-01 09:35" pubdate>
+        2021年4月1日 上午
       </time>
     </span>
   
@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      243 字
+      980 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      11
        分钟
     </span>
   
@@ -219,41 +219,82 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">3-Codewars-2021-3-31</h1>
+            <h1 style="display: none">1-AL-Heap</h1>
             
             <div class="markdown-body">
-              <h4 id="题目1-Bouncing-Balls"><a href="#题目1-Bouncing-Balls" class="headerlink" title="题目1:Bouncing Balls "></a>题目1:Bouncing Balls <img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-31-004100.png" srcset="/img/loading.gif" alt="image-20210331084100178"></h4><blockquote>
-<p>解题思路：</p>
-<p>下降必然有一次，如果每次弹起高度 $&gt;$窗户的高度，那么可以看见两次</p>
-<p>My Solution：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bouncingBall</span>(<span class="hljs-params">h, bounce, window</span>):</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> <span class="hljs-number">0</span> &lt; bounce &lt; <span class="hljs-number">1</span>: <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span><br>    count = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">while</span> h &gt; window:<br>        count += <span class="hljs-number">1</span><br>        h *= bounce<br>        <span class="hljs-keyword">if</span> h &gt; window: count += <span class="hljs-number">1</span><br>    <span class="hljs-keyword">return</span> count <span class="hljs-keyword">or</span> -<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
-
-<p>Good Solution:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bouncingBall</span>(<span class="hljs-params">h, bounce, window</span>):</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> (h &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> <span class="hljs-number">0</span> &lt; bounce &lt; <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> window &lt; h):<br>        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> + <span class="hljs-number">2</span>*<span class="hljs-built_in">int</span>(log(window/<span class="hljs-built_in">float</span>(h), bounce))<br></code></pre></td></tr></table></figure>
-
-<p>语法：</p>
-<p>1、if not 语句的使用：如果不满足if not(condition)    condition的话，那么就返回-1，python中可以使用<code>0 &lt; bounce &lt; 1</code>的结构</p>
-<p>2、幂值的计算$log_{bounce}{window/float(h)}$，最后将值转换为int类型</p>
+              <h3 id="1｜优先级队列"><a href="#1｜优先级队列" class="headerlink" title="1｜优先级队列"></a>1｜优先级队列</h3><blockquote>
+<p>树结构和字典结构支持的是覆盖数据全集的访问和操作，也就是其中存储的每一个对象都是查找和访问的目标。</p>
+<p>树结构：所有的元素之间定义并维护一个显示的全序关系。</p>
+<p>字典结构：从内部强制的在对象的数值与其对应的秩之间，建立起某种关联，主要是散列。</p>
 </blockquote>
-<h4 id="题目2-Find-the-stray-number"><a href="#题目2-Find-the-stray-number" class="headerlink" title="题目2:Find the stray number"></a>题目2:Find the stray number</h4><p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-31-005313.png" srcset="/img/loading.gif" alt="image-20210331085312850"></p>
 <blockquote>
-<p>My Solution:</p>
-<p>1、arr.count(item)函数的使用</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">stray</span>(<span class="hljs-params">arr</span>):</span><br>    <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> arr:<br>        <span class="hljs-keyword">if</span> arr.count(x) == <span class="hljs-number">1</span>:<br>            <span class="hljs-keyword">return</span> x<br></code></pre></td></tr></table></figure>
-
-<p>Good Solution:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">stray</span>(<span class="hljs-params">arr</span>):</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">min</span>(arr, key=arr.count)<br></code></pre></td></tr></table></figure>
-
-<p>语法：</p>
-<p>1、min()函数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> reduce<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">stray</span>(<span class="hljs-params">seq</span>):</span><br>    <span class="hljs-keyword">return</span> reduce(<span class="hljs-keyword">lambda</span> acc, cur: acc ^ cur, seq)<br></code></pre></td></tr></table></figure>
-
-<p>语法：</p>
-<p>1、reduce()函数</p>
+<p>优先级、优先级队列</p>
+<p>优先级队列：操作对象限定于当前的全局极值者。</p>
+<p>循环优先级访问（call-by-priority)：根据数据之间相对优先级对其进行访问的方式。</p>
+<p>全局极值：所有的元素可相互进行比比较，不需要维护全序，而是维护一个偏序。</p>
 </blockquote>
-<h4 id="题目3-Two-of-sum"><a href="#题目3-Two-of-sum" class="headerlink" title="题目3:Two of sum"></a>题目3:Two of sum</h4><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-31-021139.png" srcset="/img/loading.gif" alt="image-20210331101139194" style="zoom:50%;" />
-
 <blockquote>
+<p>关键码、比较器、偏序关系</p>
+<p>1｜关键码：</p>
+<p>仿照字典，优先级队列中的数据项作为词条，优先级对应的属性叫做关键码；</p>
+<p>多数的关键码都去做词条内部的某一成员变量，有的关键码是根据实际需求创建的。为了确定词条优先级的依据，关键码之间必须可以比较大小。</p>
+<p>2｜比较器：</p>
+<p>优先级队列，以比较器的形式兑现对应的优先级关系。就比如说计算机操作系统中的优先级问题，要考虑的问题很多，所以就自己封装一个比较器，按照比较器的比较规则进行比较。</p>
+<p>3｜偏序关系：</p>
+<p>维护全序代价太大，而且有时候也不需要一定维护全序，所以引入偏序的概念；</p>
+</blockquote>
+<h4 id="1｜优先级队列的实现"><a href="#1｜优先级队列的实现" class="headerlink" title="1｜优先级队列的实现"></a>1｜优先级队列的实现</h4><h5 id="1｜操作接口"><a href="#1｜操作接口" class="headerlink" title="1｜操作接口"></a>1｜操作接口</h5><table>
+<thead>
+<tr>
+<th align="center">操作接口</th>
+<th align="center">功能描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">size()</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">insert()</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">getMax()</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">delMax()</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h4 id="2｜示例代码"><a href="#2｜示例代码" class="headerlink" title="2｜示例代码"></a>2｜示例代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;functional&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;queue&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br> <br><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt; <span class="hljs-keyword">void</span> <span class="hljs-title">print_queue</span><span class="hljs-params">(T&amp; q)</span> </span>&#123;<br>    <span class="hljs-keyword">while</span>(!q.empty()) &#123;<br>        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; q.top() &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;<br>        q.pop();<br>    &#125;<br>    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>&#125;<br> <br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">priority_queue</span>&lt;<span class="hljs-keyword">int</span>&gt; q;<br> <br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> n : &#123;<span class="hljs-number">1</span>,<span class="hljs-number">8</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">0</span>,<span class="hljs-number">9</span>,<span class="hljs-number">7</span>,<span class="hljs-number">2</span>&#125;)<br>        q.push(n);<br> <br>    print_queue(q);<br> <br>    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">priority_queue</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;, <span class="hljs-built_in">std</span>::greater&lt;<span class="hljs-keyword">int</span>&gt; &gt; q2;<br> <br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> n : &#123;<span class="hljs-number">1</span>,<span class="hljs-number">8</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">0</span>,<span class="hljs-number">9</span>,<span class="hljs-number">7</span>,<span class="hljs-number">2</span>&#125;)<br>        q2.push(n);<br> <br>    print_queue(q2);<br> <br>    <span class="hljs-comment">// 用 lambda 比较元素。</span><br>    <span class="hljs-keyword">auto</span> cmp = [](<span class="hljs-keyword">int</span> left, <span class="hljs-keyword">int</span> right) &#123; <span class="hljs-keyword">return</span> (left ^ <span class="hljs-number">1</span>) &lt; (right ^ <span class="hljs-number">1</span>); &#125;;<br>    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">priority_queue</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;, <span class="hljs-keyword">decltype</span>(cmp)&gt; q3(cmp);<br> <br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> n : &#123;<span class="hljs-number">1</span>,<span class="hljs-number">8</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">0</span>,<span class="hljs-number">9</span>,<span class="hljs-number">7</span>,<span class="hljs-number">2</span>&#125;)<br>        q3.push(n);<br> <br>    print_queue(q3);<br> <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="2｜堆"><a href="#2｜堆" class="headerlink" title="2｜堆"></a>2｜堆</h3><blockquote>
+<p>在列表和向量等结构中,insert()和delMax()的效率无法同时保证，插入的时间复杂度为$O(n)$，删除的时间复杂度为$O(1)$</p>
+<p>堆有很多种实现形式，完全二叉堆只是一种基本形式</p>
+</blockquote>
+<h4 id="1｜完全二叉堆"><a href="#1｜完全二叉堆" class="headerlink" title="1｜完全二叉堆"></a>1｜完全二叉堆</h4><blockquote>
+<p>完全二叉堆的逻辑结构：</p>
+<p>逻辑结构完全等同于完全二叉树，堆结点与词条一一对应，堆顶以外的每个结点都不大于或不高于（不小于/低于）其父结点，</p>
+<p>（因为堆顶没有父结点），这就是所谓的堆序性。</p>
+<p>大根堆：堆顶以外的每个结点都不大于或不高于其父结点。</p>
+<p>小根堆：堆顶以外的每个结点都不小于或不低于其父结点。</p>
+<p><code>算法技巧</code>:将权值取负的话，可以颠倒优先级</p>
+</blockquote>
+<blockquote>
+<p>完全二叉堆按照结点的编号（秩）完全可以便捷的判别父子关系</p>
+<p>若V有左孩子</p>
+</blockquote>
+<blockquote>
+<p>时间复杂度分析：</p>
+<p>因为是完全二叉堆，所以结构等同于完全二叉树</p>
+<p>堆高h = $\lfloor{log_2n}\rfloor$ = $O(logn)$</p>
+<p>所以插入和删除操作的时间线性正比于堆高h，所以时间复杂度为$O(logn)$</p>
+</blockquote>
+<h4 id="2｜完全二叉堆的实现"><a href="#2｜完全二叉堆的实现" class="headerlink" title="2｜完全二叉堆的实现"></a>2｜完全二叉堆的实现</h4><blockquote>
+<p>使用宏定义来简化后续算法的描述和实现（这是个好习惯）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> InHeap(n,i)	()</span><br></code></pre></td></tr></table></figure>
+
 </blockquote>
 
             </div>
@@ -265,9 +306,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
+                      <a class="hover-with-bg" href="/tags/Algorithm/">Algorithm</a>
                     
-                      <a class="hover-with-bg" href="/tags/Codewars/">Codewars</a>
+                      <a class="hover-with-bg" href="/tags/C/">C++</a>
                     
                   </div>
                 
@@ -284,18 +325,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/04/01/3-Codewars-2021-4-1/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">3-Codewars-2021-4-1</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/30/9-English-2021-3-30/">
-                        <span class="hidden-mobile">9-English-2021-3-30</span>
+                      <a href="/2021/04/01/3-Codewars-2021-4-1/">
+                        <span class="hidden-mobile">3-Codewars-2021-4-1</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

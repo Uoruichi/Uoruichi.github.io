@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      576 字
+      697 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      10
        分钟
     </span>
   
@@ -238,6 +238,21 @@
 <p>Once you allow this permission, then the external console should appear when you debug.</p>
 <p>成功配置后进行debug显示：</p>
 <p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-12-003807.png" srcset="/img/loading.gif" alt="image-20210312083804302"></p>
+</blockquote>
+<h4 id="2｜在MAC上配置jupyter-和-notebook"><a href="#2｜在MAC上配置jupyter-和-notebook" class="headerlink" title="2｜在MAC上配置jupyter 和 notebook"></a>2｜在MAC上配置jupyter 和 notebook</h4><h5 id="1｜配置python环境"><a href="#1｜配置python环境" class="headerlink" title="1｜配置python环境"></a>1｜配置python环境</h5><h5 id="2｜配置C-环境"><a href="#2｜配置C-环境" class="headerlink" title="2｜配置C++环境"></a>2｜配置C++环境</h5><blockquote>
+<p>为了能在vscode中也使用notebook，于是为mac配置了jupyter和notebook的环境</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/82025119">https://zhuanlan.zhihu.com/p/82025119</a></p>
+</blockquote>
+<blockquote>
+<p>坑：配置完之后你要重新启动cling的环境</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">conda info --envs<br></code></pre></td></tr></table></figure>
+
+<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-04-01-080553.png" srcset="/img/loading.gif" alt="image-20210401160552430"></p>
+<p>如果要想使用python环境那么就只需要环境名为base</p>
+<p>如果要想使用有C++的环境每次启动都需要进行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">conda activate cling <span class="hljs-comment">#激活有c++的环境</span><br>jupyter notebook  <span class="hljs-comment">#启动notebook</span><br></code></pre></td></tr></table></figure>
+
+<p>“jupyter.experiments.optOutFrom”: [“NativeNotebookEditor”],</p>
 </blockquote>
 
             </div>

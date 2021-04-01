@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      183 字
     </span>
   
 
@@ -222,7 +222,20 @@
             <h1 style="display: none">1_AL_doublePointer</h1>
             
             <div class="markdown-body">
-              
+              <h4 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h4><h5 id="1｜剑指-Offer-58-I-翻转单词顺序"><a href="#1｜剑指-Offer-58-I-翻转单词顺序" class="headerlink" title="1｜剑指 Offer 58 - I. 翻转单词顺序"></a>1｜<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/fan-zhuan-dan-ci-shun-xu-lcof/">剑指 Offer 58 - I. 翻转单词顺序</a></h5><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-04-01-154059.png" srcset="/img/loading.gif" alt="image-20210401234045850" style="zoom:50%;" />
+
+
+
+<blockquote>
+<p>Good Solution：</p>
+<p>解题思路：</p>
+<p>1、首先要从字符串中将每个单词筛选出来，因为不确定单词的长度，所以选用了双指针left和right，left标记单词的左边界，right标记单词的右边界。</p>
+<p>2、第二考虑逆置，因为还要反转字符串所以要从后面往前面遍历；如果不是反转的话就从前往后遍历。</p>
+<p>坑：</p>
+<p>1、要在每个单词后面加一个’ ‘</p>
+<p>2、卡在了while循环的条件判断上面，边界条件没有掌握好。边界条件的逻辑关系要梳理清楚，写循环的话和赋值的话要多加判断。</p>
+</blockquote>
+
             </div>
             <hr>
             <div>
