@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      183 字
+      324 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      4
        分钟
     </span>
   
@@ -234,6 +234,13 @@
 <p>坑：</p>
 <p>1、要在每个单词后面加一个’ ‘</p>
 <p>2、卡在了while循环的条件判断上面，边界条件没有掌握好。边界条件的逻辑关系要梳理清楚，写循环的话和赋值的话要多加判断。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">reverseWords</span><span class="hljs-params">(<span class="hljs-built_in">string</span> s)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> r = s.size()<span class="hljs-number">-1</span>,l;<br>        <span class="hljs-built_in">string</span> res;<br>        <span class="hljs-keyword">while</span>(r&gt;=<span class="hljs-number">0</span>)<br>        &#123;<br>            <span class="hljs-keyword">while</span>(r&gt;=<span class="hljs-number">0</span> &amp;&amp; s[r] == <span class="hljs-string">&#x27; &#x27;</span>)  r--;    <span class="hljs-comment">//delete the word&#x27;s right space</span><br>            <span class="hljs-keyword">if</span>(r&lt;<span class="hljs-number">0</span>)                     <span class="hljs-keyword">break</span>;  <span class="hljs-comment">//if bound</span><br>            l = r;                              <span class="hljs-comment">//set left start</span><br>            <span class="hljs-keyword">while</span>(l&gt;=<span class="hljs-number">0</span> &amp;&amp; s[l] != <span class="hljs-string">&#x27; &#x27;</span>)  l--;    <span class="hljs-comment">//find the word&#x27;s left bound</span><br>            res += (s.substr(l+<span class="hljs-number">1</span>,r-l)+<span class="hljs-string">&quot; &quot;</span>);     <span class="hljs-comment">//copy the word</span><br>            r = l;                              <span class="hljs-comment">//set another word&#x27;s right start</span><br>        &#125;<br>        <span class="hljs-keyword">if</span>(res.size())  res.pop_back();         <span class="hljs-comment">//delete tail space</span><br>        <span class="hljs-keyword">return</span> res;                             <span class="hljs-comment">//return answer</span><br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">reverseWords</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span></span>) -&gt; str:</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot; &quot;</span>.join(s.strip().split()[::-<span class="hljs-number">1</span>])<br></code></pre></td></tr></table></figure>
+
+<p>语法：</p>
+<p>1、<code>str.join(iterable)</code></p>
+<p>join()方法的参数是可迭代对象</p>
 </blockquote>
 
             </div>
