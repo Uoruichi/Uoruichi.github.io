@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      980 字
+      1.1k 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      11
+      14
        分钟
     </span>
   
@@ -292,11 +292,15 @@
 <p>所以插入和删除操作的时间线性正比于堆高h，所以时间复杂度为$O(logn)$</p>
 </blockquote>
 <h4 id="2｜完全二叉堆的实现"><a href="#2｜完全二叉堆的实现" class="headerlink" title="2｜完全二叉堆的实现"></a>2｜完全二叉堆的实现</h4><blockquote>
-<p>使用宏定义来简化后续算法的描述和实现（这是个好习惯）</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> InHeap(n,i)	()</span><br></code></pre></td></tr></table></figure>
+<p>简单实现：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">1e9</span>+<span class="hljs-number">1</span>;<br><span class="hljs-keyword">int</span> m,n,a[N];<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">down</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u)</span>								<span class="hljs-comment">//下滤</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> t = u;<br>    <span class="hljs-keyword">if</span>(u*<span class="hljs-number">2</span> &lt; size &amp;&amp; h[u*<span class="hljs-number">2</span>] &lt; h[t]) t = u*<span class="hljs-number">2</span>;            <br>    <span class="hljs-keyword">if</span>(u*<span class="hljs-number">2</span> +<span class="hljs-number">1</span> &lt; size &amp;&amp; h[u*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>] &lt; h[t])    t = u*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>;  <br>    <span class="hljs-keyword">if</span>(u != t)<br>    &#123;<br>        swap(h[u],h[t]);        <br>        down(t);                <span class="hljs-comment">//是为了使swap之后的元素继续down</span><br>    &#125;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>,&amp;m,&amp;n);<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i =<span class="hljs-number">1</span>;i&lt;=n;i++)   <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>,&amp;a[i]);<br>    size  = n;<br>    <br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=n/<span class="hljs-number">2</span>;i;i--)    down(i);<br>    <span class="hljs-keyword">while</span>(m--)<br>    &#123;<br>        <span class="hljs-built_in">cout</span> &lt;&lt; a[<span class="hljs-number">1</span>] &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span>;<br>        a[<span class="hljs-number">1</span>]  = a[size];<br>        size--;<br>        down(<span class="hljs-number">1</span>);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 
 </blockquote>
-
+<blockquote>
+<p>使用宏定义来简化后续算法的描述和实现（这是个好习惯）</p>
+</blockquote>
+<h3 id="3｜例题"><a href="#3｜例题" class="headerlink" title="3｜例题"></a>3｜例题</h3><h4 id="1｜题目1-703-数据流中的第-K-大元素"><a href="#1｜题目1-703-数据流中的第-K-大元素" class="headerlink" title="1｜题目1:703. 数据流中的第 K 大元素"></a>1｜题目1:<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/kth-largest-element-in-a-stream/">703. 数据流中的第 K 大元素</a></h4>
             </div>
             <hr>
             <div>
@@ -324,6 +328,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/04/02/3-Codewars-2021-4-2/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">3-Codewars-2021-4-2</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

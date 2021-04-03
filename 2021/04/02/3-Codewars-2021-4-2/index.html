@@ -20,7 +20,7 @@
   <meta name="author" content="Uoruichi">
   <meta name="keywords" content="">
   
-  <title>Codewars_2021_3_27 - 漫 漫 长 路 ～</title>
+  <title>3-Codewars-2021-4-2 - 漫 漫 长 路 ～</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -153,7 +153,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Codewars_2021_3_27">
+            <span class="h2" id="subtitle" title="3-Codewars-2021-4-2">
               
             </span>
 
@@ -163,8 +163,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-27 09:15" pubdate>
-        2021年3月27日 上午
+      <time datetime="2021-04-02 08:54" pubdate>
+        2021年4月2日 早上
       </time>
     </span>
   
@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      186 字
+      244 字
     </span>
   
 
@@ -219,40 +219,53 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Codewars_2021_3_27</h1>
+            <h1 style="display: none">3-Codewars-2021-4-2</h1>
             
             <div class="markdown-body">
-              <h4 id="题目1-旋转链表"><a href="#题目1-旋转链表" class="headerlink" title="题目1:旋转链表"></a>题目1:旋转链表</h4><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-27-011656.png" srcset="/img/loading.gif" alt="image-20210327091656425" style="zoom:50%;" />
+              <h4 id="1-题目：String-ends-with"><a href="#1-题目：String-ends-with" class="headerlink" title="1|题目：String ends with?"></a>1|题目：String ends with?</h4><p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-04-02-005602.png" srcset="/img/loading.gif" alt="image-20210402085559350"></p>
+<blockquote>
+<p>My Solution:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">solution</span>(<span class="hljs-params">string, ending</span>):</span><br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">len</span>(ending) == <span class="hljs-number">0</span>):<br>      <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>    <span class="hljs-keyword">else</span>:<br>      <span class="hljs-keyword">return</span> string[-(<span class="hljs-built_in">len</span>(ending))::] == ending<br></code></pre></td></tr></table></figure>
 
-<blockquote>
-<p>解题思路：先将链表成环，注意边界条件（k是可能大于链表的个数的）。</p>
-<p>坑：链表向右移动k个位置，如果不用取模运算的话，输出结果是向左移动。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//My Solution</span><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for singly-linked list.</span><br><span class="hljs-comment"> * struct ListNode &#123;</span><br><span class="hljs-comment"> *     int val;</span><br><span class="hljs-comment"> *     ListNode *next;</span><br><span class="hljs-comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span><br><span class="hljs-comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span><br><span class="hljs-comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span><br><span class="hljs-comment"> * &#125;;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">ListNode* <span class="hljs-title">rotateRight</span><span class="hljs-params">(ListNode* head, <span class="hljs-keyword">int</span> k)</span> </span>&#123;<br>        ListNode *tail;<br>        ListNode *p = head; <br>        <span class="hljs-keyword">int</span> count = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span> (k == <span class="hljs-number">0</span> || head == <span class="hljs-literal">nullptr</span> || head-&gt;next == <span class="hljs-literal">nullptr</span>) <span class="hljs-keyword">return</span> head;<br>        <span class="hljs-keyword">while</span>(p-&gt;next != <span class="hljs-literal">NULL</span>)     <br>        &#123;<br>            p = p -&gt; next;<br>            count++;<br>        &#125;<br>        tail = p;<br>        tail-&gt;next = head;<br><br>        <span class="hljs-keyword">int</span> s = count - k % count;  <span class="hljs-comment">//这步是关键</span><br>        <span class="hljs-keyword">while</span>(s--)<br>        &#123;<br>            head = head-&gt;next;<br>            tail = tail-&gt;next;<br>        &#125;<br>        tail-&gt;next = <span class="hljs-literal">NULL</span>;<br>        <span class="hljs-keyword">return</span> head;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<p>语法：</p>
+<p>1、字符串也可以使用切片的方法,但是要注意切片的范围</p>
+<ul>
+<li><input disabled="" type="checkbox"> 切片的范围</li>
+</ul>
+<p>2、len()函数：计算字符串的长度</p>
+<p>Good Solution</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">solution</span>(<span class="hljs-params">string,ending</span>):</span><br>  <span class="hljs-keyword">return</span> string.endswith(ending)<br></code></pre></td></tr></table></figure>
+
+<p>语法：</p>
+<p>1、<code>str.endswith(*suffix*[, *start*[, *end*]])</code></p>
+<p>如果字符串以指定的 <em>suffix</em> 结束返回 <code>True</code>，否则返回 <code>False</code>。 <em>suffix</em> 也可以为由多个供查找的后缀构成的元组。 如果有可选项 <em>start</em>，将从所指定位置开始检查。 如果有可选项 <em>end</em>，将在所指定位置停止比较,也就是切片的形式。</p>
 </blockquote>
+<h4 id="题目2-Sort-array-by-string-length"><a href="#题目2-Sort-array-by-string-length" class="headerlink" title="题目2:Sort array by string length"></a>题目2:Sort array by string length</h4><p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-04-02-010524.png" srcset="/img/loading.gif" alt="image-20210402090521060"></p>
 <blockquote>
+<p>My Solution:</p>
+<p>解题思路：使用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sort_by_length</span>(<span class="hljs-params">arr</span>):</span><br>    res = <span class="hljs-built_in">sorted</span>(arr,key=<span class="hljs-keyword">lambda</span> i:<span class="hljs-built_in">len</span>(i))<br>    <span class="hljs-keyword">return</span> res<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sort_by_length</span>(<span class="hljs-params">arr</span>):</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sorted</span>(arr, key=<span class="hljs-built_in">len</span>)<br></code></pre></td></tr></table></figure>
+
+<p>语法：</p>
+<ul>
+<li><input disabled="" type="checkbox"> 1、sorted函数</li>
+</ul>
+<p>2、lambda函数：传入参数i的话，是不是默认i为遍历arr中的每一个元素？</p>
 </blockquote>
+<h4 id="题目3-Help-the-bookseller"><a href="#题目3-Help-the-bookseller" class="headerlink" title="题目3:Help the bookseller !"></a>题目3:Help the bookseller !</h4><p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-04-02-111529.png" srcset="/img/loading.gif" alt="image-20210402191524711"></p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/Algorithm/">Algorithm</a>
-                    
-                      <a class="hover-with-bg" href="/categories/Algorithm/Grammar/">Grammar</a>
-                    
-                  </div>
-                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/C/">C++</a>
-                    
-                      <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
                     
                       <a class="hover-with-bg" href="/tags/Python/">Python</a>
                     
@@ -273,9 +286,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/27/1-AL-doublePointer/">
+                      <a href="/2021/04/02/1-AL-MergeSort/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">1_AL_doublePointer</span>
+                        <span class="hidden-mobile">1-AL-MergeSort</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -283,8 +296,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/27/1-AL-greedyAlgorithm/">
-                        <span class="hidden-mobile">1_AL_greefyAlgorithm</span>
+                      <a href="/2021/04/01/1-AL-Heap/">
+                        <span class="hidden-mobile">1-AL-Heap</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
