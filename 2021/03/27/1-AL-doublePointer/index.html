@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      385 字
+      732 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      10
        分钟
     </span>
   
@@ -249,6 +249,25 @@
 <li><input disabled="" type="checkbox"> 4、切片</li>
 </ul>
 <p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-04-02-003752.png" srcset="/img/loading.gif" alt="image-20210402083749253"></p>
+</blockquote>
+<h4 id="2｜26-删除有序数组中的重复项"><a href="#2｜26-删除有序数组中的重复项" class="headerlink" title="2｜26. 删除有序数组中的重复项"></a>2｜<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/">26. 删除有序数组中的重复项</a></h4><details>
+<summary>题目要求</summary>
+  <img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-04-05-022406.png" srcset="/img/loading.gif" />
+</details>
+
+<h5 id="1｜My-solution"><a href="#1｜My-solution" class="headerlink" title="1｜My solution"></a>1｜My solution</h5><blockquote>
+<p>解题思路：</p>
+<p>坑：</p>
+<p>1、使用双while有很多边界条件的，不是特定情况，双while的效果适合if else达成的效果是一样的。</p>
+</blockquote>
+<blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">removeDuplicates</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span>(nums.size() == <span class="hljs-number">0</span>)    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>,j=<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span>(j&lt;nums.size())<br>        &#123;<br>            <span class="hljs-keyword">if</span>(nums[i] == nums[j])  j++;<br>            <span class="hljs-keyword">else</span>    nums[++i] = nums[j];<br>        &#125;<br>        <span class="hljs-keyword">return</span> i+<span class="hljs-number">1</span>;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//一维问题，避免使用双while，很容易有边界问题的</span><br><span class="hljs-comment">//字符串相当于是二维问题了，所以没办法的情况下使用双while循环</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">removeDuplicates</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> len = nums.size();<br>        <span class="hljs-keyword">if</span>(len == <span class="hljs-number">0</span>)    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>,j=<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span>(j &lt; len)<br>        &#123;<br>            <span class="hljs-keyword">while</span>(nums[j] == nums[i])<br>            &#123;<br>                j++;<br>                <span class="hljs-keyword">if</span>( j == len)  <span class="hljs-keyword">break</span>;    <br>            &#125;<br>            <span class="hljs-keyword">if</span>(j &lt; len)   nums[++i] = nums[j];<br>            <span class="hljs-keyword">else</span>          <span class="hljs-keyword">break</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> i+<span class="hljs-number">1</span>;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">removeElement</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> val)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (nums.size() == <span class="hljs-number">0</span> || nums.empty()) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-comment">//左指针：数组头；右指针：数组尾</span><br>        <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>, right = nums.size() - <span class="hljs-number">1</span>;<br><br>        <span class="hljs-keyword">while</span> (left &lt; right) &#123;<br>            <span class="hljs-comment">//循环右移左指针，直至等于指定值</span><br>            <span class="hljs-keyword">while</span> (left &lt; right &amp;&amp; nums[left] != val) left++;<br>            <span class="hljs-comment">//循环左移右指针，直至不等于指定值</span><br>            <span class="hljs-keyword">while</span> (left &lt; right &amp;&amp; nums[right] == val) right--;<br>            <span class="hljs-comment">//交换元素</span><br>            swap(nums[left], nums[right]);<br>        &#125;<br>        <span class="hljs-comment">//while循环结束时，left &gt;= right，判断重合位置</span><br>        <span class="hljs-keyword">if</span> (nums[left] == val) <span class="hljs-keyword">return</span> left;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> left + <span class="hljs-number">1</span>;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 </blockquote>
 
             </div>

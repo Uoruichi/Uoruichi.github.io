@@ -20,7 +20,7 @@
   <meta name="author" content="Uoruichi">
   <meta name="keywords" content="">
   
-  <title>3-Codewars-2021-4-4 - 漫 漫 长 路 ～</title>
+  <title>1-AL-Finding - 漫 漫 长 路 ～</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -153,7 +153,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="3-Codewars-2021-4-4">
+            <span class="h2" id="subtitle" title="1-AL-Finding">
               
             </span>
 
@@ -163,8 +163,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-04-04 08:05" pubdate>
-        2021年4月4日 早上
+      <time datetime="2021-04-05 14:41" pubdate>
+        2021年4月5日 下午
       </time>
     </span>
   
@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      319 字
+      164 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      2
        分钟
     </span>
   
@@ -219,70 +219,25 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">3-Codewars-2021-4-4</h1>
+            <h1 style="display: none">1-AL-Finding</h1>
             
             <div class="markdown-body">
-              <h4 id="题目1-Delete-occurrences-of-an-element-if-it-occurs-more-than-n-times"><a href="#题目1-Delete-occurrences-of-an-element-if-it-occurs-more-than-n-times" class="headerlink" title="题目1:Delete occurrences of an element if it occurs more than n times"></a>题目1:Delete occurrences of an element if it occurs more than n times</h4><p><code>哈希表</code> <code>STL</code></p>
-<details>
-<summary>题目要求</summary>
-  <img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-04-04-003237.png" srcset="/img/loading.gif" />
-</details>
-
-<h5 id="1｜解题思路："><a href="#1｜解题思路：" class="headerlink" title="1｜解题思路："></a>1｜解题思路：</h5><blockquote>
-<p>相当于去重，可以用数组实现，但是空间复杂度很高</p>
+              <h3 id="1｜二分查找"><a href="#1｜二分查找" class="headerlink" title="1｜二分查找"></a>1｜二分查找</h3><h3 id="2｜例题"><a href="#2｜例题" class="headerlink" title="2｜例题"></a>2｜例题</h3><h4 id="1｜35-搜索插入位置"><a href="#1｜35-搜索插入位置" class="headerlink" title="1｜35. 搜索插入位置"></a>1｜<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/search-insert-position/">35. 搜索插入位置</a></h4><h5 id="1｜My-Solution"><a href="#1｜My-Solution" class="headerlink" title="1｜My Solution"></a>1｜My Solution</h5><blockquote>
+<p>解题思路：</p>
 </blockquote>
-<h5 id="2｜Good-Solution"><a href="#2｜Good-Solution" class="headerlink" title="2｜Good Solution:"></a>2｜Good Solution:</h5><blockquote>
-<p>语法：</p>
-<p>1、使用unordered_map类型建立<code>关键字key = i</code> 与<code>value = 出现次数</code>的映射</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//返回时下标</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">searchInsert</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> target)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>,right = nums.size()<span class="hljs-number">-1</span>,mid,res;<br>        <span class="hljs-keyword">while</span>(left &lt; right)<br>        &#123;<br>            mid = (left+right) &gt;&gt; <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">if</span>(target == nums[mid])             <span class="hljs-keyword">return</span> mid;<br>            (target &lt; nums[mid]) ? right = mid : left = mid +<span class="hljs-number">1</span>;<br>        &#125;                <br>        <span class="hljs-keyword">if</span>(nums[left] &lt; target)              <span class="hljs-keyword">return</span>  left+<span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">else</span>                                 <span class="hljs-keyword">return</span>  left;<br><br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h4 id="1｜69-x-的平方根"><a href="#1｜69-x-的平方根" class="headerlink" title="1｜69. x 的平方根"></a>1｜<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sqrtx/">69. x 的平方根</a></h4><h5 id="1｜My-Solution-1"><a href="#1｜My-Solution-1" class="headerlink" title="1｜My Solution"></a>1｜My Solution</h5><blockquote>
+<p>解题思路：</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;unordered_map&gt;</span></span><br><span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">deleteNth</span><span class="hljs-params">(<span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; arr, <span class="hljs-keyword">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;res;<br>    <span class="hljs-built_in">unordered_map</span>&lt;<span class="hljs-keyword">int</span>,<span class="hljs-keyword">int</span>&gt; resMap;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> i:arr)<br>    &#123;<br>      <span class="hljs-keyword">if</span>(resMap[i]++ &lt; n)<br>        res.push_back(i);<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">mySqrt</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">if</span>(x == <span class="hljs-number">1</span> || x == <span class="hljs-number">0</span>)    <span class="hljs-keyword">return</span> x;<br>        <span class="hljs-keyword">int</span> l = <span class="hljs-number">0</span>,r = x,mid,ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span>(l &lt;= r)<br>        &#123;<br>            mid = l+(r-l) / <span class="hljs-number">2</span>;<br>            <span class="hljs-keyword">if</span>((<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>)mid * mid &lt;= x)      <br>            &#123;<br>                ans = mid;<br>                l = mid+<span class="hljs-number">1</span>;<br>            &#125;<br>            <span class="hljs-keyword">else</span>        r = mid<span class="hljs-number">-1</span>;<br><br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 
-<h4 id="2｜题目2-Count-the-Digit"><a href="#2｜题目2-Count-the-Digit" class="headerlink" title="2｜题目2:Count the Digit"></a>2｜题目2:Count the Digit</h4><details>
-<summary>题目要求</summary>
-  <img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-04-04-013208.png" srcset="/img/loading.gif" />
-</details>
 
-<h5 id="1｜解题思路：-1"><a href="#1｜解题思路：-1" class="headerlink" title="1｜解题思路："></a>1｜解题思路：</h5><h5 id="2｜My-Solution"><a href="#2｜My-Solution" class="headerlink" title="2｜My Solution"></a>2｜My Solution</h5><h4 id="3｜Ones-and-Zeros"><a href="#3｜Ones-and-Zeros" class="headerlink" title="3｜Ones and Zeros"></a>3｜Ones and Zeros</h4><details>
-<summary>题目要求</summary>
-  <img src="https://uoruichi.oss-cn-beijing.aliyuncs.com/2021-04-04-014325.png" srcset="/img/loading.gif"/>
-</details>
-
-<h5 id="1｜My-Solution"><a href="#1｜My-Solution" class="headerlink" title="1｜My Solution"></a>1｜My Solution</h5><h6 id="1｜解题思路：-2"><a href="#1｜解题思路：-2" class="headerlink" title="1｜解题思路："></a>1｜解题思路：</h6><blockquote>
-<p>考察二进制的转换过程：找到二进制中$2^n$中n与列表的index的关系</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">binary_array_to_number</span>(<span class="hljs-params">arr</span>):</span><br>    <span class="hljs-built_in">sum</span> = <span class="hljs-number">0</span><br>    i = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> arr[::-<span class="hljs-number">1</span>]:<br>        <span class="hljs-built_in">sum</span> += item*<span class="hljs-built_in">pow</span>(<span class="hljs-number">2</span>,i)<br>        i+=<span class="hljs-number">1</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span><br></code></pre></td></tr></table></figure>
-
-<h5 id="2｜Good-Solution-1"><a href="#2｜Good-Solution-1" class="headerlink" title="2｜Good Solution"></a>2｜Good Solution</h5><h6 id="1｜解题思路：-3"><a href="#1｜解题思路：-3" class="headerlink" title="1｜解题思路："></a>1｜解题思路：</h6><blockquote>
-<p>考察二进制的转换过程：找到二进制中$2^n$中n与列表的index的关系</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">binary_array_to_number</span>(<span class="hljs-params">arr</span>):</span><br>  <span class="hljs-keyword">return</span> <span class="hljs-built_in">int</span>(<span class="hljs-string">&quot;&quot;</span>.join(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">str</span>, arr)), <span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure>
-
-<h6 id="1｜语法："><a href="#1｜语法：" class="headerlink" title="1｜语法："></a>1｜语法：</h6><h4 id="4｜题目4-Highest-Scoring-Word"><a href="#4｜题目4-Highest-Scoring-Word" class="headerlink" title="4｜题目4:Highest Scoring Word"></a>4｜题目4:Highest Scoring Word</h4><details>
-<summary>题目要求</summary>
-  <img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-04-04-023235.png" srcset="/img/loading.gif"/>
-</details>
-
-<h5 id="1｜My-Solution-1"><a href="#1｜My-Solution-1" class="headerlink" title="1｜My Solution"></a>1｜My Solution</h5><h6 id="1｜解题思路"><a href="#1｜解题思路" class="headerlink" title="1｜解题思路"></a>1｜解题思路</h6><blockquote>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">high</span>(<span class="hljs-params">x</span>):</span><br>    <span class="hljs-built_in">max</span> = <span class="hljs-number">0</span><br>    dex = <span class="hljs-number">0</span><br>    res = <span class="hljs-string">&quot;&quot;</span><br>    <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> x.split():<br>        <span class="hljs-built_in">sum</span> = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> item:<br>            <span class="hljs-built_in">sum</span> += <span class="hljs-built_in">ord</span>(c)-<span class="hljs-number">96</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">max</span> &lt; <span class="hljs-built_in">sum</span>:<br>            <span class="hljs-built_in">max</span> = <span class="hljs-built_in">sum</span><br>            res = item<br>    <span class="hljs-keyword">return</span> res<br></code></pre></td></tr></table></figure>
-
-<h5 id="2｜Good-Solution-2"><a href="#2｜Good-Solution-2" class="headerlink" title="2｜Good Solution"></a>2｜Good Solution</h5><h6 id="1｜解题思路-1"><a href="#1｜解题思路-1" class="headerlink" title="1｜解题思路"></a>1｜解题思路</h6>
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/C/">C++</a>
-                    
-                      <a class="hover-with-bg" href="/tags/python/">python</a>
-                    
-                      <a class="hover-with-bg" href="/tags/Coderwar/">Coderwar</a>
-                    
-                  </div>
                 
               </div>
               
@@ -297,9 +252,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/04/04/0-CPP-Grammar-Class/">
+                      <a href="/2021/04/05/1-AL-Array/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">0-CPP-Grammar-Class</span>
+                        <span class="hidden-mobile">1-AL-Array</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -307,8 +262,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/04/03/3-Codewars-2021-4-3/">
-                        <span class="hidden-mobile">3-Codewars-2021-4-3</span>
+                      <a href="/2021/04/04/0-CPP-Grammar-Class/">
+                        <span class="hidden-mobile">0-CPP-Grammar-Class</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
