@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>3-Codewars-2021-4-9</title>
+    <link href="/2021/04/09/3-Codewars-2021-4-9/"/>
+    <url>/2021/04/09/3-Codewars-2021-4-9/</url>
+    
+    <content type="html"><![CDATA[<h4 id="1｜题目1-Test1-2-3"><a href="#1｜题目1-Test1-2-3" class="headerlink" title="1｜题目1:Test1-2-3"></a>1｜题目1:<a href="">Test1-2-3</a></h4><h5 id="1｜My-Solution"><a href="#1｜My-Solution" class="headerlink" title="1｜My Solution"></a>1｜My Solution</h5><blockquote><p>解题思路：</p><p>坑：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">number</span>(<span class="hljs-params">lines</span>):</span><br>    s = <span class="hljs-string">&quot;&quot;</span><br>    mlist = []<br>    mdir =&#123;&#125;<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-built_in">len</span>(lines)+<span class="hljs-number">1</span>):<br>        mdir[i] = lines[i-<span class="hljs-number">1</span>]<br>        s = <span class="hljs-string">&quot;&#123;&#125;: &#123;&#125;&quot;</span>.<span class="hljs-built_in">format</span>(i,mdir[i])<br>        mlist.append(s)<br>    <span class="hljs-keyword">return</span> mlist<br></code></pre></td></tr></table></figure></blockquote><h5 id="2｜Good-Solution"><a href="#2｜Good-Solution" class="headerlink" title="2｜Good Solution"></a>2｜Good Solution</h5><blockquote><p>解题思路：</p><p>坑：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">number</span>(<span class="hljs-params">lines</span>):</span><br>  <span class="hljs-keyword">return</span> [<span class="hljs-string">&#x27;%d: %s&#x27;</span> % v <span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(lines, <span class="hljs-number">1</span>)]<br></code></pre></td></tr></table></figure><p>语法：</p><p>1、enumerate、list、set类型的双值for循环</p><p>2、为什么dir类型不可以双值for循环？</p></blockquote>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Python</tag>
+      
+      <tag>CodeWars</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>3-Codewars-2021-4-8</title>
     <link href="/2021/04/08/3-Codewars-2021-4-8/"/>
     <url>/2021/04/08/3-Codewars-2021-4-8/</url>
@@ -160,7 +181,7 @@
     <link href="/2021/04/02/1-AL-DP/"/>
     <url>/2021/04/02/1-AL-DP/</url>
     
-    <content type="html"><![CDATA[<h3 id="1｜动态规划"><a href="#1｜动态规划" class="headerlink" title="1｜动态规划"></a>1｜动态规划</h3><h3 id="2｜例题"><a href="#2｜例题" class="headerlink" title="2｜例题"></a>2｜例题</h3><h4 id="1｜70-爬楼梯"><a href="#1｜70-爬楼梯" class="headerlink" title="1｜70. 爬楼梯"></a>1｜<a href="https://leetcode-cn.com/problems/climbing-stairs/">70. 爬楼梯</a></h4>]]></content>
+    <content type="html"><![CDATA[<h4 id="1｜动态规划"><a href="#1｜动态规划" class="headerlink" title="1｜动态规划"></a>1｜动态规划</h4><p><code>递归</code> <code>递推</code> <code>重叠子问题</code></p><blockquote><p>动态规划：最优化问题的算法思想，也就是说他是求最值之类的算法思想。</p><p>动态规划讲一个复杂的问题分解成为若干个子问题，通过综合子问题的最优解来得到原问题的最优解。关键在于动态规划会讲每个求过的子问题的解记录下来，碰到同样的子问题时，就可以直接使用之前记录的结果，避免了重复计算。（求前缀和是不是也是动态规划的一种思想）。</p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-04-09-011947.png" alt="image-20210409091947270" style="zoom:50%;" /><p>也就是说一个问题必须具有重叠子问题（如果一个问题可以被分解为若干个子问题，且这些子问题会重复出现，那么就称这个问题具有重叠子问题）。</p><p>人话：通过找规律以及记录，优化递归。空间换时间，通过定义变量和利用程序执行的有序性，减少递归中归的过程。</p><p>动态规划主要通过递归和递推来实现，貌似递推要比递归效率更高。</p></blockquote><h4 id="2｜例题"><a href="#2｜例题" class="headerlink" title="2｜例题"></a>2｜例题</h4><h5 id="1｜70-爬楼梯"><a href="#1｜70-爬楼梯" class="headerlink" title="1｜70. 爬楼梯"></a>1｜<a href="https://leetcode-cn.com/problems/climbing-stairs/">70. 爬楼梯</a></h5><h5 id="2｜1539-第-k-个缺失的正整数"><a href="#2｜1539-第-k-个缺失的正整数" class="headerlink" title="2｜1539. 第 k 个缺失的正整数"></a>2｜<a href="https://leetcode-cn.com/problems/kth-missing-positive-number/">1539. 第 k 个缺失的正整数</a></h5><h6 id="1｜My-Solution"><a href="#1｜My-Solution" class="headerlink" title="1｜My Solution"></a>1｜My Solution</h6><blockquote><p>解题思路：DP问题</p><p>利用数组存储之前缺失数字的个数</p><p>坑：找好关系</p><p>优化：可以不创建数组进行优化的。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">findKthPositive</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; arr, <span class="hljs-keyword">int</span> k)</span> </span>&#123;<br>        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; res;<br>        <span class="hljs-keyword">int</span> ans;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=arr.size();i++)  res.push_back(arr[i<span class="hljs-number">-1</span>] - i);<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;arr.size();i++)<br>        &#123;<br>            <span class="hljs-keyword">if</span>(k &lt;= res[i])         <br>            &#123;<br>                ans =  arr[i]-(res[i]-k+<span class="hljs-number">1</span>);<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>            <span class="hljs-keyword">if</span>(i == res.size()<span class="hljs-number">-1</span>)   ans = arr[arr.size()<span class="hljs-number">-1</span>]+k-res[i];<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure><ul><li><input disabled="" type="checkbox"> 优化</li></ul></blockquote><h6 id="2｜LeetCode"><a href="#2｜LeetCode" class="headerlink" title="2｜LeetCode"></a>2｜LeetCode</h6><blockquote><p>解题思路：二分查找，因为题目中的条件时严格递增的，所以使用二分也可以进行查找。</p></blockquote>]]></content>
     
     
     
@@ -235,9 +256,9 @@
     
     <tags>
       
-      <tag>C++</tag>
-      
       <tag>Algorithm</tag>
+      
+      <tag>C++</tag>
       
     </tags>
     
@@ -478,9 +499,9 @@
     
     <tags>
       
-      <tag>C++</tag>
-      
       <tag>Algorithm</tag>
+      
+      <tag>C++</tag>
       
     </tags>
     
