@@ -20,7 +20,7 @@
   <meta name="author" content="Uoruichi">
   <meta name="keywords" content="">
   
-  <title>3-Codewars-2021-4-10 - 漫 漫 长 路 ～</title>
+  <title>3-Codewars-2021-4-11 - 漫 漫 长 路 ～</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -153,7 +153,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="3-Codewars-2021-4-10">
+            <span class="h2" id="subtitle" title="3-Codewars-2021-4-11">
               
             </span>
 
@@ -163,8 +163,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-04-10 12:07" pubdate>
-        2021年4月10日 中午
+      <time datetime="2021-04-11 08:30" pubdate>
+        2021年4月11日 早上
       </time>
     </span>
   
@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      313 字
+      150 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      2
        分钟
     </span>
   
@@ -219,20 +219,21 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">3-Codewars-2021-4-10</h1>
+            <h1 style="display: none">3-Codewars-2021-4-11</h1>
             
             <div class="markdown-body">
-              <h4 id="1｜题目1-The-gap-Prime-number"><a href="#1｜题目1-The-gap-Prime-number" class="headerlink" title="1｜题目1:The gap Prime number"></a>1｜题目1:The gap Prime number</h4><h5 id="1｜My-Solution"><a href="#1｜My-Solution" class="headerlink" title="1｜My Solution"></a>1｜My Solution</h5><blockquote>
-<p>坑：</p>
-<p>1、素数的判断</p>
-<p>2、时间复杂度过高，代码不简洁，逻辑混乱</p>
+              <h4 id="1｜题目1：Sum-of-all-the-multiples-of-3-or-5"><a href="#1｜题目1：Sum-of-all-the-multiples-of-3-or-5" class="headerlink" title="1｜题目1：Sum of all the multiples of 3 or 5"></a>1｜题目1：<a target="_blank" rel="noopener" href="https://www.codewars.com/kata/57f36495c0bb25ecf50000e7/solutions/python">Sum of all the multiples of 3 or 5</a></h4><h6 id="1｜My-Solution"><a href="#1｜My-Solution" class="headerlink" title="1｜My Solution"></a>1｜My Solution</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># step1:find all multiples of 3 and 5 except n % 15 == 0</span><br><span class="hljs-comment"># step2: sum</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find</span>(<span class="hljs-params">n</span>):</span><br>    <span class="hljs-built_in">sum</span> = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-built_in">int</span>(n/<span class="hljs-number">3</span>)+<span class="hljs-number">1</span>):<br>        <span class="hljs-built_in">sum</span> += <span class="hljs-number">3</span>*item<br>    <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-built_in">int</span>(n/<span class="hljs-number">5</span>)+<span class="hljs-number">1</span>):<br>        <span class="hljs-keyword">if</span> (<span class="hljs-number">5</span> * item % <span class="hljs-number">3</span>) != <span class="hljs-number">0</span>:<br>            <span class="hljs-built_in">sum</span> += <span class="hljs-number">5</span> *item<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span><br></code></pre></td></tr></table></figure>
+
+<h6 id="2｜GoodSolution"><a href="#2｜GoodSolution" class="headerlink" title="2｜GoodSolution"></a>2｜GoodSolution</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find</span>(<span class="hljs-params">n</span>):</span><br>  <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span>(i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>,n+<span class="hljs-number">1</span>) <span class="hljs-keyword">if</span> i % <span class="hljs-number">3</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> i % <span class="hljs-number">5</span> == <span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+
+<h4 id="2｜题目2-Regex-Password-Validation"><a href="#2｜题目2-Regex-Password-Validation" class="headerlink" title="2｜题目2:Regex Password Validation"></a>2｜题目2:<a target="_blank" rel="noopener" href="https://www.codewars.com/kata/52e1476c8147a7547a000811/train/python">Regex Password Validation</a></h4><p><code>正则表达式</code></p>
+<h4 id="3｜Multiplication-Tables"><a href="#3｜Multiplication-Tables" class="headerlink" title="3｜Multiplication Tables"></a>3｜<a target="_blank" rel="noopener" href="https://www.codewars.com/kata/5432fd1c913a65b28f000342/train/python">Multiplication Tables</a></h4><p><code>List</code></p>
+<h6 id="1｜My-Solution-1"><a href="#1｜My-Solution-1" class="headerlink" title="1｜My Solution"></a>1｜My Solution</h6><h6 id="2｜Good-Solution"><a href="#2｜Good-Solution" class="headerlink" title="2｜Good Solution"></a>2｜Good Solution</h6><blockquote>
+<p>解题思路很简单</p>
+<p>语法：生成器列表中元素为列表的表达方式</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> math<br><span class="hljs-comment"># 素数判断</span><br><span class="hljs-comment"># step1:挨个判断m～n中的素数x,y,z</span><br><span class="hljs-comment"># step2:y-x 是不是等于 g</span><br><span class="hljs-comment"># step3:返回list</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ifPrime</span>(<span class="hljs-params">x</span>):</span><br>    <span class="hljs-keyword">if</span>(x == <span class="hljs-number">2</span> <span class="hljs-keyword">or</span> x == <span class="hljs-number">3</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>    <span class="hljs-keyword">if</span>(x % <span class="hljs-number">6</span> != <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> x % <span class="hljs-number">6</span> != <span class="hljs-number">5</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>    y = <span class="hljs-built_in">int</span>(math.sqrt(x))<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>,y+<span class="hljs-number">1</span>,<span class="hljs-number">6</span>):<br>        <span class="hljs-keyword">if</span>(x % i == <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> x %(i+<span class="hljs-number">2</span>) == <span class="hljs-number">0</span>):<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">gap</span>(<span class="hljs-params">g, m, n</span>):</span><br>    res = []<br>    ans = []<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(m,n+<span class="hljs-number">1</span>):<br>        <span class="hljs-keyword">if</span>(ifPrime(i)):<br>            res.append(i)<br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">len</span>(res) == <span class="hljs-number">1</span> <span class="hljs-keyword">or</span> <span class="hljs-built_in">len</span>(res) == <span class="hljs-number">0</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,<span class="hljs-built_in">len</span>(res)-<span class="hljs-number">1</span>):<br>            <span class="hljs-keyword">if</span>(res[i+<span class="hljs-number">1</span>] - res[i] == g):<br>                ans.append(res[i])<br>                ans.append(res[i+<span class="hljs-number">1</span>])<br>                <span class="hljs-keyword">break</span><br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">len</span>(ans) == <span class="hljs-number">0</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">return</span> ans<br></code></pre></td></tr></table></figure>
-
-<h5 id="2｜Good-Solution"><a href="#2｜Good-Solution" class="headerlink" title="2｜Good Solution"></a>2｜Good Solution</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">gap</span>(<span class="hljs-params">g, m, n</span>):</span><br>    previous_prime = n<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(m, n + <span class="hljs-number">1</span>):<br>        <span class="hljs-keyword">if</span> is_prime(i):<br>            <span class="hljs-keyword">if</span> i - previous_prime == g: <br>                <span class="hljs-keyword">return</span> [previous_prime, i]<br>            previous_prime = i						<span class="hljs-comment"># 这步很关键</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_prime</span>(<span class="hljs-params">n</span>):</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>, <span class="hljs-built_in">int</span>(n**<span class="hljs-number">.5</span> + <span class="hljs-number">1</span>)):<br>        <span class="hljs-keyword">if</span> n % i == <span class="hljs-number">0</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br></code></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>sieve = np.ones(<span class="hljs-number">12_000_000</span>, dtype=<span class="hljs-built_in">bool</span>)<br>sieve[<span class="hljs-number">0</span>] = sieve[<span class="hljs-number">1</span>] = <span class="hljs-number">0</span><br>sieve[<span class="hljs-number">2</span>*<span class="hljs-number">2</span>::<span class="hljs-number">2</span>] = <span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>, <span class="hljs-built_in">int</span>(<span class="hljs-built_in">len</span>(sieve)**<span class="hljs-number">0.5</span>)+<span class="hljs-number">1</span>, <span class="hljs-number">2</span>):<br>    <span class="hljs-keyword">if</span> sieve[i]:<br>        sieve[i*i::i] = <span class="hljs-number">0</span><br>primes = np.array([i <span class="hljs-keyword">for</span> i, x <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(sieve) <span class="hljs-keyword">if</span> x], dtype=<span class="hljs-built_in">int</span>)<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">gap</span>(<span class="hljs-params">g, m, n</span>):</span><br>    i = primes.searchsorted(m)<br>    j = primes.searchsorted(n)<br>    <span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(i, j+<span class="hljs-number">1</span>):<br>        <span class="hljs-keyword">if</span> primes[k+<span class="hljs-number">1</span>] - primes[k] == g:<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">list</span>(primes[k:k+<span class="hljs-number">2</span>])<br></code></pre></td></tr></table></figure>
-
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">multiplication_table</span>(<span class="hljs-params">row,col</span>):</span><br>    <span class="hljs-keyword">return</span> [[(i+<span class="hljs-number">1</span>)*(j+<span class="hljs-number">1</span>) <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(col)] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(row)]<br></code></pre></td></tr></table></figure></blockquote>
 
             </div>
             <hr>
@@ -262,18 +263,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/04/11/3-Codewars-2021-4-11/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">3-Codewars-2021-4-11</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/04/10/1-AL-MATH-BigNumber/">
-                        <span class="hidden-mobile">1-AL-MATH-BigNumber</span>
+                      <a href="/2021/04/10/3-Codewars-2021-4-10/">
+                        <span class="hidden-mobile">3-Codewars-2021-4-10</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
