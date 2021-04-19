@@ -20,7 +20,7 @@
   <meta name="author" content="Uoruichi">
   <meta name="keywords" content="">
   
-  <title>3-Codewars-2021-4-8 - 漫 漫 长 路 ～</title>
+  <title>3-Codewars-2021-3-31 - 漫 漫 长 路 ～</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -153,7 +153,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="3-Codewars-2021-4-8">
+            <span class="h2" id="subtitle" title="3-Codewars-2021-3-31">
               
             </span>
 
@@ -163,8 +163,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-04-08 22:42" pubdate>
-        2021年4月8日 晚上
+      <time datetime="2021-03-31 08:08" pubdate>
+        2021年3月31日 早上
       </time>
     </span>
   
@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      204 字
+      243 字
     </span>
   
 
@@ -219,35 +219,41 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">3-Codewars-2021-4-8</h1>
+            <h1 style="display: none">3-Codewars-2021-3-31</h1>
             
             <div class="markdown-body">
-              <h4 id="题目1-Break-camelCase"><a href="#题目1-Break-camelCase" class="headerlink" title="题目1:    Break camelCase"></a>题目1:    <a target="_blank" rel="noopener" href="https://www.codewars.com/kata/5208f99aee097e6552000148/solutions/python">Break camelCase</a></h4><p><code>string</code></p>
-<h5 id="1｜My-Solution"><a href="#1｜My-Solution" class="headerlink" title="1｜My Solution"></a>1｜My Solution</h5><blockquote>
+              <h4 id="题目1-Bouncing-Balls"><a href="#题目1-Bouncing-Balls" class="headerlink" title="题目1:Bouncing Balls "></a>题目1:Bouncing Balls <img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-31-004100.png" srcset="/img/loading.gif" alt="image-20210331084100178"></h4><blockquote>
 <p>解题思路：</p>
-<p>遍历string，查找出大写字母，在大写字母前加入’(space)’，然后在加入s[i];</p>
-<p>坑：</p>
-<p>range[左闭右开，所以下标取不到max)</p>
-</blockquote>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">solution</span>(<span class="hljs-params">s</span>):</span><br>    res = <span class="hljs-string">&quot;&quot;</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(s)):<br>        <span class="hljs-keyword">if</span> s[i] &lt; <span class="hljs-string">&#x27;a&#x27;</span>:<br>            res += <span class="hljs-string">&#x27; &#x27;</span><br>            res +=s[i]<br>        <span class="hljs-keyword">else</span>:<br>            res += s[i]<br>    <span class="hljs-keyword">return</span> res<br></code></pre></td></tr></table></figure>
-</blockquote>
-<h5 id="2｜Good-Solution"><a href="#2｜Good-Solution" class="headerlink" title="2｜Good Solution"></a>2｜Good Solution</h5><blockquote>
-<p>解题思路:同上，但是代码更加简洁</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">solution</span>(<span class="hljs-params">s</span>):</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&#x27;</span>.join(<span class="hljs-string">&#x27; &#x27;</span> + c <span class="hljs-keyword">if</span> c.isupper() <span class="hljs-keyword">else</span> c <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> s)<br></code></pre></td></tr></table></figure>
+<p>下降必然有一次，如果每次弹起高度 $&gt;$窗户的高度，那么可以看见两次</p>
+<p>My Solution：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bouncingBall</span>(<span class="hljs-params">h, bounce, window</span>):</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> <span class="hljs-number">0</span> &lt; bounce &lt; <span class="hljs-number">1</span>: <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span><br>    count = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">while</span> h &gt; window:<br>        count += <span class="hljs-number">1</span><br>        h *= bounce<br>        <span class="hljs-keyword">if</span> h &gt; window: count += <span class="hljs-number">1</span><br>    <span class="hljs-keyword">return</span> count <span class="hljs-keyword">or</span> -<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<p>Good Solution:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bouncingBall</span>(<span class="hljs-params">h, bounce, window</span>):</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> (h &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> <span class="hljs-number">0</span> &lt; bounce &lt; <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> window &lt; h):<br>        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> + <span class="hljs-number">2</span>*<span class="hljs-built_in">int</span>(log(window/<span class="hljs-built_in">float</span>(h), bounce))<br></code></pre></td></tr></table></figure>
 
 <p>语法：</p>
-<p>str.join(iterable):</p>
-<p>iterable相当于对象，如果<code>c.isupper()== True</code>的话，对象变为<code>‘ ’+c</code>,否则的话是加入<code>c</code></p>
+<p>1、if not 语句的使用：如果不满足if not(condition)    condition的话，那么就返回-1，python中可以使用<code>0 &lt; bounce &lt; 1</code>的结构</p>
+<p>2、幂值的计算$log_{bounce}{window/float(h)}$，最后将值转换为int类型</p>
 </blockquote>
+<h4 id="题目2-Find-the-stray-number"><a href="#题目2-Find-the-stray-number" class="headerlink" title="题目2:Find the stray number"></a>题目2:Find the stray number</h4><p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-31-005313.png" srcset="/img/loading.gif" alt="image-20210331085312850"></p>
 <blockquote>
-<p>解题思路：利用正则表达式[没掌握]</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">solution</span>(<span class="hljs-params">s</span>):</span><br>    <span class="hljs-keyword">return</span> re.sub(<span class="hljs-string">&#x27;([A-Z])&#x27;</span>, <span class="hljs-string">r&#x27; \1&#x27;</span>, s)<br></code></pre></td></tr></table></figure>
+<p>My Solution:</p>
+<p>1、arr.count(item)函数的使用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">stray</span>(<span class="hljs-params">arr</span>):</span><br>    <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> arr:<br>        <span class="hljs-keyword">if</span> arr.count(x) == <span class="hljs-number">1</span>:<br>            <span class="hljs-keyword">return</span> x<br></code></pre></td></tr></table></figure>
 
-<p>语法：正则表达式<code>re.sub（）</code></p>
-<p><code>re.sub(*pattern*, *repl*, *string*, *count=0*, *flags=0*)</code></p>
-<p><code>pattern</code>：匹配规则</p>
-<p><code>repl</code>：</p>
+<p>Good Solution:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">stray</span>(<span class="hljs-params">arr</span>):</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">min</span>(arr, key=arr.count)<br></code></pre></td></tr></table></figure>
+
+<p>语法：</p>
+<p>1、min()函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> reduce<br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">stray</span>(<span class="hljs-params">seq</span>):</span><br>    <span class="hljs-keyword">return</span> reduce(<span class="hljs-keyword">lambda</span> acc, cur: acc ^ cur, seq)<br></code></pre></td></tr></table></figure>
+
+<p>语法：</p>
+<p>1、reduce()函数</p>
+</blockquote>
+<h4 id="题目3-Two-of-sum"><a href="#题目3-Two-of-sum" class="headerlink" title="题目3:Two of sum"></a>题目3:Two of sum</h4><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-03-31-021139.png" srcset="/img/loading.gif" alt="image-20210331101139194" style="zoom:50%;" />
+
+<blockquote>
 </blockquote>
 
             </div>
@@ -259,9 +265,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Python/">Python</a>
+                      <a class="hover-with-bg" href="/tags/Leetcode/">Leetcode</a>
                     
-                      <a class="hover-with-bg" href="/tags/CodeWars/">CodeWars</a>
+                      <a class="hover-with-bg" href="/tags/Codewars/">Codewars</a>
                     
                   </div>
                 
@@ -278,9 +284,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/04/09/3-Codewars-2021-4-9/">
+                      <a href="/2021/04/01/7-Codewars-2021-4-1/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">3-Codewars-2021-4-9</span>
+                        <span class="hidden-mobile">3-Codewars-2021-4-1</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -288,8 +294,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/04/08/1-AL-%E4%BD%8D%E8%BF%90%E7%AE%97/">
-                        <span class="hidden-mobile">1-AL-位运算</span>
+                      <a href="/2021/03/30/1-AL-BinarySearch/">
+                        <span class="hidden-mobile">1_AL_BinarySearch</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

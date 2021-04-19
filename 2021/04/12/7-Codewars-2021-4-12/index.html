@@ -20,7 +20,7 @@
   <meta name="author" content="Uoruichi">
   <meta name="keywords" content="">
   
-  <title>3-Codewars-2021-4-11 - 漫 漫 长 路 ～</title>
+  <title>3-Codewars-2021-4-12 - 漫 漫 长 路 ～</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -153,7 +153,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="3-Codewars-2021-4-11">
+            <span class="h2" id="subtitle" title="3-Codewars-2021-4-12">
               
             </span>
 
@@ -163,8 +163,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-04-11 08:30" pubdate>
-        2021年4月11日 早上
+      <time datetime="2021-04-12 10:22" pubdate>
+        2021年4月12日 上午
       </time>
     </span>
   
@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      150 字
+      240 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      3
        分钟
     </span>
   
@@ -219,22 +219,24 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">3-Codewars-2021-4-11</h1>
+            <h1 style="display: none">3-Codewars-2021-4-12</h1>
             
             <div class="markdown-body">
-              <h4 id="1｜题目1：Sum-of-all-the-multiples-of-3-or-5"><a href="#1｜题目1：Sum-of-all-the-multiples-of-3-or-5" class="headerlink" title="1｜题目1：Sum of all the multiples of 3 or 5"></a>1｜题目1：<a target="_blank" rel="noopener" href="https://www.codewars.com/kata/57f36495c0bb25ecf50000e7/solutions/python">Sum of all the multiples of 3 or 5</a></h4><h6 id="1｜My-Solution"><a href="#1｜My-Solution" class="headerlink" title="1｜My Solution"></a>1｜My Solution</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># step1:find all multiples of 3 and 5 except n % 15 == 0</span><br><span class="hljs-comment"># step2: sum</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find</span>(<span class="hljs-params">n</span>):</span><br>    <span class="hljs-built_in">sum</span> = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-built_in">int</span>(n/<span class="hljs-number">3</span>)+<span class="hljs-number">1</span>):<br>        <span class="hljs-built_in">sum</span> += <span class="hljs-number">3</span>*item<br>    <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-built_in">int</span>(n/<span class="hljs-number">5</span>)+<span class="hljs-number">1</span>):<br>        <span class="hljs-keyword">if</span> (<span class="hljs-number">5</span> * item % <span class="hljs-number">3</span>) != <span class="hljs-number">0</span>:<br>            <span class="hljs-built_in">sum</span> += <span class="hljs-number">5</span> *item<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span><br></code></pre></td></tr></table></figure>
-
-<h6 id="2｜GoodSolution"><a href="#2｜GoodSolution" class="headerlink" title="2｜GoodSolution"></a>2｜GoodSolution</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">find</span>(<span class="hljs-params">n</span>):</span><br>  <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span>(i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>,n+<span class="hljs-number">1</span>) <span class="hljs-keyword">if</span> i % <span class="hljs-number">3</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> i % <span class="hljs-number">5</span> == <span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
-
-<h4 id="2｜题目2-Regex-Password-Validation"><a href="#2｜题目2-Regex-Password-Validation" class="headerlink" title="2｜题目2:Regex Password Validation"></a>2｜题目2:<a target="_blank" rel="noopener" href="https://www.codewars.com/kata/52e1476c8147a7547a000811/train/python">Regex Password Validation</a></h4><p><code>正则表达式</code></p>
-<h4 id="3｜Multiplication-Tables"><a href="#3｜Multiplication-Tables" class="headerlink" title="3｜Multiplication Tables"></a>3｜<a target="_blank" rel="noopener" href="https://www.codewars.com/kata/5432fd1c913a65b28f000342/train/python">Multiplication Tables</a></h4><p><code>List</code></p>
-<h6 id="1｜My-Solution-1"><a href="#1｜My-Solution-1" class="headerlink" title="1｜My Solution"></a>1｜My Solution</h6><h6 id="2｜Good-Solution"><a href="#2｜Good-Solution" class="headerlink" title="2｜Good Solution"></a>2｜Good Solution</h6><blockquote>
-<p>解题思路很简单</p>
-<p>语法：生成器列表中元素为列表的表达方式</p>
+              <h4 id="1｜题目1-Directions-Reduction"><a href="#1｜题目1-Directions-Reduction" class="headerlink" title="1｜题目1:Directions Reduction"></a>1｜题目1:<a target="_blank" rel="noopener" href="https://www.codewars.com/kata/550f22f4d758534c1100025a/python">Directions Reduction</a></h4><h5 id="1｜My-Solution"><a href="#1｜My-Solution" class="headerlink" title="1｜My Solution"></a>1｜My Solution</h5><blockquote>
+<p>解题思路：利用栈的思想，相反出栈，不相反入栈</p>
+<p>坑：列表没有empty的方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dirReduc</span>(<span class="hljs-params">arr</span>):</span><br>    res=[]<br>    <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> arr:<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> res:<br>            res.append(item)<br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-keyword">if</span> res[-<span class="hljs-number">1</span>] == <span class="hljs-string">&#x27;NORTH&#x27;</span> <span class="hljs-keyword">and</span> item ==<span class="hljs-string">&#x27;SOUTH&#x27;</span>:<br>                res.pop()<br>            <span class="hljs-keyword">elif</span> res[-<span class="hljs-number">1</span>] == <span class="hljs-string">&#x27;SOUTH&#x27;</span> <span class="hljs-keyword">and</span> item ==<span class="hljs-string">&#x27;NORTH&#x27;</span>:<br>                res.pop()<br>            <span class="hljs-keyword">elif</span> res[-<span class="hljs-number">1</span>] == <span class="hljs-string">&#x27;EAST&#x27;</span> <span class="hljs-keyword">and</span> item ==<span class="hljs-string">&#x27;WEST&#x27;</span>:<br>                res.pop()<br>            <span class="hljs-keyword">elif</span> res[-<span class="hljs-number">1</span>] == <span class="hljs-string">&#x27;WEST&#x27;</span> <span class="hljs-keyword">and</span> item ==<span class="hljs-string">&#x27;EAST&#x27;</span>:<br>                res.pop()<br>            <span class="hljs-keyword">else</span>:<br>                res.append(item)<br>    <span class="hljs-keyword">return</span> res<br>            <br></code></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="2｜Good-Solution"><a href="#2｜Good-Solution" class="headerlink" title="2｜Good Solution"></a>2｜Good Solution</h5><blockquote>
+<p>解题思路：利用字典形成配对，就不用写这么多的<code>if……else</code>了</p>
+<p>坑：</p>
+<p>1、字典中键值对的配对是<code>opposite[d]</code>不是<code>opposite(d)</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">opposite = &#123;<span class="hljs-string">&#x27;NORTH&#x27;</span>: <span class="hljs-string">&#x27;SOUTH&#x27;</span>, <span class="hljs-string">&#x27;EAST&#x27;</span>: <span class="hljs-string">&#x27;WEST&#x27;</span>, <span class="hljs-string">&#x27;SOUTH&#x27;</span>: <span class="hljs-string">&#x27;NORTH&#x27;</span>, <span class="hljs-string">&#x27;WEST&#x27;</span>: <span class="hljs-string">&#x27;EAST&#x27;</span>&#125;<br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dirReduc</span>(<span class="hljs-params">plan</span>):</span><br> new_plan = []<br> <span class="hljs-keyword">for</span> d <span class="hljs-keyword">in</span> plan:<br>     <span class="hljs-keyword">if</span> new_plan <span class="hljs-keyword">and</span> new_plan[-<span class="hljs-number">1</span>] == opposite[d]:<br>         new_plan.pop()<br>     <span class="hljs-keyword">else</span>:<br>         new_plan.append(d)<br> <span class="hljs-keyword">return</span> new_plan<br></code></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">multiplication_table</span>(<span class="hljs-params">row,col</span>):</span><br>    <span class="hljs-keyword">return</span> [[(i+<span class="hljs-number">1</span>)*(j+<span class="hljs-number">1</span>) <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(col)] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(row)]<br></code></pre></td></tr></table></figure></blockquote>
-
+<p>字典的配对用于通过key可以找到value，对value进行操作，其实字典和hashmap就是下标为key的数组罢了。</p>
+</blockquote>
+<h4 id="2｜"><a href="#2｜" class="headerlink" title="2｜"></a>2｜</h4>
             </div>
             <hr>
             <div>
@@ -263,9 +265,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/04/12/3-Codewars-2021-4-12/">
+                      <a href="/2021/04/16/0-CPP-Grammar-Constant/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">3-Codewars-2021-4-12</span>
+                        <span class="hidden-mobile">0-CPP-Grammar-Constant</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -273,8 +275,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/04/10/3-Codewars-2021-4-10/">
-                        <span class="hidden-mobile">3-Codewars-2021-4-10</span>
+                      <a href="/2021/04/11/7-Codewars-2021-4-11/">
+                        <span class="hidden-mobile">3-Codewars-2021-4-11</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -1,0 +1,483 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  
+    <meta name="description" content="">
+  
+  <meta name="author" content="Uoruichi">
+  <meta name="keywords" content="">
+  
+  <title>0-CPP-HOW_GCC_BUG_BUD - 漫 漫 长 路 ～</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>From Zero To Hero</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/ironman.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="0-CPP-HOW_GCC_BUG_BUD">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-04-16 11:57" pubdate>
+        2021年4月16日 中午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      20
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">0-CPP-HOW_GCC_BUG_BUD</h1>
+            
+            <div class="markdown-body">
+              <h3 id="1｜程序执行的过程"><a href="#1｜程序执行的过程" class="headerlink" title="1｜程序执行的过程"></a>1｜程序执行的过程</h3><blockquote>
+<p>学习一门语言首先要弄清楚他的执行过程，c++执行过程如下所示：</p>
+<p>预处理-&gt;编译-&gt;汇编-&gt;链接</p>
+</blockquote>
+<h4 id="1｜预处理阶段"><a href="#1｜预处理阶段" class="headerlink" title="1｜预处理阶段"></a>1｜预处理阶段</h4><blockquote>
+<p>预处理就是本文要详细说的宏替换、头文件包含等；</p>
+<p>需要强调的是，<strong>预处理是在编译前已经完成的</strong>，也就是说编译时的输入文件里已经不含有任何预处理语句了， 这包括，<strong>条件编译的测试不通过部分被删去</strong>、<strong>宏被替换</strong>、<strong>头文件被插入</strong>等。</p>
+<p><strong>预处理是以 translation unit 为单位进行的</strong>，一个 translation unit 就是一个源文件连同由#include包含（或间接包含）的所有文本文件的全体（参见C++标准）。一般的，编译器对一个 translation unit 生成一个二进制文件（VS是.obj，GCC是.o）。</p>
+</blockquote>
+<h5 id="1｜预处理指令"><a href="#1｜预处理指令" class="headerlink" title="1｜预处理指令"></a>1｜预处理指令</h5><ol>
+<li><strong>Null</strong>，一个 # 后跟 newline ，不产生任何影响，类似于空语句；</li>
+<li><strong>条件编译</strong>，由 #if, #ifdef, #ifndef, #else, #elif, #endif 定义；</li>
+<li><strong>源文件包含</strong>，由 #include 定义；</li>
+<li><strong>宏替换</strong>，由 #define, #undef, #, ## 定义；</li>
+<li><strong>重定义行号和文件名</strong>，由 #line 定义；</li>
+<li><strong>错误信息</strong>，由 #error 定义；</li>
+<li><strong>编译器预留指令</strong>，由 #pragma 定义。</li>
+</ol>
+<h5 id="2-｜预处理实践"><a href="#2-｜预处理实践" class="headerlink" title="2 ｜预处理实践"></a>2 ｜预处理实践</h5><h6 id="1｜源文件包含"><a href="#1｜源文件包含" class="headerlink" title="1｜源文件包含"></a>1｜源文件包含</h6><blockquote>
+<p>将原文件中的内容全部复制</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// name:preprocessed.cpp</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;helloworld&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># -E Stop after the preprocessing stage; do not run the compiler proper. </span><br><span class="hljs-comment"># -o Place output in filefile. </span><br><span class="hljs-comment"># ‘-o’ is not specified, the default is to put an executable file in ‘a.out’</span><br>gcc -E preprocessed.cpp -o helloworld.ii<br>tree .<br><br></code></pre></td></tr></table></figure>
+
+<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-04-16-043844.png" srcset="/img/loading.gif" alt="image-20210416123844586"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim helloworld.ii<br></code></pre></td></tr></table></figure>
+
+<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-04-16-043935.png" srcset="/img/loading.gif" alt="image-20210416123935459"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">wc -l helloworld.ii<br><span class="hljs-comment"># 预处理完成后的文件行数位44013行，比源文件大很多</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-04-16-044011.png" srcset="/img/loading.gif" alt="image-20210416124010396"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;  // 在标准包含目录查找</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;b.cpp&quot;</span>     <span class="hljs-comment">// 在该源文件所在目录查找，找不到再到标准包含目录查找</span></span><br><span class="hljs-comment">// 目录：人话就是&quot;b.cpp&quot;所在的文件夹</span><br></code></pre></td></tr></table></figure>
+
+<h6 id="2｜宏替换"><a href="#2｜宏替换" class="headerlink" title="2｜宏替换"></a>2｜宏替换</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//name : define.cpp</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> roses std</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> are </span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> red ::</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> violets string</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> are </span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> blue greet</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> this ()</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> poem &#123;</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> makes return</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> no <span class="hljs-meta-string">&quot;hello world!&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> sense ;</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> microwave &#125;</span><br><br><span class="hljs-comment">// Write a function &quot;greet&quot; that returns &quot;hello world!&quot; of type std::string</span><br>roses are red<br>violets are blue<br><span class="hljs-keyword">this</span> poem makes no sense<br>microwave<br><span class="hljs-comment">//相当于：</span><br>  <span class="hljs-built_in">std</span> ::<br><span class="hljs-built_in">string</span> greet<br>() &#123; <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;hello world!&quot;</span> ;<br>&#125;：<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//低级用法</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> <span class="hljs-title">greet</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;hello world&quot;</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; greet();<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//高级用法，简化自己的代码，刷题的时候使用，使用熟练了比较方便</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ll long long</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> pb push_back</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> fr(a,b) for(int i = a; i &lt; b; i++)</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> rep(i,a,b) for(int i = a; i &lt; b; i++)</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> mod 1000000007</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> inf (1LL&lt;&lt;60)</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> all(x) (x).begin(), (x).end()</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> prDouble(x) cout &lt;&lt; fixed &lt;&lt; setprecision(10) &lt;&lt; x</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> triplet pair<span class="hljs-meta-string">&lt;ll,pair&lt;ll,ll&gt;&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> goog(tno) cout &lt;&lt; <span class="hljs-meta-string">&quot;Case #&quot;</span> &lt;&lt; tno &lt;&lt;<span class="hljs-meta-string">&quot;: &quot;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> read(x) int x; cin &gt;&gt; x</span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br> <br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init_code</span><span class="hljs-params">()</span></span>&#123;<br>    fast_io;<br>    <span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> ONLINE_JUDGE</span><br>    freopen(<span class="hljs-string">&quot;input.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>, <span class="hljs-built_in">stdin</span>);<br>    freopen(<span class="hljs-string">&quot;output.txt&quot;</span>, <span class="hljs-string">&quot;w&quot;</span>, <span class="hljs-built_in">stdout</span>);<br>    <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span> </span><br>&#125;<br> <br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>   init_code();<br>   <span class="hljs-keyword">int</span> t = <span class="hljs-number">1</span>; <span class="hljs-built_in">cin</span> &gt;&gt; t;<br>   <span class="hljs-keyword">while</span>(t--)&#123;<br>       read(n); <span class="hljs-function"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">prefixMax</span><span class="hljs-params">(n)</span></span>; fr(<span class="hljs-number">0</span>, n) <span class="hljs-built_in">cin</span> &gt;&gt; prefixMax[i];<br>       <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; minimal, maximal; <span class="hljs-built_in">set</span>&lt;<span class="hljs-keyword">int</span>&gt; nums;<br>       <br>       <span class="hljs-keyword">int</span> curr_max = <span class="hljs-number">0</span>;<br>       fr(<span class="hljs-number">1</span>,n+<span class="hljs-number">1</span>) nums.insert(i);<br>       <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)&#123;<br>          <span class="hljs-keyword">int</span> chosenNumber;<br>          <span class="hljs-keyword">if</span>(curr_max &lt; prefixMax[i])chosenNumber = prefixMax[i];<br>          <span class="hljs-keyword">else</span> chosenNumber = *nums.begin();<br>          nums.erase(chosenNumber);<br>          minimal.push_back(chosenNumber);<br>          curr_max = max(curr_max, minimal.back());<br>       &#125;<br> <br>       curr_max = <span class="hljs-number">0</span>;<br>       fr(<span class="hljs-number">1</span>,n+<span class="hljs-number">1</span>) nums.insert(i);<br>       <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)&#123;<br>          <span class="hljs-keyword">int</span> chosenNumber;<br>          <span class="hljs-keyword">if</span>(curr_max &lt; prefixMax[i])chosenNumber = prefixMax[i];<br>          <span class="hljs-keyword">else</span> chosenNumber = *(--(nums.lower_bound(prefixMax[i])));<br>          nums.erase(chosenNumber);<br>          maximal.push_back(chosenNumber);<br>          curr_max = max(curr_max, maximal.back());<br>       &#125;<br> <br>       fr(<span class="hljs-number">0</span>,n) <span class="hljs-built_in">cout</span> &lt;&lt; minimal[i] &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span>; <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br>       fr(<span class="hljs-number">0</span>,n) <span class="hljs-built_in">cout</span> &lt;&lt; maximal[i] &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span>; <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br> <br>   &#125;<br>   <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//以for循环为例进行测试</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ll long long</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> pb push_back</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> fr(a,b) for(int i = a; i &lt; b; i++)</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> rep(i,a,b) for(int i = a; i &lt; b; i++)</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> mod 1000000007</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> inf (1LL&lt;&lt;60)</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> all(x) (x).begin(), (x).end()</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-04-16-073717.png" srcset="/img/loading.gif" alt="image-20210416153514356"></p>
+<h6 id="3｜条件编译"><a href="#3｜条件编译" class="headerlink" title="3｜条件编译"></a>3｜条件编译</h6><blockquote>
+<h6 id="ifndef"><a href="#ifndef" class="headerlink" title="ifndef"></a>ifndef</h6><h2 id="这是一种防止头文件被多次包含的预处理技术，由于各种原因可能是有问题的。在编译项目时，编译每个-cpp文件（通常）。简单来说，这意味着编译器会把你的-cpp文件，打开任何文件-included，将它们全部连接成一个海量文本文件，然后执行语法分析，最后将它转换成一些中间代码，优化-执行其他任务，最后生成目标架构的汇编输出。因此，如果-included一个-cpp文件下的文件多次，则编译器将附加文件内容两次，因此如果该文件中有定义，你会收到一个编译器错误，告诉你重新定义了一个变量。FILE-H当编译过程中的预处理器步骤处理文件时，首次到达其内容时，前两行将检查是否已为预处理器定义。如果没有，它将定义FILE-H并继续处理它和指令之间的代码-endif。下一次该文件的内容被预处理器看到时，检查FILE-H将是假的，所以它将立即扫描-endif并继续。这样可以防止重新定义错误。它将定义并继续处理它和指令之间的代码。"><a href="#这是一种防止头文件被多次包含的预处理技术，由于各种原因可能是有问题的。在编译项目时，编译每个-cpp文件（通常）。简单来说，这意味着编译器会把你的-cpp文件，打开任何文件-included，将它们全部连接成一个海量文本文件，然后执行语法分析，最后将它转换成一些中间代码，优化-执行其他任务，最后生成目标架构的汇编输出。因此，如果-included一个-cpp文件下的文件多次，则编译器将附加文件内容两次，因此如果该文件中有定义，你会收到一个编译器错误，告诉你重新定义了一个变量。FILE-H当编译过程中的预处理器步骤处理文件时，首次到达其内容时，前两行将检查是否已为预处理器定义。如果没有，它将定义FILE-H并继续处理它和指令之间的代码-endif。下一次该文件的内容被预处理器看到时，检查FILE-H将是假的，所以它将立即扫描-endif并继续。这样可以防止重新定义错误。它将定义并继续处理它和指令之间的代码。" class="headerlink" title="这是一种防止头文件被多次包含的预处理技术，由于各种原因可能是有问题的。在编译项目时，编译每个.cpp文件（通常）。简单来说，这意味着编译器会把你的.cpp文件，打开任何文件#included，将它们全部连接成一个海量文本文件，然后执行语法分析，最后将它转换成一些中间代码，优化/执行其他任务，最后生成目标架构的汇编输出。因此，如果#included一个.cpp文件下的文件多次，则编译器将附加文件内容两次，因此如果该文件中有定义，你会收到一个编译器错误，告诉你重新定义了一个变量。FILE_H当编译过程中的预处理器步骤处理文件时，首次到达其内容时，前两行将检查是否已为预处理器定义。如果没有，它将定义FILE_H并继续处理它和指令之间的代码#endif。下一次该文件的内容被预处理器看到时，检查FILE_H将是假的，所以它将立即扫描#endif并继续。这样可以防止重新定义错误。它将定义并继续处理它和指令之间的代码。"></a>这是一种防止头文件被多次包含的预处理技术，由于各种原因可能是有问题的。在编译项目时，编译每个.cpp文件（通常）。简单来说，这意味着编译器会把你的.cpp文件，打开任何文件#included，将它们全部连接成一个海量文本文件，然后执行语法分析，最后将它转换成一些中间代码，优化/执行其他任务，最后生成目标架构的汇编输出。因此，如果#included一个.cpp文件下的文件多次，则编译器将附加文件内容两次，因此如果该文件中有定义，你会收到一个编译器错误，告诉你重新定义了一个变量。FILE_H当编译过程中的预处理器步骤处理文件时，首次到达其内容时，前两行将检查是否已为预处理器定义。如果没有，它将定义FILE_H并继续处理它和指令之间的代码#endif。下一次该文件的内容被预处理器看到时，检查FILE_H将是假的，所以它将立即扫描#endif并继续。这样可以防止重新定义错误。它将定义并继续处理它和指令之间的代码。</h2><p>版权声明：本文为CSDN博主「SYL0303」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/yanli33/article/details/68947050">https://blog.csdn.net/yanli33/article/details/68947050</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> GOOGLETEST_SAMPLES_SAMPLE1_H_</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> GOOGLETEST_SAMPLES_SAMPLE1_H_</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span>  <span class="hljs-comment">// GOOGLETEST_SAMPLES_SAMPLE1_H_</span></span><br><span class="hljs-comment">// 执行流程</span><br><span class="hljs-comment">// sample1.cpp -&gt; 预处理#include &quot;define_1.h&quot; </span><br><span class="hljs-comment">// 预处理讲&#x27;_&#x27;替换为&#x27;.&#x27;，以&#x27;_&#x27;开头的话则替换为&#x27;./&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-04-16-084817.png" srcset="/img/loading.gif" alt="image-20210416164533608"></p>
+<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-04-16-084826.png" srcset="/img/loading.gif" alt="image-20210416164444809"></p>
+<img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-04-16-084404.png" srcset="/img/loading.gif" alt="image-20210416164404080" style="zoom:100%;" />
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/C-grammar/">C++,grammar</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/04/16/0-CPP-Grammar-Constant/">
+                        <span class="hidden-mobile">0-CPP-Grammar-Constant</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
