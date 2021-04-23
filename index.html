@@ -172,6 +172,252 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/04/24/3-Rust-Prime-ProgrammingLanguage-5-OwnerShip/">3-Rust-Prime-ProgrammingLanguage-5-OwnerShip</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/24/3-Rust-Prime-ProgrammingLanguage-5-OwnerShip/">
+          
+          
+            
+          
+          5｜所有权、引用和借用day 4
+
+所有权建议阅读官方文档，和c++中的new和delete功能类似，但是不需要自己手动调用，编译器根据所有权规则，自动实现。
+
+
+Rust 中的每一个值都有一个被称为其 所有者（owner）的变量。
+值在任一时刻有且只有一个所有者。
+当所有者（变量）离开作用域，这个值将被丢弃。
+
+
+
+
+堆：
+1、未知大小或者是大小发生变化的数据存放在堆区
+2、通过指针进行访问，指
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-24 00:18" pubdate>
+              2021-04-24
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Rust/">Rust</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/24/3-Rust-Prime-ProgrammingLanguage-4-Control-Flow/">3-Rust-Prime-ProgrammingLanguage-4-Control_Flow</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/24/3-Rust-Prime-ProgrammingLanguage-4-Control-Flow/">
+          
+          
+            
+          
+          4｜控制流
+if else 条件判断，条件判断大多的优化，是通过逻辑优化
+loop：一直执行知道你要求停止
+loop 的一个用例是重试可能会失败的操作，比如检查线程是否完成了任务。然而你可能会需要将操作的结果传递给其它的代码。如果将返回值加入你用来停止循环的 break 表达式，它会被停止的循环返回。
+loop可以有返回值？
+for
+while
+当条件为真时，使用 while 循环运行代码
+这种结
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-24 00:18" pubdate>
+              2021-04-24
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Rust/">Rust</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/24/3-Rust-Prime-ProgrammingLanguage-3-Function/">3-Rust-Prime-ProgrammingLanguage-3-Function</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/24/3-Rust-Prime-ProgrammingLanguage-3-Function/">
+          
+          
+            
+          
+          3｜函数、方法
+函数定义的要素：
+Rust 函数关键字 fn
+函数名称：使用的是snack case 命名规范，也就是字母都是小写，使用__分割单词。
+函数参数（操作数/操作数地址）
+函数体（实现的功能）
+函数返回值：注意返回值的定义方式以及返回值一定是从表达式返回的，不是从语句返回的
+
+1｜函数的定义
+Rust 中的函数定义以 fn 开始并在函数名后跟一对圆括号。大括号告诉编译器哪里是函数体的开
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-24 00:17" pubdate>
+              2021-04-24
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Rust/">Rust</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/24/3-Rust-Prime-ProgrammingLanguage-2-DataType/">3-Rust-Prime-ProgrammingLanguage-2-DataType</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/24/3-Rust-Prime-ProgrammingLanguage-2-DataType/">
+          
+          
+            
+          
+          1｜变量day2
+1｜变量、常量、可变性
+变量：Rust中变量默认为不可改变的，这样有利于安全性和简单的并发性。
+定义不可改变的变量：let + 变量名
+1234let x = 5;				// 变量不可改变x = 6;						// Errlet mut x = 5;		// 变量可以改变x = 6;						// Ok
+
+定义可改变的变量：let + mut + 变量名
+
+
+shadowi
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-24 00:16" pubdate>
+              2021-04-24
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Rust/">Rust</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/24/3-Rust-Prime-ProgrammingLanguage-1-ToolsandConcept/">3-Rust-Prime-ProgrammingLanguage-ToolsandConcept</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/24/3-Rust-Prime-ProgrammingLanguage-1-ToolsandConcept/">
+          
+          
+            
+          
+          1｜Rust的基本工具及概念0｜语言类型
+如果你更熟悉动态语言，如 Ruby、Python 或 JavaScript，则可能不习惯将编译和运行分为两个单独的步骤。Rust 是一种 预编译静态类型（ahead-of-time compiled）语言，这意味着你可以编译程序，并将可执行文件送给其他人，他们甚至不需要安装 Rust 就可以运行。如果你给他人一个 .rb、*.py* 或 .js 文件，他们
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-24 00:16" pubdate>
+              2021-04-24
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Rust/">Rust</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/04/16/0-CPP-HOW-GCC-BUG-BUD/">0-CPP-HOW_GCC_BUG_BUD</a>
       </h1>
 
@@ -400,243 +646,11 @@ Defines an [expression](dfile:///Users/uoruichi/Library/Application Support/Dash
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/04/10/1-AL-MATH/">1-AL-MATH-BigNumber</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/04/10/1-AL-MATH/">
-          
-          
-            
-          
-          1｜大整数的加法2｜例题1｜2. 两数相加6｜My Solution
-解题思路：
-坑：
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152/** * Definition for singly-linked list. * struct ListNode &#
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-04-10 08:54" pubdate>
-              2021-04-10
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/c/">c++</a>
-            
-              <a href="/tags/algorithm-math/">algorithm,math</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/04/09/7-Codewars-2021-4-9/">3-Codewars-2021-4-9</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/04/09/7-Codewars-2021-4-9/">
-          
-          
-            
-          
-          1｜题目1:Test1-2-31｜My Solution
-解题思路：
-坑：
-123456789def number(lines):    s = &quot;&quot;    mlist = []    mdir =&#123;&#125;    for i in range(1,len(lines)+1):        mdir[i] = lines[i-1]        s = &quo
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-04-09 12:26" pubdate>
-              2021-04-09
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Python/">Python</a>
-            
-              <a href="/tags/CodeWars/">CodeWars</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/04/08/7-Codewars-2021-4-8/">3-Codewars-2021-4-8</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/04/08/7-Codewars-2021-4-8/">
-          
-          
-            
-          
-          题目1:    Break camelCasestring
-1｜My Solution
-解题思路：
-遍历string，查找出大写字母，在大写字母前加入’(space)’，然后在加入s[i];
-坑：
-range[左闭右开，所以下标取不到max)
-
-
-123456789def solution(s):    res = &quot;&quot;    for i in range(len(s)):  
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-04-08 22:42" pubdate>
-              2021-04-08
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Python/">Python</a>
-            
-              <a href="/tags/CodeWars/">CodeWars</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/04/08/1-AL-%E4%BD%8D%E8%BF%90%E7%AE%97/">1-AL-位运算</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/04/08/1-AL-%E4%BD%8D%E8%BF%90%E7%AE%97/">
-          
-          
-            
-          
-          1｜位运算2｜例题1｜191. 位1的个数1｜解题思路1234567891011class Solution &#123;public:    int hammingWeight(uint32_t n) &#123;        int ones = 0;        while(n!=0)&#123;            ones += (1&amp;n);            n &g
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-04-08 08:52" pubdate>
-              2021-04-08
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/c/">c++</a>
-            
-              <a href="/tags/algorithm/">algorithm</a>
-            
-              <a href="/tags/leetcode/">leetcode</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/04/05/1-AL-Array/">1-AL-Array</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/04/05/1-AL-Array/">
-          
-          
-            
-          
-          1｜Array2｜Vector3｜例题1｜例1:66. 加一1｜My Solution
-解题思路：
-
-1234567891011121314151617181920class Solution &#123;public:    vector&lt;int&gt; plusOne(vector&lt;int&gt;&amp; digits) &#123;        int len = digit
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-04-05 17:05" pubdate>
-              2021-04-05
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/C/">C++</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#board">5</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#board">6</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 

@@ -1,0 +1,676 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  
+    <meta name="description" content="">
+  
+  <meta name="author" content="Uoruichi">
+  <meta name="keywords" content="">
+  
+  <title>3-Rust-Prime-ProgrammingLanguage-2-DataType - 漫 漫 长 路 ～</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>From Zero To Hero</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/ironman.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="3-Rust-Prime-ProgrammingLanguage-2-DataType">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-04-24 00:16" pubdate>
+        2021年4月24日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      67
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">3-Rust-Prime-ProgrammingLanguage-2-DataType</h1>
+            
+            <div class="markdown-body">
+              <h4 id="1｜变量"><a href="#1｜变量" class="headerlink" title="1｜变量"></a>1｜变量</h4><p><code>day2</code></p>
+<h5 id="1｜变量、常量、可变性"><a href="#1｜变量、常量、可变性" class="headerlink" title="1｜变量、常量、可变性"></a>1｜变量、常量、可变性</h5><blockquote>
+<p>变量：Rust中变量默认为不可改变的，这样有利于安全性和简单的并发性。</p>
+<p>定义不可改变的变量：<code>let + 变量名</code></p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">let</span> x = <span class="hljs-number">5</span>;				<span class="hljs-comment">// 变量不可改变</span><br>x = <span class="hljs-number">6</span>;						<span class="hljs-comment">// Err</span><br><span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> x = <span class="hljs-number">5</span>;		<span class="hljs-comment">// 变量可以改变</span><br>x = <span class="hljs-number">6</span>;						<span class="hljs-comment">// Ok</span><br></code></pre></td></tr></table></figure>
+
+<p>定义可改变的变量：<code>let + mut + 变量名</code></p>
+</blockquote>
+<blockquote>
+<p>shadowing机制：Rust中提供了Shadowing机制，定义重名的不可改变的变量，第二个变量会将第一个变量隐藏。Shadowing机制主要是用于如果变量属于<code>use one time</code>，则可以使用Shadowing。</p>
+<p>使用shadowing：</p>
+<p>1、shadowing可以改变变量的类型，如下所示</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">let</span> x = <span class="hljs-string">&quot;helloworld&quot;</span>				<span class="hljs-comment">// x type is string</span><br><span class="hljs-keyword">let</span> x = x.len();						<span class="hljs-comment">// x type is int</span><br></code></pre></td></tr></table></figure>
+
+<p>2、shadowing与可变变量的区别：</p>
+<p>shadowing需要多次使用let，实际上shadowing是创建了新的变量，服用了变量名，进过计算后变量仍是不变的。</p>
+</blockquote>
+<blockquote>
+<p>常量与变量的区别：</p>
+<p>Rust 常量的命名规范是使用下划线分隔的大写字母单词，并且可以在数字字面值中插入下划线来提升可读性。</p>
+<p>常量的定义：</p>
+<p>1、常量的定义必须标注清楚值的类型：u32</p>
+<p>2、使用keyword：<code>const</code></p>
+<p>3、变量名：尽量使用大写（和C命名相同）</p>
+<p>4、声明的作用域：常量在整个程序生命周期中都有效，量可以作为多处代码使用的全局范围的值。</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">const</span> MAX_POINTS: <span class="hljs-built_in">u32</span> = <span class="hljs-number">100_000</span>; <br></code></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="2｜基本类型"><a href="#2｜基本类型" class="headerlink" title="2｜基本类型"></a>2｜基本类型</h4><h5 id="1｜整形"><a href="#1｜整形" class="headerlink" title="1｜整形"></a>1｜整形</h5><blockquote>
+<p>有符号和无符号类型</p>
+<p>有符号数为补码形式存储。</p>
+<h5 id="整型溢出：按照-2-n-进行计算"><a href="#整型溢出：按照-2-n-进行计算" class="headerlink" title="整型溢出：按照$2^n$进行计算"></a><a target="_blank" rel="noopener" href="https://kaisery.github.io/trpl-zh-cn/ch03-02-data-types.html#%E6%95%B4%E5%9E%8B%E6%BA%A2%E5%87%BA">整型溢出</a>：按照$2^n$进行计算</h5><p>比方说有一个 <code>u8</code> ，它可以存放从零到 <code>255</code> 的值。那么当你将其修改为 <code>256</code> 时会发生什么呢？这被称为 “整型溢出”（“integer overflow” ），关于这一行为 Rust 有一些有趣的规则。当在 debug 模式编译时，Rust 检查这类问题并使程序 <em>panic</em>，这个术语被 Rust 用来表明程序因错误而退出。第九章 <a target="_blank" rel="noopener" href="https://kaisery.github.io/trpl-zh-cn/ch09-01-unrecoverable-errors-with-panic.html">“<code>panic!</code> 与不可恢复的错误”</a> 部分会详细介绍 panic。</p>
+<p>在 release 构建中，Rust 不检测溢出，相反会进行一种被称为二进制补码包装（<em>two’s complement wrapping</em>）的操作。简而言之，<code>256</code> 变成 <code>0</code>，<code>257</code> 变成 <code>1</code>，依此类推。依赖整型溢出被认为是一种错误，即便可能出现这种行为。如果你确实需要这种行为，标准库中有一个类型显式提供此功能，<a target="_blank" rel="noopener" href="https://kaisery.github.io/std/num/struct.Wrapping.html"><code>Wrapping</code></a>。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>长度</th>
+<th>有符号</th>
+<th>无符号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>8-bit</td>
+<td><code>i8</code></td>
+<td><code>u8</code></td>
+</tr>
+<tr>
+<td>16-bit</td>
+<td><code>i16</code></td>
+<td><code>u16</code></td>
+</tr>
+<tr>
+<td>32-bit</td>
+<td><code>i32</code></td>
+<td><code>u32</code></td>
+</tr>
+<tr>
+<td>64-bit</td>
+<td><code>i64</code></td>
+<td><code>u64</code></td>
+</tr>
+<tr>
+<td>128-bit</td>
+<td><code>i128</code></td>
+<td><code>u128</code></td>
+</tr>
+<tr>
+<td>arch</td>
+<td><code>isize</code></td>
+<td><code>usize</code></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>整形的声明与定义：</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-comment">// 隐式声明，没有在声明和定义的时候说明类型的type</span><br><span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> x = <span class="hljs-number">98_222</span>;				<span class="hljs-comment">//十进制无序前缀，按照每三位使用 _ 作为分隔符分割，增加可读性</span><br><span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> y = <span class="hljs-number">0xff</span>;					<span class="hljs-comment">//十六进制需要增加前缀0x</span><br><span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> z = <span class="hljs-number">0o77</span>;					<span class="hljs-comment">//八进制使用前缀0o</span><br><span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> w = <span class="hljs-number">0b_1111_1111</span>	<span class="hljs-comment">//二进制使用前缀0b，没四位按照 _ 作为分隔符分割</span><br><span class="hljs-comment">// 显示声明</span><br><span class="hljs-keyword">let</span> x:<span class="hljs-built_in">i64</span> = <span class="hljs-number">1000_1000</span>;  <span class="hljs-comment">//显示声明</span><br><span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;i32 MAX = &#123;&#125;&quot;</span>,std::<span class="hljs-built_in">i32</span>::MAX);	<span class="hljs-comment">//调用std库，输出i32能表示的最大的数，可以用于检查是否溢出</span><br><span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;i32 pow(2,n) n =&#123;&#125;&quot;</span>,MAX_EXP);	<span class="hljs-comment">// i32能支持的最大的2的次方数n是128,如果是2^129那么就会发生溢出的现象。</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Decimal (十进制)</th>
+<th><code>98_222</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Hex (十六进制)</td>
+<td><code>0xff</code></td>
+</tr>
+<tr>
+<td>Octal (八进制)</td>
+<td><code>0o77</code></td>
+</tr>
+<tr>
+<td>Binary (二进制)</td>
+<td><code>0b1111_0000</code></td>
+</tr>
+<tr>
+<td>Byte (单字节字符)(仅限于<code>u8</code>)</td>
+<td><code>b&#39;A&#39;</code></td>
+</tr>
+</tbody></table>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-comment">// pub : Make an item visible to others.</span><br><span class="hljs-keyword">use</span> std::<span class="hljs-built_in">i32</span>;<br><span class="hljs-keyword">use</span> std::<span class="hljs-built_in">i64</span>;<br><span class="hljs-keyword">use</span> std::mem::size_of;<br><span class="hljs-keyword">pub</span> <span class="hljs-keyword">const</span> MAX_EXP: <span class="hljs-built_in">i32</span> = <span class="hljs-built_in">f32</span>::MAX_EXP;<br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>()&#123;<br>    <span class="hljs-comment">// Integer define</span><br>    <span class="hljs-keyword">let</span> x = <span class="hljs-number">100_100</span>;    <span class="hljs-comment">//编译器推测处x的类型为i32</span><br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>,x);   <span class="hljs-comment">// println!()参数为string类型</span><br>    <span class="hljs-comment">// 输出i32的位数 bites</span><br>    <span class="hljs-comment">// size_of类型是函数</span><br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;i32 bite = &#123;&#125;&quot;</span>,size_of::&lt;<span class="hljs-built_in">i32</span>&gt;());<br>    <span class="hljs-keyword">let</span> x:<span class="hljs-built_in">i64</span> = <span class="hljs-number">1000_1000</span>;  <span class="hljs-comment">//显示声明</span><br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>,x);<br>    <span class="hljs-comment">// Integers can, alternatively, be expressed using </span><br>  	<span class="hljs-comment">// hexadecimal, octal or binary notation using these prefixes respectively: `0x`, `0o` or `0b`.</span><br>    <span class="hljs-keyword">let</span> y:<span class="hljs-built_in">i32</span> = <span class="hljs-number">0xff</span>;<br>    <span class="hljs-comment">// 如何输出十六进制的y</span><br>    <span class="hljs-comment">// println! 默认输出是十进制</span><br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;十六进制表示y = 0xff : &#123;&#125;&quot;</span>,y);<br>    <span class="hljs-comment">// MAX  在std标准库中有定义，调用方式如下所示：</span><br>    <span class="hljs-comment">// 为什么不会语法提示？</span><br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;i32 MAX = &#123;&#125;&quot;</span>,<span class="hljs-built_in">i32</span>::MAX);<br>    <span class="hljs-comment">// i32 和 i64 的 MAX MIN EXP 系列只能自己定义常量</span><br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;i32 pow(2,n) n =&#123;&#125;&quot;</span>,MAX_EXP);<br>    <span class="hljs-comment">// addition and subtraction</span><br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;1 + 2 = &#123;&#125;&quot;</span>,<span class="hljs-number">1u32</span>+<span class="hljs-number">2</span>);  <span class="hljs-comment">//此时系统推测2为u32类型</span><br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;1 + 2 = &#123;&#125;&quot;</span>,<span class="hljs-number">1i32</span>+<span class="hljs-number">2</span>);  <span class="hljs-comment">// 2 ==&gt; i32</span><br>    <span class="hljs-comment">// 计算机是怎么懂加减法的？</span><br>    <span class="hljs-comment">//println!(&quot;1 + 2 = &#123;&#125;&quot;,1i32-2u32);     Error</span><br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;1 + 2 = &#123;&#125;&quot;</span>,<span class="hljs-number">1i32</span>-<span class="hljs-number">2i32</span>);<br>    <span class="hljs-comment">// Bitwise operations</span><br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;0011 AND 0101 is &#123;:04b&#125;&quot;</span>,<span class="hljs-number">0b0011i32</span> &amp; <span class="hljs-number">0b0101</span>);<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;1 &lt;&lt; 5 is &#123;&#125;&quot;</span>, <span class="hljs-number">1i32</span> &lt;&lt; <span class="hljs-number">5</span>);<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;0x80 &gt;&gt; 2 is 0x&#123;:x&#125;&quot;</span>, <span class="hljs-number">0x80u32</span> &gt;&gt; <span class="hljs-number">2</span>);<br>    <span class="hljs-comment">// test rust integer 进行 ｜｜ &amp;&amp; </span><br>    <span class="hljs-comment">// println!(&quot;true OR flase is &#123;&#125;&quot;,1 || 0);  Error</span><br>&#125;   <br></code></pre></td></tr></table></figure>
+
+<h5 id="2｜浮点型"><a href="#2｜浮点型" class="headerlink" title="2｜浮点型"></a>2｜浮点型</h5><blockquote>
+<p>Rust 也有两个原生的 <strong>浮点数</strong>（<em>floating-point numbers</em>）类型，它们是带小数点的数字。Rust 的浮点数类型是 <code>f32</code> 和 <code>f64</code>，分别占 32 位和 64 位。默认类型是 <code>f64</code>，因为在现代 CPU 中，它与 <code>f32</code> 速度几乎一样，不过精度更高。</p>
+<p><code>注意的就是默认的类型是f64</code></p>
+</blockquote>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">use</span> std::mem::size_of;<br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() &#123;<br>    <span class="hljs-comment">// float define</span><br>    <span class="hljs-keyword">let</span> x: <span class="hljs-built_in">f32</span> = <span class="hljs-number">0.001</span>;<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>,x);<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;f32 &#123;&#125;&quot;</span>,size_of::&lt;<span class="hljs-built_in">f32</span>&gt;());<br>    <span class="hljs-keyword">let</span> y = <span class="hljs-number">0.001f64</span>;<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;f32 &#123;&#125;&quot;</span>,size_of::&lt;<span class="hljs-built_in">f64</span>&gt;());<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>,y);<br>    <span class="hljs-keyword">let</span> z = <span class="hljs-number">0.001</span>; <br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>,z);<br><br>    <span class="hljs-comment">// + - * /</span><br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;0.01 - 0.001 = &#123;:.20&#125;&quot;</span>, <span class="hljs-number">0.01</span> - <span class="hljs-number">0.001</span>);    <span class="hljs-comment">//  default</span><br>    <span class="hljs-comment">//0.01 - 0.1 = -0.09000000000000001     有精度问题，数字较大采用其他方法进行计算</span><br><br>    <span class="hljs-comment">// diff type cannot + - * /</span><br>    <span class="hljs-comment">//println!(&quot;0.01 - 0.001 = &#123;&#125;&quot;,0.01f32 - 0.001f64); Error</span><br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;0.01 - 0.001 = &#123;:.20&#125;&quot;</span>,<span class="hljs-number">0.01f32</span> - <span class="hljs-number">0.001f32</span>);<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;0.01 / 0.001 = &#123;&#125;&quot;</span>,<span class="hljs-number">0.01f64</span> / <span class="hljs-number">0.001f64</span>);<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;0.01 * 0.001 = &#123;&#125;&quot;</span>,<span class="hljs-number">0.01f64</span> * <span class="hljs-number">0.001f64</span>);<br><br>    <span class="hljs-comment">// c++</span><br>    <span class="hljs-comment">// 0.010000 - 0.001000 = 0.00899999961256980896</span><br>    <span class="hljs-comment">// 0.010000 - 0.001000 = 0.00900000000000000105</span><br>    <span class="hljs-comment">// rust</span><br>    <span class="hljs-comment">// 0.01 - 0.001 = 0.00900000000000000105</span><br>    <span class="hljs-comment">// 0.01 - 0.001 = 0.00899999961256980896</span><br>    <span class="hljs-comment">// python</span><br>    <span class="hljs-comment">// 0.01 - 0.001 = 0.009000000000000001</span><br>    <span class="hljs-comment">// 猜测和语言没有关系？   </span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="3｜布尔类型（具体用法控制流细化）"><a href="#3｜布尔类型（具体用法控制流细化）" class="headerlink" title="3｜布尔类型（具体用法控制流细化）"></a>3｜布尔类型（具体用法控制流细化）</h5><blockquote>
+<p>Rust 中整数并不能代表true和false</p>
+<p>运算就是与、或、非</p>
+</blockquote>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() &#123;<br>    <span class="hljs-keyword">let</span> t = <span class="hljs-literal">true</span>;<br>    <span class="hljs-keyword">let</span> f: <span class="hljs-built_in">bool</span> = <span class="hljs-literal">false</span>; <span class="hljs-comment">// 显式指定类型注解</span><br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;true AND false is &#123;&#125;&quot;</span>, <span class="hljs-literal">true</span> &amp;&amp; <span class="hljs-literal">false</span>);<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;true OR false is &#123;&#125;&quot;</span>, <span class="hljs-literal">true</span> || <span class="hljs-literal">false</span>);<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;NOT true is &#123;&#125;&quot;</span>, !<span class="hljs-literal">true</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="4｜字符类型"><a href="#4｜字符类型" class="headerlink" title="4｜字符类型"></a>4｜字符类型</h5><blockquote>
+<p>目前为止只使用到了数字，不过 Rust 也支持字母。Rust 的 <code>char</code> 类型是语言中最原生的字母类型，如下代码展示了如何使用它。（注意 <code>char</code> 由单引号指定，不同于字符串使用双引号。）</p>
+</blockquote>
+<blockquote>
+<p>Rust 的 <code>char</code> 类型的大小为<code>四个字节(four bytes)</code>，并代表了一个  <code>Unicode 标量值（Unicode Scalar Value）</code>。</p>
+<p>这意味着它可以比 ASCII 表示更多内容。在 Rust  中，拼音字母（Accented letters），中文、日文、韩文等字符，emoji（绘文字）以及零长度的空白字符都是有效的 <code>char</code> 值。</p>
+<p>Unicode 标量值包含从 <code>U+0000</code> 到 <code>U+D7FF</code> 和 <code>U+E000</code> 到 <code>U+10FFFF</code> 在内的值。不过，“字符” 并不是一个 Unicode 中的概念，所以人直觉上的 “字符” 可能与 Rust 中的 <code>char</code> 并不符合。第八章的 <a target="_blank" rel="noopener" href="https://kaisery.github.io/trpl-zh-cn/ch08-02-strings.html#storing-utf-8-encoded-text-with-strings">“使用字符串存储 UTF-8 编码的文本”</a> 中将详细讨论这个主题。</p>
+</blockquote>
+<h5 id="5｜元组"><a href="#5｜元组" class="headerlink" title="5｜元组"></a>5｜元组</h5><p><code>day 3</code></p>
+<blockquote>
+<p><code>day 3 要点：</code></p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs rust">	<span class="hljs-comment">// 1｜函数</span><br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">fib</span></span>(i: <span class="hljs-built_in">i32</span>) -&gt; <span class="hljs-built_in">i32</span> &#123;																		 <span class="hljs-comment">//	返回值 </span><br> <span class="hljs-keyword">if</span> i &lt;= <span class="hljs-number">0</span> &#123;<br>   <span class="hljs-built_in">panic!</span>(<span class="hljs-string">&quot;索引要大于0&quot;</span>);																	  <span class="hljs-comment">// panic！的使用 </span><br> &#125;<br> <span class="hljs-keyword">return</span> <span class="hljs-keyword">if</span> i &lt;= <span class="hljs-number">2</span> &#123; <span class="hljs-number">1</span> &#125; <span class="hljs-keyword">else</span> &#123; fib(i - <span class="hljs-number">1</span>) + fib(i - <span class="hljs-number">2</span>) &#125;; <span class="hljs-comment">// 函数的返回值是表达式，不是语句</span><br>	<span class="hljs-comment">// 2｜数组</span><br><span class="hljs-keyword">let</span> x: [<span class="hljs-built_in">i32</span>; <span class="hljs-number">5</span>] = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];<br><span class="hljs-keyword">let</span> y = [<span class="hljs-number">3</span>; <span class="hljs-number">5</span>];<br><span class="hljs-comment">// 3｜for循环</span><br><span class="hljs-keyword">let</span> a = [<span class="hljs-number">10</span>,<span class="hljs-number">20</span>,<span class="hljs-number">30</span>,<span class="hljs-number">40</span>,<span class="hljs-number">50</span>];<br><span class="hljs-keyword">for</span> element <span class="hljs-keyword">in</span> a.iter()&#123;<br> <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;the value is &#123;&#125;&quot;</span>,element);<br>&#125;<br><span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&quot;</span>);<br><span class="hljs-comment">// (0..5)是标准库中的range类型</span><br><span class="hljs-keyword">for</span> number <span class="hljs-keyword">in</span> (<span class="hljs-number">0</span>..<span class="hljs-number">5</span>).rev()&#123;         <span class="hljs-comment">// （0..5)左闭右开</span><br> <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;the value is &#123;&#125;&quot;</span>,a[number]);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+</blockquote>
+<blockquote>
+<p>元组是一个将多个其他类型的值组合进一个复合类型的主要方式。元组长度固定：一旦声明，其长度不会增大或缩小。<code>Note:元组定义之后不会改变，所以定义空的元组没有意义。</code></p>
+<p>我们使用包含在圆括号中的逗号分隔的值列表来创建一个元组。元组中的每一个位置都有一个类型，而且这些不同值的类型也不必是相同的。</p>
+</blockquote>
+<blockquote>
+<p>元组的声明、赋值、解构、成员访问</p>
+</blockquote>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-comment">//元组的使用</span><br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() &#123;<br>    <span class="hljs-comment">//元组的定义：variablename:(type1,type2,...) = (val1,val2,...)</span><br>    <span class="hljs-comment">// M1</span><br>    <span class="hljs-keyword">let</span> my_tup:(<span class="hljs-built_in">i32</span>,<span class="hljs-built_in">f64</span>,<span class="hljs-built_in">u8</span>) = (<span class="hljs-number">500</span>,<span class="hljs-number">0.001</span>,<span class="hljs-number">3</span>);<br>    <span class="hljs-comment">// M2:variable binds to the entire tuple</span><br>    <span class="hljs-comment">// (1,24919191919199191919191919i128,&#x27;A&#x27;,0.001,true,&quot;helloworld&quot;) is one elem</span><br>    <span class="hljs-keyword">let</span> my_tup2 = (<span class="hljs-number">1</span>,<span class="hljs-number">24919191919199191919191919i128</span>,<span class="hljs-string">&#x27;A&#x27;</span>,<span class="hljs-number">0.001</span>,<span class="hljs-literal">true</span>,<span class="hljs-string">&quot;helloworld&quot;</span>);<br>    <span class="hljs-comment">// 元组的成员访问 use pattern matching </span><br>    <span class="hljs-keyword">let</span> (_x,_y,_z,_w,_q,_p) = my_tup2;<br>    <span class="hljs-comment">// 元组的成员访问 name.i 的方式进行访问</span><br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>,my_tup.<span class="hljs-number">0</span>);<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125; , &#123;&#125;&quot;</span>,my_tup2.<span class="hljs-number">0</span>,my_tup2.<span class="hljs-number">1</span>);<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>,_x);<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>,_p);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="6｜数组"><a href="#6｜数组" class="headerlink" title="6｜数组"></a>6｜数组</h5><blockquote>
+<p>与元组不同，数组中的每个元素的类型必须相同。Rust 中的数组与一些其他语言中的数组不同，因为 Rust 中的数组是固定长度的：一旦声明，它们的长度不能增长或缩小。或者是想要确保总是有固定数量的元素时，数组非常有用。但是数组并不如 vector 类型灵活。vector 类型是标准库提供的一个 <strong>允许</strong> 增长和缩小长度的类似数组的集合类型。当不确定是应该使用数组还是 vector 的时候，你可能应该使用 vector。第八章会详细讨论 vector。</p>
+</blockquote>
+<blockquote>
+<p>数组越界问题<code>Rust 安全原则</code></p>
+<p>数组越界的时候，编译不会产生任何错误，程序会出现一个 <strong>运行时</strong>（<em>runtime</em>）错误并且不会成功退出。当尝试用索引访问一个元素时，Rust 会检查指定的索引是否小于数组的长度。如果索引超出了数组长度，Rust 会 <em>panic</em>，这是 Rust 术语，它用于程序因为错误而退出的情况。这样当提供了一个不正确的索引时，就会访问无效的内存。通过<code>立即退出</code>而不是允许内存访问并继续执行，Rust 让你避开此类错误。</p>
+</blockquote>
+<blockquote>
+<p>数组的定义、复制、成员访问</p>
+<p>数组是一整块分配在栈上的内存,通过索引进行成员访问,数组如何定义在堆上面？</p>
+</blockquote>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-comment">// array 定义、成员访问</span><br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() &#123;<br>    <span class="hljs-comment">// array define through bind</span><br>    <span class="hljs-keyword">let</span> a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];<br>    <span class="hljs-keyword">let</span> months = [<span class="hljs-string">&quot;January&quot;</span>, <span class="hljs-string">&quot;February&quot;</span>, <span class="hljs-string">&quot;March&quot;</span>, <span class="hljs-string">&quot;April&quot;</span>, <span class="hljs-string">&quot;May&quot;</span>, <span class="hljs-string">&quot;June&quot;</span>, <span class="hljs-string">&quot;July&quot;</span>,<br>              <span class="hljs-string">&quot;August&quot;</span>, <span class="hljs-string">&quot;September&quot;</span>, <span class="hljs-string">&quot;October&quot;</span>, <span class="hljs-string">&quot;November&quot;</span>, <span class="hljs-string">&quot;December&quot;</span>];<br>    <span class="hljs-comment">// 定义类型和数量</span><br>    <span class="hljs-keyword">let</span> x: [<span class="hljs-built_in">i32</span>; <span class="hljs-number">5</span>] = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];<br>    <span class="hljs-keyword">let</span> z = [<span class="hljs-literal">true</span>,<span class="hljs-literal">false</span>,<span class="hljs-literal">true</span>,<span class="hljs-literal">false</span>];<br>    <span class="hljs-comment">//变量名为 y 的数组将包含 5 个元素，这些元素的值最初都将被设置为 3。这种写法与 let a = [3, 3, 3, 3, 3]; 效果相同，但更简洁。</span><br>    <span class="hljs-keyword">let</span> y = [<span class="hljs-number">3</span>; <span class="hljs-number">5</span>];<br>    <span class="hljs-comment">// array 成员访问:通过索引进行访问，所以也是从[0,n-1];</span><br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;a[0] = &#123;&#125;&quot;</span>,a[<span class="hljs-number">0</span>]);<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;months[11] = &#123;&#125;&quot;</span>,months[<span class="hljs-number">11</span>]);<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;x[0] = &#123;&#125;&quot;</span>,x[<span class="hljs-number">0</span>]);<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;y[3] = &#123;&#125;&quot;</span>,y[<span class="hljs-number">3</span>]);<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;z[0] = &#123;&#125;&quot;</span>,z[<span class="hljs-number">0</span>]);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="7｜结构体-自定义数据类型"><a href="#7｜结构体-自定义数据类型" class="headerlink" title="7｜结构体:自定义数据类型"></a>7｜结构体:自定义数据类型</h5><p><code>day 5</code></p>
+<blockquote>
+<p>是一个自定义数据类型，允许你命名和包装多个相关的值，从而形成一个有意义的组合。首先结构体是数据类型，我们需要对结构体实例的数据进行操作。</p>
+</blockquote>
+<blockquote>
+<p>定义结构体：</p>
+<ul>
+<li>定义每一部分数据的名字和类型，我们称为 <strong>字段</strong>（<em>field</em>），也就是定义每一个字段</li>
+</ul>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">struct_name</span></span>&#123;<br>  <span class="hljs-comment">//field 字段</span><br>  key1_name:type1;<br>  key2_name:type2;<br>  key3_name:type3;<br>  ...<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">User</span></span> &#123;<br>    username: <span class="hljs-built_in">String</span>,<br>    email: <span class="hljs-built_in">String</span>,<br>    sign_in_count: <span class="hljs-built_in">u64</span>,<br>    active: <span class="hljs-built_in">bool</span>,<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>结构体实例化：</p>
+<ul>
+<li>大括号中使用 <code>key: value</code> 键-值对的形式提供字段，其中 key 是字段的名字，value 是需要存储在字段中的数据值；</li>
+<li>实例中字段的顺序不需要和它们在结构体中声明的顺序一致。换句话说，结构体的定义就像一个类型的通用模板，而实例则会在这个模板中放入特定数据来创建这个类型的值</li>
+</ul>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-comment">//就和定义变量相同，不可变的结构体</span><br><span class="hljs-keyword">let</span> var_name = struct_name&#123;<br>  key1_name:type1_val;<br>  key2_name:type2_val;<br>  key3_name:type3_val;<br>  ...<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">let</span> user1 = User &#123;<br>    email: <span class="hljs-built_in">String</span>::from(<span class="hljs-string">&quot;someone@example.com&quot;</span>),<br>    username: <span class="hljs-built_in">String</span>::from(<span class="hljs-string">&quot;someusername123&quot;</span>),<br>    active: <span class="hljs-literal">true</span>,<br>    sign_in_count: <span class="hljs-number">1</span>,<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-comment">//可变值的结构体</span><br><span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> var_name = struce_name&#123;<br>  key1_name:type1_val;<br>  key2_name:type2_val;<br>  key3_name:type3_val;<br>  ...<br>&#125;;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>结构体的数据访问：</p>
+<ul>
+<li>为了从结构体中获取某个特定的值，可以使用点号。</li>
+<li>针对可变值的结构体：要更改结构体中的值，如果结构体的实例是可变的，我们可以使用点号并为对应的字段赋值。</li>
+<li>整个实例必须是可变的；Rust 并不允许只将某个字段标记为可变。另外需要注意同其他任何表达式一样</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>结构体数据的初始化：</p>
+<ul>
+<li>不可变结构体：在实例化的时候初始化，为每一个值赋值</li>
+<li>可变结构体<ul>
+<li>实例化的时候进行赋值，后续进行修改</li>
+<li>后续进行修改</li>
+<li>使用函数进行初始化</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-comment">// 函数名--&gt;函数参数--&gt;函数返回值--&gt;函数实现</span><br><span class="hljs-comment">// init就是赋值操作</span><br><span class="hljs-comment">// init需要保证结构体类型是可变的</span><br><span class="hljs-comment">// 初始化结构体：将函数的参数赋值给结构体中的成员</span><br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">build_user</span></span>(email: <span class="hljs-built_in">String</span>, username: <span class="hljs-built_in">String</span>) -&gt; User &#123;<br>    User &#123;<br>        email: email,<br>        username: username,<br>        active: <span class="hljs-literal">true</span>,<br>        sign_in_count: <span class="hljs-number">1</span>,<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>结构体更新语法：使用旧实例的大部分值但改变其部分值来创建一个新的结构体实例</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-comment">// 定义变量的方法 --&gt; 变量赋值--&gt;使用旧实例的值(此处要考虑所有权问题)</span><br><span class="hljs-keyword">let</span> user2 = User &#123;<br> email: <span class="hljs-built_in">String</span>::from(<span class="hljs-string">&quot;another@example.com&quot;</span>),<br> username: <span class="hljs-built_in">String</span>::from(<span class="hljs-string">&quot;anotherusername567&quot;</span>),<br> active: user1.active,<br> sign_in_count: user1.sign_in_count,<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-comment">// 使用..语法：.. 语法指定了剩余未显式设置值的字段应有与给定实例对应字段相同的值。</span><br><span class="hljs-keyword">let</span> user2 = User &#123;<br> email: <span class="hljs-built_in">String</span>::from(<span class="hljs-string">&quot;another@example.com&quot;</span>),<br> username: <span class="hljs-built_in">String</span>::from(<span class="hljs-string">&quot;anotherusername567&quot;</span>),<br> ..user1<br>&#125;;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>结构体所有权：抓住值在任一时刻都只有一个主人这个观点，引用的话主人不是自己。</p>
+<p>我们使用了自身拥有所有权的 <code>String</code> 类型而不是 <code>&amp;str</code> 字符串 slice 类型。这是一个有意而为之的选择，因为我们想要这个<code>结构体拥有它所有的数据，为此只要整个结构体是有效的话其数据也是有效的。</code></p>
+<p>可以使结构体存储被其他对象拥有的数据的引用，不过这么做的话需要用上 <strong>生命周期</strong>（<em>lifetimes</em>），这是一个第十章会讨论的 Rust 功能。生命周期确保结构体引用的数据有效性跟结构体本身保持一致。</p>
+</blockquote>
+<h5 id="8｜元组结构体"><a href="#8｜元组结构体" class="headerlink" title="8｜元组结构体"></a>8｜元组结构体</h5><blockquote>
+<p>元组结构体有着结构体名称提供的含义，但没有具体的字段名，只有字段的类型。</p>
+<p>当你想给整个元组取一个名字，并使元组成为与其他元组不同的类型时，元组结构体是很有用的，这时像常规结构体那样为每个字段命名就显得多余和形式化了。</p>
+<ul>
+<li>注意 <code>black</code> 和 <code>origin</code> 值的类型不同，因为它们是不同的元组结构体的实例。</li>
+<li>你定义的每一个结构体有其自己的类型，即使结构体中的字段有着相同的类型。例如，一个获取 <code>Color</code> 类型参数的函数不能接受 <code>Point</code> 作为参数，即便这两个类型都由三个 <code>i32</code> 值组成。</li>
+<li>在其他方面，元组结构体实例类似于元组：可以将其解构为单独的部分，也可以使用 <code>.</code> 后跟索引来访问单独的值，等等。</li>
+</ul>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-comment">// 定义</span><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Color</span></span>(<span class="hljs-built_in">i32</span>, <span class="hljs-built_in">i32</span>, <span class="hljs-built_in">i32</span>);<br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Point</span></span>(<span class="hljs-built_in">i32</span>, <span class="hljs-built_in">i32</span>, <span class="hljs-built_in">i32</span>);<br><span class="hljs-comment">// 赋值就相当于是初始化了</span><br><span class="hljs-keyword">let</span> black = Color(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">let</span> origin = Point(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br><span class="hljs-comment">// 访问值：通过索引来进行访问</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-meta">#[derive(Debug)]</span><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Rectangle</span></span>&#123;<br>    width: <span class="hljs-built_in">u32</span>,<br>    height: <span class="hljs-built_in">u32</span>,<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>()&#123;<br>  <span class="hljs-comment">// println! 输出结构体</span><br>  <span class="hljs-comment">// 增加注解来派生 Debug trait，并使用调试格式打印 Rectangle 实例</span><br>  <span class="hljs-comment">// 结构体的输出 -- use debug trait &#123;:?&#125; </span><br>  <span class="hljs-comment">// Rust 确实 包含了打印出调试信息的功能，不过我们必须为结构体显式选择这个功能。</span><br>  <span class="hljs-comment">// 为此，在结构体定义之前加上 #[derive(Debug)] 注解</span><br>    <span class="hljs-keyword">let</span> rect2 = Rectangle&#123;width:<span class="hljs-number">30</span>,height:<span class="hljs-number">50</span>&#125;;<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;rect2 is &#123;:?&#125;&quot;</span>,rect2);<br><br><br>    <span class="hljs-comment">// var func</span><br>    <span class="hljs-keyword">let</span> width1 = <span class="hljs-number">30</span>;<br>    <span class="hljs-keyword">let</span> height1 = <span class="hljs-number">50</span>;<br>    <span class="hljs-built_in">println!</span>(<br>        <span class="hljs-string">&quot;The area of the rectangle is &#123;&#125; square pixels.&quot;</span>,<br>        area1(width1, height1)<br>    );<br><br>    <span class="hljs-comment">// tuple struct func</span><br>    <span class="hljs-keyword">let</span> rect1 = (<span class="hljs-number">30</span>,<span class="hljs-number">50</span>);<br>    <span class="hljs-built_in">println!</span>(<br>        <span class="hljs-string">&quot;The area of the rectangle is &#123;&#125; square pixels.&quot;</span>,<br>        area2(rect1)<br>    );<br>    <br>    <span class="hljs-comment">// struct func</span><br>    <span class="hljs-built_in">println!</span>(<br>        <span class="hljs-string">&quot;The area of the rectangle is &#123;&#125; square pixels.&quot;</span>,<br>        <span class="hljs-comment">// 分析所有权</span><br>        <span class="hljs-comment">// 因为是使用了引用，所以在area3调用后所有权并没有转移或者是remove</span><br>        area3(&amp;rect2)<br>    );<br><br>    <span class="hljs-comment">//test ownership</span><br>    <span class="hljs-comment">// 调用area4以后由于rect2的作用域结束，rect2被释放，也就是被drop</span><br>    <span class="hljs-comment">// 伴随这rect2被drop,那么rect2中的数据也被drop</span><br>    <span class="hljs-keyword">let</span> x = area4(rect2);<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;The area of the rectangle is &#123;&#125; square pixels.&quot;</span>,x);<br>    <span class="hljs-comment">// println!(&quot;&#123;&#125;&quot;,rect2.height);  Error：borrow of moved value: `rect2`</span><br>&#125;<br><span class="hljs-comment">// M1 : use var cal</span><br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">area1</span></span>(width:<span class="hljs-built_in">u32</span>,height:<span class="hljs-built_in">u32</span>) -&gt; <span class="hljs-built_in">u32</span>&#123;<br>    width * height<br>&#125;<br><span class="hljs-comment">// M2 : use tuple</span><br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">area2</span></span>(dimensions:(<span class="hljs-built_in">u32</span>,<span class="hljs-built_in">u32</span>)) -&gt; <span class="hljs-built_in">u32</span>&#123;<br>    dimensions.<span class="hljs-number">0</span> * dimensions.<span class="hljs-number">1</span><br>&#125;<br><span class="hljs-comment">// M3 : use struct</span><br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">area3</span></span>(rectangle:&amp;Rectangle) -&gt; <span class="hljs-built_in">u32</span>&#123;<br>    rectangle.width * rectangle.height<br>&#125;<br><span class="hljs-comment">// M4 : test</span><br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">area4</span></span>(rect:Rectangle) -&gt; <span class="hljs-built_in">u32</span>&#123;<br>    rect.height * rect.width<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="8｜枚举"><a href="#8｜枚举" class="headerlink" title="8｜枚举"></a>8｜枚举</h5><h5 id="9｜切片-slice引用"><a href="#9｜切片-slice引用" class="headerlink" title="9｜切片-slice引用"></a>9｜切片-slice引用</h5><blockquote>
+<p>另一个没有所有权的数据类型是 <em>slice</em>。slice 允许你引用集合中一段连续的元素序列，而不用引用整个集合。</p>
+<p>首先slice是一种数据类型，其次它是<code>使用了引用的数据类型</code>,切片所以的range[a..b]范围是包含a与b与（0..5)不同,但是字符串 slice range 的索引必须位于有效的 UTF-8 字符边界内，也就是说超出 UTF-8 字符边界的数量的字符串不适合用slice。</p>
+<p>str 和String的区别：</p>
+<ul>
+<li>str：The str type, also called a ‘string slice’，是字符串的切片，不属于标量类型。</li>
+</ul>
+<p>&amp;str和&amp;String的区别</p>
+<ul>
+<li>如果有一个字符串 slice，可以直接传递它。如果有一个 String，则可以传递整个 String 的 slice。</li>
+<li>只想要一个字符串的只读视图、或者 &amp;str 作为入参，那就首选 &amp;str；如果想拥有所有权、修改字符串那就用 String</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>这里有一个编程小习题：</p>
+<p>编写一个函数，该函数接收一个字符串，并返回在该字符串中找到的第一个单词。如果函数在该字符串中并未找到空格，则整个字符串就是一个单词，所以应该返回整个字符串。</p>
+</blockquote>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() &#123;<br>    <span class="hljs-keyword">let</span> s = <span class="hljs-built_in">String</span>::from(<span class="hljs-string">&quot;hello world&quot;</span>);<br>    <span class="hljs-keyword">let</span> bytes = first_words(&amp;s);<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>,bytes);<br>    <span class="hljs-keyword">let</span> x = s.as_bytes().iter();<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;:?&#125;&quot;</span>,x);<br>    <span class="hljs-comment">// keyword:enumrate()怎么包装的iter()的结果</span><br>    <span class="hljs-keyword">let</span> y = s.as_bytes().iter().enumerate();<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;:?&#125;&quot;</span>,y);<br><br><br>    <span class="hljs-comment">//slice：slice是一种使用引用的数据类型，所以使用&amp;str表示切片类型</span><br>    <span class="hljs-comment">//[0..7] 是左闭右闭</span><br>    <span class="hljs-keyword">let</span> m = &amp;s[<span class="hljs-number">0</span>..<span class="hljs-number">7</span>];<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>,m);<br>    <span class="hljs-keyword">let</span> n = &amp;s[<span class="hljs-number">0</span>..<span class="hljs-number">5</span>];<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>,n);<br>    <span class="hljs-comment">// 对比（0..5)循环</span><br>    <span class="hljs-comment">// (0..5)循环是左闭右开</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span>  <span class="hljs-number">0</span>..<span class="hljs-number">5</span> &#123;<br>        <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>,i);<br>    &#125;<br>    <span class="hljs-comment">//slice:数组也可以切片</span><br>    <span class="hljs-keyword">let</span> a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];<br>    <span class="hljs-keyword">let</span> slice = &amp;a[<span class="hljs-number">1</span>..<span class="hljs-number">3</span>];           <span class="hljs-comment">// 数组切片的类型为&amp;[i32]</span><br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;:?&#125;&quot;</span>,slice);<br><br>    <span class="hljs-comment">//切片作为返回值以及参数</span><br>    <span class="hljs-keyword">let</span> l = silice_word(&amp;s);<br>    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;&quot;</span>,l);<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">first_words</span></span>(s:&amp;<span class="hljs-built_in">String</span>) -&gt; <span class="hljs-built_in">usize</span> &#123;<br>    <span class="hljs-keyword">let</span> bytes = s.as_bytes();<br>    <span class="hljs-keyword">for</span> (i,&amp;item) <span class="hljs-keyword">in</span> bytes.iter().enumerate()&#123;<br>        <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;&#123;&#125;-&#123;&#125;&quot;</span>,i,item);<br>        <span class="hljs-keyword">if</span> item == <span class="hljs-string">b&#x27; &#x27;</span>&#123;<br>            <span class="hljs-keyword">return</span> i;<br>        &#125;<br>    &#125;<br>    s.len()<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">silice_word</span></span>(s:&amp;<span class="hljs-built_in">str</span>) -&gt; &amp;<span class="hljs-built_in">str</span>&#123;<br>    <span class="hljs-keyword">let</span> bytes = s.as_bytes();<br>    <span class="hljs-keyword">for</span> (i,&amp;item) <span class="hljs-keyword">in</span> bytes.iter().enumerate()&#123;<br>        <span class="hljs-keyword">if</span> item == <span class="hljs-string">b&#x27; &#x27;</span>&#123;<br>            <span class="hljs-keyword">return</span> &amp;s[..i];<br>        &#125;<br>    &#125;<br>    &amp;s[..]<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Rust/">Rust</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/04/24/3-Rust-Prime-ProgrammingLanguage-3-Function/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">3-Rust-Prime-ProgrammingLanguage-3-Function</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/04/24/3-Rust-Prime-ProgrammingLanguage-1-ToolsandConcept/">
+                        <span class="hidden-mobile">3-Rust-Prime-ProgrammingLanguage-ToolsandConcept</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
