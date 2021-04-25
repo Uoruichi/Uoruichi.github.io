@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      241 字
+      3k 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      34
        分钟
     </span>
   
@@ -225,10 +225,85 @@
               <h4 id="1｜Rust的基本工具及概念"><a href="#1｜Rust的基本工具及概念" class="headerlink" title="1｜Rust的基本工具及概念"></a>1｜Rust的基本工具及概念</h4><h5 id="0｜语言类型"><a href="#0｜语言类型" class="headerlink" title="0｜语言类型"></a>0｜语言类型</h5><blockquote>
 <p>如果你更熟悉动态语言，如 Ruby、Python 或 JavaScript，则可能不习惯将编译和运行分为两个单独的步骤。Rust 是一种 <strong>预编译静态类型</strong>（<em>ahead-of-time compiled</em>）语言，这意味着你可以编译程序，并将可执行文件送给其他人，他们甚至不需要安装 Rust 就可以运行。如果你给他人一个 <em>.rb</em>、*.py* 或 <em>.js</em> 文件，他们需要先分别安装 Ruby，Python，JavaScript 实现（运行时环境，VM）。不过在这些语言中，只需要一句命令就可以编译和运行程序。这一切都是语言设计上的权衡取舍。</p>
 </blockquote>
-<h5 id="1｜cargo"><a href="#1｜cargo" class="headerlink" title="1｜cargo"></a>1｜cargo</h5><h5 id="2｜rustc"><a href="#2｜rustc" class="headerlink" title="2｜rustc"></a>2｜rustc</h5><h5 id="3｜rustup"><a href="#3｜rustup" class="headerlink" title="3｜rustup"></a>3｜rustup</h5><h5 id="4｜Rustfmt"><a href="#4｜Rustfmt" class="headerlink" title="4｜Rustfmt"></a>4｜Rustfmt</h5><h5 id="5｜库"><a href="#5｜库" class="headerlink" title="5｜库"></a>5｜库</h5><h5 id="6｜crate"><a href="#6｜crate" class="headerlink" title="6｜crate"></a>6｜crate</h5><h5 id="6｜函数"><a href="#6｜函数" class="headerlink" title="6｜函数"></a>6｜函数</h5><h5 id="7｜方法"><a href="#7｜方法" class="headerlink" title="7｜方法"></a>7｜方法</h5><blockquote>
+<h5 id="1｜cargo"><a href="#1｜cargo" class="headerlink" title="1｜cargo"></a>1｜cargo</h5><h5 id="2｜rustc"><a href="#2｜rustc" class="headerlink" title="2｜rustc"></a>2｜rustc</h5><h5 id="3｜rustup"><a href="#3｜rustup" class="headerlink" title="3｜rustup"></a>3｜rustup</h5><h5 id="4｜Rustfmt"><a href="#4｜Rustfmt" class="headerlink" title="4｜Rustfmt"></a>4｜Rustfmt</h5><h5 id="6｜函数"><a href="#6｜函数" class="headerlink" title="6｜函数"></a>6｜函数</h5><h5 id="7｜方法"><a href="#7｜方法" class="headerlink" title="7｜方法"></a>7｜方法</h5><blockquote>
 <p>调用 <a target="_blank" rel="noopener" href="https://doc.rust-lang.org/std/io/struct.Stdin.html#method.read_line"><code>read_line</code></a> 方法从标准输入句柄获取用户输入</p>
 </blockquote>
-<h5 id="8｜参数"><a href="#8｜参数" class="headerlink" title="8｜参数"></a>8｜参数</h5><h5 id="9｜返回值"><a href="#9｜返回值" class="headerlink" title="9｜返回值"></a>9｜返回值</h5><h5 id="10｜类型"><a href="#10｜类型" class="headerlink" title="10｜类型"></a>10｜类型</h5><h5 id="11｜成员"><a href="#11｜成员" class="headerlink" title="11｜成员"></a>11｜成员</h5><h5 id="12｜trait"><a href="#12｜trait" class="headerlink" title="12｜trait"></a>12｜trait</h5><h4 id="2｜code期间的问题汇总"><a href="#2｜code期间的问题汇总" class="headerlink" title="2｜code期间的问题汇总"></a>2｜code期间的问题汇总</h4><h5 id="1｜Blocking-waiting-for-file-lock-on-package-cache"><a href="#1｜Blocking-waiting-for-file-lock-on-package-cache" class="headerlink" title="1｜Blocking waiting for file lock on package cache"></a>1｜Blocking waiting for file lock on package cache</h5>
+<h5 id="8｜参数"><a href="#8｜参数" class="headerlink" title="8｜参数"></a>8｜参数</h5><h5 id="9｜返回值"><a href="#9｜返回值" class="headerlink" title="9｜返回值"></a>9｜返回值</h5><h5 id="10｜类型"><a href="#10｜类型" class="headerlink" title="10｜类型"></a>10｜类型</h5><h5 id="11｜成员"><a href="#11｜成员" class="headerlink" title="11｜成员"></a>11｜成员</h5><h5 id="12｜trait"><a href="#12｜trait" class="headerlink" title="12｜trait"></a>12｜trait</h5><h5 id="13｜包"><a href="#13｜包" class="headerlink" title="13｜包"></a>13｜包</h5><blockquote>
+<p>伴随着项目的增长，你可以通过将代码分解为多个模块和多个文件来组织代码。包<em>（</em>package） 是提供一系列功能的一个或者多个 crate。一个包会包含有一个 <em>Cargo.toml</em> 文件，阐述如何去构建这些 crate。</p>
+<p>Cargo 的一个功能，它允许你构建、测试和分享 crate。</p>
+<p>包中所包含的内容由几条规则来确立。一个包中至多 <strong>只能</strong> 包含一个库 crate(library crate)；包中可以包含任意多个二进制 crate(binary crate)；包中至少包含一个 crate，无论是库的还是二进制的。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 创建一个my_project的包</span><br>cargo new my_project<br><span class="hljs-built_in">cd</span> my_project<br>ls my_project<br><span class="hljs-built_in">cd</span> src<br>ls src<br><span class="hljs-comment"># Cargo 遵循的一个约定：src/main.rs 就是一个与包同名的二进制 crate 的 crate 根</span><br><span class="hljs-comment"># 如果一个包同时含有 src/main.rs 和 src/lib.rs，则它有两个 crate：一个库和一个二进制项，且名字都与包相同。</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="14｜Crates"><a href="#14｜Crates" class="headerlink" title="14｜Crates"></a>14｜Crates</h5><blockquote>
+<p>一个模块的树形结构，它形成了库或二进制项目。</p>
+<p>通过将文件放在 <em>src/bin</em> 目录下，一个包可以拥有多个二进制 crate：每个 <em>src/bin</em> 下的文件都会被编译成一个独立的二进制 crate。</p>
+<p>一个 crate 会将一个作用域内的相关功能分组到一起，使得该功能可以很方便地在多个项目之间共享。举一个例子，我们在 <a target="_blank" rel="noopener" href="https://github.com/rust-lang/book/blob/master/src/ch02-00-guessing-game-tutorial.md#generating-a-random-number">第二章</a> 使用的 <code>rand</code> crate 提供了生成随机数的功能。通过将 <code>rand</code> crate 加入到我们项目的作用域中，我们就可以在自己的项目中使用该功能。<code>rand</code> crate 提供的所有功能都可以通过该 crate 的名字：<code>rand</code> 进行访问。</p>
+</blockquote>
+<h5 id="15｜模块"><a href="#15｜模块" class="headerlink" title="15｜模块"></a>15｜模块</h5><blockquote>
+<p>允许你控制作用域和路径的私有性。</p>
+<p>Rust 中默认所有项（函数、方法、结构体、枚举、模块和常量）都是私有的。父模块中的项不能使用子模块中的私有项，但是子模块中的项可以使用他们父模块中的项。</p>
+<p>Rust 有许多功能可以让你管理代码的组织，包括哪些内容可以被公开，哪些内容作为私有部分，以及程序每个作用域中的名字。这些功能。这有时被称为 “模块系统（the module system）”</p>
+<p><em>模块</em> 让我们可以将一个 crate 中的代码进行分组，以提高可读性与重用性。模块还可以控制项的 <em>私有性</em>，即项是可以被外部代码使用的（<em>public</em>），还是作为一个内部实现的内容，不能被外部代码使用（<em>private</em>）。</p>
+<p>这个树展示了一些模块是如何被嵌入到另一个模块的（例如，<code>hosting</code> 嵌套在 <code>front_of_house</code> 中）。这个树还展示了一些模块是互为 <em>兄弟</em>（<em>siblings</em>） 的，这意味着它们定义在同一模块中（<code>hosting</code> 和 <code>serving</code> 被一起定义在 <code>front_of_house</code> 中）。继续沿用家庭关系的比喻，如果一个模块 A 被包含在模块 B 中，我们将模块 A 称为模块 B 的 <em>子</em>（<em>child</em>），模块 B 则是模块 A 的 <em>父</em>（<em>parent</em>）。注意，整个模块树都植根于名为 <code>crate</code> 的隐式模块下。</p>
+<p><img src="http://uoruichi.oss-cn-beijing.aliyuncs.com/2021-04-24-042508.png" srcset="/img/loading.gif" alt="image-20210424122504499"></p>
+</blockquote>
+<blockquote>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-comment">// 通过执行 cargo new --lib restaurant，来创建一个新的名为 restaurant 的库，在src文件夹中会出现lib.rs文件</span><br><span class="hljs-comment">// 模块的定义	mod mod_name&#123;&#125;	mod 为keyword mod_name为模块名</span><br><span class="hljs-keyword">mod</span> front_of_house &#123;<br>    <span class="hljs-keyword">mod</span> hosting &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">add_to_waitlist</span></span>() &#123;&#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">seat_at_table</span></span>() &#123;&#125;<br>    &#125;<br><br>    <span class="hljs-keyword">mod</span> serving &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">take_order</span></span>() &#123;&#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">server_order</span></span>() &#123;&#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">take_payment</span></span>() &#123;&#125;<br>    &#125;<br>&#125;<br><span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">eat_at_restaurant</span></span>() &#123;<br>    <span class="hljs-comment">// Absolute path</span><br>    crate::front_of_house::hosting::add_to_waitlist();<br><br>    <span class="hljs-comment">// Relative path</span><br>    front_of_house::hosting::add_to_waitlist();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>错误信息说 <code>hosting</code> 模块是私有的。换句话说，我们拥有 <code>hosting</code> 模块和 <code>add_to_waitlist</code> 函数的的正确路径，但是 Rust 不让我们使用，因为它不能访问私有片段。</li>
+<li>模块不仅对于你组织代码很有用。他们还定义了 Rust 的 <em>私有性边界</em>（<em>privacy boundary</em>）：这条界线不允许外部代码了解、调用和依赖被封装的实现细节。所以，如果你希望创建一个私有函数或结构体，你可以将其放入模块。</li>
+<li>Rust 选择以这种方式来实现模块系统功能，因此默认隐藏内部实现细节。这样一来，你就知道可以更改内部代码的哪些部分而不会破坏外部代码。你还可以通过使用 <code>pub</code> 关键字来创建公共项，使子模块的内部部分暴露给上级模块。模块上的 <code>pub</code> 关键字只允许其父模块引用它。私有性规则不但应用于模块，还应用于结构体、枚举、函数和方法。</li>
+</ul>
+</blockquote>
+<h5 id="16｜路径"><a href="#16｜路径" class="headerlink" title="16｜路径"></a>16｜路径</h5><blockquote>
+<p>一个命名例如结构体、函数或模块等项的方式。</p>
+<p>来看一下 Rust 如何在模块树中找到一个项的位置，我们使用路径的方式，就像在文件系统使用路径一样。如果我们想要调用一个函数，我们需要知道它的路径。</p>
+<p><strong>绝对路径</strong>（<em>absolute path</em>）从 crate 根开始，以 crate 名或者字面值 <code>crate</code> 开头。</p>
+<p><strong>相对路径</strong>（<em>relative path</em>）从当前模块开始，以 <code>self</code>、<code>super</code> 或当前模块的标识符开头。</p>
+<p>绝对路径和相对路径都后跟一个或多个由双冒号（<code>::</code>）分割的标识符。</p>
+</blockquote>
+<blockquote>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">mod</span> front_of_house &#123;<br>    <span class="hljs-keyword">mod</span> hosting &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">add_to_waitlist</span></span>() &#123;&#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">eat_at_restaurant</span></span>() &#123;<br>    <span class="hljs-comment">// Absolute path</span><br>    crate::front_of_house::hosting::add_to_waitlist();<br><br>    <span class="hljs-comment">// Relative path</span><br>    front_of_house::hosting::add_to_waitlist();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>以crate为起始：第一种方式，我们在 <code>eat_at_restaurant</code> 中调用 <code>add_to_waitlist</code> 函数，使用的是绝对路径。<code>add_to_waitlist</code> 函数与 <code>eat_at_restaurant</code> 被定义在同一 crate 中，这意味着我们可以使用 <code>crate</code> 关键字为起始的绝对路径。</li>
+</ul>
+<p>在 <code>crate</code> 后面，我们持续地嵌入模块，直到我们找到 <code>add_to_waitlist</code>。你可以想象出一个相同结构的文件系统，我们通过指定路径 <code>/front_of_house/hosting/add_to_waitlist</code> 来执行 <code>add_to_waitlist</code> 程序。我们使用 <code>crate</code> 从 crate 根开始就类似于在 shell 中使用 <code>/</code> 从文件系统根开始。</p>
+<ul>
+<li>以模块名为起始：第二种方式，我们在 <code>eat_at_restaurant</code> 中调用 <code>add_to_waitlist</code>，使用的是相对路径。这个路径以 <code>front_of_house</code> 为起始，这个模块在模块树中，与 <code>eat_at_restaurant</code> 定义在同一层级。与之等价的文件系统路径就是 <code>front_of_house/hosting/add_to_waitlist</code>。以名称为起始，意味着该路径是相对路径。</li>
+<li>选择使用相对路径还是绝对路径，还是要取决于你的项目。取决于你是更倾向于将项的定义代码与使用该项的代码分开来移动，还是一起移动。举一个例子，如果我们要将 <code>front_of_house</code> 模块和 <code>eat_at_restaurant</code> 函数一起移动到一个名为 <code>customer_experience</code> 的模块中，我们需要更新 <code>add_to_waitlist</code> 的绝对路径，但是相对路径还是可用的。然而，如果我们要将 <code>eat_at_restaurant</code> 函数单独移到一个名为 <code>dining</code> 的模块中，还是可以使用原本的绝对路径来调用 <code>add_to_waitlist</code>，但是相对路径必须要更新。我们更倾向于使用绝对路径，因为把代码定义和项调用各自独立地移动是更常见的。</li>
+</ul>
+</blockquote>
+<h5 id="17｜封装"><a href="#17｜封装" class="headerlink" title="17｜封装"></a>17｜封装</h5><blockquote>
+<p>封装实现细节可以使你更高级地重用代码：你实现了一个操作后，其他的代码可以通过该代码的公共接口来进行调用，而不需要知道它是如何实现的。你在编写代码时可以定义哪些部分是其他代码可以使用的公共部分，以及哪些部分是你有权更改实现细节的私有部分。这是另一种减少你在脑海中记住项目内容数量的方法。</p>
+</blockquote>
+<h5 id="18｜作用域"><a href="#18｜作用域" class="headerlink" title="18｜作用域"></a>18｜作用域</h5><blockquote>
+<p> 这里有一个需要说明的概念 “作用域（scope）”：代码所在的嵌套上下文有一组定义为 “in scope”  的名称。当阅读、编写和编译代码时，程序员和编译器需要知道特定位置的特定名称是否引用了变量、函数、结构体、枚举、模块、常量或者其他有意义的项。你可以创建作用域，以及改变哪些名称在作用域内还是作用域外。同一个作用域内不能拥有两个相同名称的项；可以使用一些工具来解决名称冲突。</p>
+<p>将一个 crate 的功能保持在其自身的作用域中，可以知晓一些特定的功能是在我们的 crate 中定义的还是在 <code>rand</code> crate 中定义的，这可以防止潜在的冲突。例如，<code>rand</code> crate 提供了一个名为 <code>Rng</code> 的特性（trait）。我们还可以在我们自己的 crate 中定义一个名为 <code>Rng</code> 的 <code>struct</code>。因为一个 crate 的功能是在自身的作用域进行命名的，当我们将 <code>rand</code> 作为一个依赖，编译器不会混淆 <code>Rng</code> 这个名字的指向。在我们的 crate 中，它指向的是我们自己定义的 <code>struct Rng</code>。我们可以通过 <code>rand::Rng</code> 这一方式来访问 <code>rand</code> crate 中的 <code>Rng</code> 特性（trait）。</p>
+</blockquote>
+<blockquote>
+<p>我们可以使用 <code>use</code> 关键字将路径一次性引入作用域，然后调用该路径中的项，就如同它们是本地项一样。</p>
+<p>通过在 crate 根增加 <code>use crate::front_of_house::hosting</code>，现在 <code>hosting</code> 在作用域中就是有效的名称了，如同 <code>hosting</code> 模块被定义于 crate 根一样。通过 <code>use</code> 引入作用域的路径也会检查私有性，</p>
+<p>同其它路径一样。你还可以使用 <code>use</code> 和相对路径来将一个项引入作用域。</p>
+<p>使用 <code>use</code> 引入结构体、枚举和其他项时，习惯是指定它们的完整路径。</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">use</span> std::collections::HashMap;<br><br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() &#123;<br>    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> map = HashMap::new();<br>    map.insert(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>那就是我们想使用 <code>use</code> 语句将两个具有相同名称的项带入作用域，因为 Rust 不允许这样做。如果我们是指定 <code>use std::fmt::Result</code> 和 <code>use std::io::Result</code>，我们将在同一作用域拥有了两个 <code>Result</code> 类型，当我们使用 <code>Result</code> 时，Rust 则不知道我们要用的是哪个。</p>
+<p>使用 <code>use</code> 将两个同名类型引入同一作用域这个问题还有另一个解决办法：在这个类型的路径后面，我们使用 <code>as</code> 指定一个新的本地名称或者别名。</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-keyword">use</span> std::fmt::<span class="hljs-built_in">Result</span> <br><span class="hljs-comment">// use std::io::Result 				Error</span><br><span class="hljs-keyword">use</span> std::io:: <span class="hljs-built_in">Result</span> <span class="hljs-keyword">as</span> IoResult<br><span class="hljs-keyword">use</span> std::fmt;<br><span class="hljs-keyword">use</span> std::io;<br><br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">function1</span></span>() -&gt; fmt::<span class="hljs-built_in">Result</span> &#123;<br>    <span class="hljs-comment">// --snip--</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">function2</span></span>() -&gt; io::<span class="hljs-built_in">Result</span>&lt;()&gt; &#123;<br>    <span class="hljs-comment">// --snip--</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs rust"><span class="hljs-comment">// 嵌套路径简化代码</span><br><span class="hljs-keyword">use</span> std::cmp::Ordering;<br><span class="hljs-keyword">use</span> std::io;<br><span class="hljs-keyword">use</span> std::&#123;cmp::Ordering, io&#125;;<br><br><br><span class="hljs-keyword">use</span> std::io;<br><span class="hljs-keyword">use</span> std::io::Write;<br><span class="hljs-keyword">use</span> std::io::&#123;<span class="hljs-keyword">self</span>, Write&#125;;<br><br><span class="hljs-comment">//如果希望将一个路径下 所有 公有项引入作用域，可以指定路径后跟 *，glob 运算符：</span><br><span class="hljs-comment">//使用 glob 运算符时请多加小心！Glob 会使得我们难以推导作用域中有什么名称和它们是在何处定义的。</span><br><span class="hljs-keyword">use</span> std::collections::*;<br></code></pre></td></tr></table></figure>
+
+
+</blockquote>
+<blockquote>
+<p>重导出：</p>
+</blockquote>
+<h5 id="19｜trait"><a href="#19｜trait" class="headerlink" title="19｜trait"></a>19｜trait</h5><blockquote>
+</blockquote>
+<h4 id="2｜code期间的问题汇总"><a href="#2｜code期间的问题汇总" class="headerlink" title="2｜code期间的问题汇总"></a>2｜code期间的问题汇总</h4><h5 id="1｜Blocking-waiting-for-file-lock-on-package-cache"><a href="#1｜Blocking-waiting-for-file-lock-on-package-cache" class="headerlink" title="1｜Blocking waiting for file lock on package cache"></a>1｜Blocking waiting for file lock on package cache</h5>
             </div>
             <hr>
             <div>
